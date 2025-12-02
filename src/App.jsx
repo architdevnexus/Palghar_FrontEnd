@@ -30,32 +30,38 @@ export default function App() {
       <GlobalLoader />
       <ToastContainer />
       <Router>
-        <div className="min-h-screen flex flex-col gap-2 bg-gray-50 text-gray-800">
+        <div className="min-h-screen px-3 flex flex-col gap-2 bg-gray-50 text-gray-800">
+
+
           <Navbar />
-          <AnimatePresence mode="wait">
-            <Suspense fallback={<PageLoader />}>
-              <Routes>
-                {/* Main Pages */}
-                <Route path="/" element={<Home />} />
-                <Route path="/page/:_id" element={<DynamicPage />} />
+          <div className="mt-24">
 
-                {/* Auth Pages */}
-                <Route path="/login" element={<Login />} />
-                <Route path="/signup" element={<Signup />} />
-                <Route path="/forgot-password" element={<ForgotPassword />} />
+            <AnimatePresence mode="wait">
+              <Suspense fallback={<PageLoader />}>
+                <Routes>
+                  {/* Main Pages */}
+                  <Route path="/" element={<Home />} />
+                  <Route path="/page/:_id" element={<DynamicPage />} />
 
-                {/* 404 */}
-                <Route
-                  path="*"
-                  element={
-                    <div className="flex items-center justify-center h-screen text-3xl font-semibold">
-                      404 – Page Not Found
-                    </div>
-                  }
-                />
-              </Routes>
-            </Suspense>
-          </AnimatePresence>
+                  {/* Auth Pages */}
+                  <Route path="/login" element={<Login />} />
+                  <Route path="/signup" element={<Signup />} />
+                  <Route path="/forgot-password" element={<ForgotPassword />} />
+
+                  {/* 404 */}
+                  <Route
+                    path="*"
+                    element={
+                      <div className="flex items-center justify-center h-screen text-3xl font-semibold">
+                        404 – Page Not Found
+                      </div>
+                    }
+                  />
+                </Routes>
+              </Suspense>
+            </AnimatePresence>
+          </div>
+
         </div>
       </Router>
     </>
