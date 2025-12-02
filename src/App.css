@@ -1,5 +1,49 @@
 @import "tailwindcss";
 
+:root {
+  --primary-color: #FF7F73; /* Coral/Salmon tone */
+  --secondary-color: #000000; /* Black */
+  --btn-color: #B34C45; /* Muted Red-Brown */
+  --golden-color: #D4A656; /* Gold/Tan */
+  --darkbg-color:#70251D; /* Dark Burgundy */
+  --footer-color:#2A2A2A; /* Dark Gray */
+}
+
+/*
+ * Global Typography Reset
+ * Sets a clean sans-serif font stack for the entire application.
+ */
+body {
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  color: var(--secondary-color);
+  background-color: white; /* Ensure a clean white background default */
+  line-height: 1.5;
+}
+li {
+  list-style: none;
+}
+.hero-clip {
+  clip-path: polygon(50% 0%, 100% 0, 100% 21%, 100% 47%, 65% 47%, 64% 100%, 0 100%, 0% 70%, 0% 35%, 0 0);
+}
+
+.slide-anim {
+  transition: transform 1s ease-in-out;
+}
+
+/* Custom Scrollbar Styling for a themed look */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: gray;
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color);
+  border-radius: 10px;
+  border: 2px solid var(--darkbg-color); 
+}
+
+/* Custom Animation Utility Classes */
 @keyframes slide-in {
   from {
     opacity: 0;
