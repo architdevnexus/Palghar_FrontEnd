@@ -4,7 +4,7 @@ import { useAppStore } from "../store/authStore";
 
 // Create axios instance
 export const instance = axios.create({
-  baseURL: "https://your-api-url.com", // 🔥 Add your API URL
+  baseURL: "https://your-api-url.com",
   timeout: 15000,
 });
 
