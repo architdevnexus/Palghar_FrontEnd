@@ -12,7 +12,7 @@ export default function ProjectsShowCase() {
     const [activeTab, setActiveTab] = useState("All");
     const [search, setSearch] = useState("");
     const [page, setPage] = useState(1);
-    const ITEMS_PER_PAGE = 8;
+    const ITEMS_PER_PAGE =4;
 
     // Filter projects by tab and search
     const filteredProjects = allProjects.filter((project) => {
