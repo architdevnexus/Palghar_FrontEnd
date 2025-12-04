@@ -22,6 +22,16 @@ export const auth = {
       throw err;
     }
   },
+
+  getinTouch: async (body) => {
+    try {
+      const res = await instance.post(endPoints.auth.getinTouch, body)
+      return res;
+    } catch (error) {
+      console.error("getinTouch", error?.response?.data || error.message)
+    }
+  }
+
 };
 
 

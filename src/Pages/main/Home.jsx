@@ -8,6 +8,7 @@ import HomeMap from '../../Components/Maps/HomeMap'
 import TestimonialsSlider from '../../Components/Testimonial'
 import WhatWeDo from '../../Components/WhatWeDo'
 import FAQ from '../../Components/FAQ'
+import GetInTouch from '../../Components/Form/GetInTouch'
 
 const Home = () => {
     return (
@@ -25,6 +26,7 @@ const Home = () => {
             <TestimonialsSlider />
             <WhatWeDo/>
             <FAQ/>
+            <GetInTouch/>
         </div>
     )
 }

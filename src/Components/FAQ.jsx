@@ -66,7 +66,7 @@ export default function FAQ() {
                             onClick={() => toggleFAQ(index)}
                             className="w-full cursor-pointer flex items-center justify-between text-left"
                         >
-                            <h3 className="text-lg font-semibold text-gray-800 pr-4">
+                            <h3 className=" text-sm md:text-lg font-semibold text-gray-800 pr-4">
                                 {faq.question}
                             </h3>
 
@@ -93,7 +93,7 @@ export default function FAQ() {
                                     transition={{ duration: 0.4, ease: "easeInOut" }}
                                     className="overflow-hidden"
                                 >
-                                    <p className="text-gray-600 mt-3 leading-relaxed px-1 pb-2">
+                                    <p className="text-gray-600 text-sm mt-3 leading-relaxed px-1 pb-2">
                                         {faq.answer}
                                     </p>
                                 </motion.div>
