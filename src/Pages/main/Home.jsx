@@ -4,6 +4,8 @@ import Aboutus from '../../Components/AboutUs'
 import NewProjectsSlider from '../../Components/Sliders/NewProjectsSlider'
 import ProjectsTabs from '../../Components/ProjectShowCase'
 import ExploreNewCity from '../../Components/BentoGrid/ExploreNewCity'
+import HomeMap from '../../Components/Maps/HomeMap'
+import TestimonialsSlider from '../../Components/Testimonial'
 
 const Home = () => {
     return (
@@ -11,12 +13,14 @@ const Home = () => {
             <HomeHero />
             <section className='flex items-center mx-auto w-full max-w-6xl p-4'>
 
-            <Aboutus />
+                <Aboutus />
             </section>
 
-            <NewProjectsSlider/>
-            <ProjectsTabs/>
-            <ExploreNewCity/>
+            <NewProjectsSlider />
+            <ProjectsTabs />
+            <ExploreNewCity />
+            <HomeMap />
+            <TestimonialsSlider />
         </div>
     )
 }

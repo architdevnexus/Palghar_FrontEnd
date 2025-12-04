@@ -1,0 +1,49 @@
+{
+  "testimonials": [
+    {
+      "id": 1,
+      "name": "Rohit Sharma",
+      "propertyBought": "2 BHK in Palghar",
+            "image": "https://images.pexels.com/photos/12007063/pexels-photo-12007063.jpeg",
+
+      "rating": 5,
+      "review": "Smooth property buying experience! The team guided me through every step and helped me find the perfect home in Palghar."
+    },
+    {
+      "id": 2,
+      "name": "Sneha Verma",
+      "propertyBought": "Commercial Shop in Boisar",
+           "image": "https://images.pexels.com/photos/12007063/pexels-photo-12007063.jpeg",
+
+      "rating": 4.5,
+      "review": "The buying process was extremely transparent. I found an excellent commercial shop and got great assistance throughout."
+    },
+    {
+      "id": 3,
+      "name": "Amit Desai",
+      "propertyBought": "Farmhouse Plot in Manor",
+            "image": "https://images.pexels.com/photos/12007063/pexels-photo-12007063.jpeg",
+
+      "rating": 5,
+      "review": "They helped me choose the right farmhouse plot based on locality and future development. Truly professional!"
+    },
+    {
+      "id": 4,
+      "name": "Priya Singh",
+      "propertyBought": "1 BHK in Saphale",
+            "image": "https://images.pexels.com/photos/12007063/pexels-photo-12007063.jpeg",
+
+      "rating": 4,
+      "review": "Great support during the documentation process. The team made everything simple and stress-free."
+    },
+    {
+      "id": 5,
+      "name": "Karan Patel",
+      "propertyBought": "Row House in Virar",
+            "image": "https://images.pexels.com/photos/12007063/pexels-photo-12007063.jpeg",
+
+      "rating": 5,
+      "review": "Purchased a row house with their help. Extremely satisfied with the location insights and negotiation support!"
+    }
+  ]
+}
