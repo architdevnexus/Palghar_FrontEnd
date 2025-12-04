@@ -15,6 +15,7 @@ import ToastContainer from "./Components/ToastContainer";
 
 import "./App.css";
 import Navbar from "./Components/Navbar";
+import Footer from "./Components/Footer";
 
 // Loading fallback during lazy load
 const PageLoader = () => (
@@ -30,7 +31,7 @@ export default function App() {
       <GlobalLoader />
       <ToastContainer />
       <Router>
-        <div className="min-h-screen px-3 flex flex-col gap-2 bg-gray-50 text-gray-800">
+        <div className="min-h-screen flex flex-col gap-2 bg-gray-50 text-gray-800">
 
 
           <Navbar />
@@ -61,7 +62,7 @@ export default function App() {
               </Suspense>
             </AnimatePresence>
           </div>
-
+<Footer/>
         </div>
       </Router>
     </>

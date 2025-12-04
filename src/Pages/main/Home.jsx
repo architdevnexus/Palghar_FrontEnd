@@ -27,6 +27,7 @@ const Home = () => {
             <WhatWeDo/>
             <FAQ/>
             <GetInTouch/>
+            
         </div>
     )
 }

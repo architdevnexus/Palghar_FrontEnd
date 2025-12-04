@@ -2,19 +2,11 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FiMenu, FiX } from "react-icons/fi";
 import { motion, AnimatePresence } from "framer-motion";
-
+import { Navdata } from "../DataStore/Navdata"
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
-
-  const Navdata = [
-    { id: 1, name: "About", path: "/about" },
-    { id: 2, name: "Projects", path: "/projects" },
-    { id: 3, name: "Blog", path: "/blog" },
-    { id: 4, name: "Media", path: "/media" },
-    { id: 5, name: "Contact", path: "/contact" },
-  ];
-
+ 
   const mobileMenuVariants = {
     hidden: { x: "-100%" },
     visible: { x: 0 },

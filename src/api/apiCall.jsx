@@ -30,6 +30,14 @@ export const auth = {
     } catch (error) {
       console.error("getinTouch", error?.response?.data || error.message)
     }
+  },
+  newsLetter: async (body) => {
+    try {
+      const res = await instance.post(endPoints.auth.newLetter, body)
+      return res;
+    } catch (error) {
+      console.error("NewsLetter", error?.response?.data || error.message)
+    }
   }
 
 };
