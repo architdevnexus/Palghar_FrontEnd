@@ -1,6 +1,7 @@
 import React from 'react'
 import HomeHero from '../../Components/Home/HomeHero'
 import Aboutus from '../../Components/AboutUs'
+import NewProjectsSlider from '../../Components/Sliders/NewProjectsSlider'
 
 const Home = () => {
     return (
@@ -10,6 +11,8 @@ const Home = () => {
 
             <Aboutus />
             </section>
+
+            <NewProjectsSlider/>
         </div>
     )
 }
