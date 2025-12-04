@@ -6,6 +6,7 @@ import ProjectsTabs from '../../Components/ProjectShowCase'
 import ExploreNewCity from '../../Components/BentoGrid/ExploreNewCity'
 import HomeMap from '../../Components/Maps/HomeMap'
 import TestimonialsSlider from '../../Components/Testimonial'
+import WhatWeDo from '../../Components/WhatWeDo'
 
 const Home = () => {
     return (
@@ -21,6 +22,7 @@ const Home = () => {
             <ExploreNewCity />
             <HomeMap />
             <TestimonialsSlider />
+            <WhatWeDo/>
         </div>
     )
 }
