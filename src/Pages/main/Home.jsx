@@ -2,6 +2,7 @@ import React from 'react'
 import HomeHero from '../../Components/Home/HomeHero'
 import Aboutus from '../../Components/AboutUs'
 import NewProjectsSlider from '../../Components/Sliders/NewProjectsSlider'
+import ProjectsTabs from '../../Components/ProjectShowCase'
 
 const Home = () => {
     return (
@@ -13,6 +14,7 @@ const Home = () => {
             </section>
 
             <NewProjectsSlider/>
+            <ProjectsTabs/>
         </div>
     )
 }
