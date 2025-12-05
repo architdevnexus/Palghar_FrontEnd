@@ -75,7 +75,7 @@ export default function GetInTouch() {
                 <div className="
                     bg-white 
                     shadow-2xl 
-                    px-6
+                    px-8
                     py-6 
                     w-full 
                     lg:w-full 

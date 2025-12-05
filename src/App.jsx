@@ -8,6 +8,7 @@ const DynamicPage = lazy(() => import("./Pages/main/DynamicPage"));
 const Login = lazy(() => import("./Pages/auth/Login"));
 const Signup = lazy(() => import("./Pages/auth/Signup"));
 const ForgotPassword = lazy(() => import("./Pages/auth/ForgotPassword"));
+const Aboutus = lazy(() => import("./Pages/main/AboutUS"))
 
 // Global Components
 import GlobalLoader from "./Components/GlobalLoader";
@@ -31,7 +32,7 @@ export default function App() {
       <GlobalLoader />
       <ToastContainer />
       <Router>
-        <div className="min-h-screen flex flex-col gap-2 bg-gray-50 text-gray-800">
+        <div className="min-h-screen flex flex-col gap-2 w-full text-gray-800">
 
 
           <Navbar />
@@ -42,6 +43,7 @@ export default function App() {
                 <Routes>
                   {/* Main Pages */}
                   <Route path="/" element={<Home />} />
+                  <Route path="/about" element={<Aboutus />} />
                   <Route path="/page/:_id" element={<DynamicPage />} />
 
                   {/* Auth Pages */}
@@ -62,7 +64,7 @@ export default function App() {
               </Suspense>
             </AnimatePresence>
           </div>
-<Footer/>
+          <Footer />
         </div>
       </Router>
     </>

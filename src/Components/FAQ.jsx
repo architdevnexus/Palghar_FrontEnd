@@ -72,7 +72,7 @@ export default function FAQ() {
 
                             <motion.div
                                 initial={false}
-                                animate={{ rotate: openIndex === index ? 180 : 0 }}
+                                animate={{ rotate: openIndex === index ? 360 : 0 }}
                                 transition={{ duration: 0.35 }}
                             >
                                 {openIndex === index ? (
