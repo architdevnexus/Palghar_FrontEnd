@@ -2,7 +2,7 @@
 @import url('https://unpkg.com/leaflet/dist/leaflet.css');
 
 :root {
-  --primary-color: #FF7F73;
+  --primary-color: #00879F;
   /* Coral/Salmon tone */
   --secondary-color: #000000;
   /* Black */
@@ -10,7 +10,7 @@
   /* Muted Red-Brown */
   --golden-color: #D4A656;
   /* Gold/Tan */
-  --darkbg-color: #70251D;
+  --darkbg-color: #42B549;
   /* Dark Burgundy */
   --footer-color: #2A2A2A;
   /* Dark Gray */
