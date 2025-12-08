@@ -33,11 +33,8 @@ export default function App() {
       <ToastContainer />
       <Router>
         <div className="min-h-screen flex flex-col gap-2 w-full text-gray-800">
-
-
           <Navbar />
           <div className="mt-24">
-
             <AnimatePresence mode="wait">
               <Suspense fallback={<PageLoader />}>
                 <Routes>

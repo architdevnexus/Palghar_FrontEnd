@@ -23,9 +23,9 @@
 body {
   font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   color: var(--secondary-color);
-  background-color: #f0eae4;
+  background-color: #faf7f5;
   /* Ensure a clean white background default */
-  line-height: 1.5;
+  
 }
 
 li {

@@ -18,7 +18,7 @@ export default function CoreSectors() {
   return (
     <section className="w-full py-12 px-4 md:px-16 flex flex-col gap-8">
       {/* Header */}
-      <div className="flex flex-col md:flex-row justify-between items-start gap-6 md:gap-12">
+      <div className="flex flex-col-reverse md:flex-row justify-between items-start gap-6 md:gap-12">
         <p className="text-gray-500 md:max-w-3xl">
           In key transportation sectors such as Expressways, Coastal Roads,
           Water Taxis, Economic Corridors, RO-RO Services, and Track Lines —
