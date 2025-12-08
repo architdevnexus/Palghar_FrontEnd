@@ -9,6 +9,8 @@ const Login = lazy(() => import("./Pages/auth/Login"));
 const Signup = lazy(() => import("./Pages/auth/Signup"));
 const ForgotPassword = lazy(() => import("./Pages/auth/ForgotPassword"));
 const Aboutus = lazy(() => import("./Pages/main/AboutUS"))
+const Contact = lazy(() => import("./Pages/main/Contact"))
+const Blogs = lazy(() => import("./Pages/main/Blogs"))
 
 // Global Components
 import GlobalLoader from "./Components/GlobalLoader";
@@ -41,6 +43,8 @@ export default function App() {
                   {/* Main Pages */}
                   <Route path="/" element={<Home />} />
                   <Route path="/about" element={<Aboutus />} />
+                  <Route path="/contact" element={<Contact />} />
+                  <Route path="/blog" element={<Blogs/>}/>
                   <Route path="/page/:_id" element={<DynamicPage />} />
 
                   {/* Auth Pages */}

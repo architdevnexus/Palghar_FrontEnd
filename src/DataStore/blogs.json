@@ -1,0 +1,164 @@
+ { 
+"Data":  
+ [
+    {
+        "id": 1,
+        "category": "Real Estate",
+        "image": "https://images.pexels.com/photos/7031408/pexels-photo-7031408.jpeg",
+        "date": "2025-01-10",
+        "title": "India Leads Asia-Pacific Real Estate With $5–7 Billion Investment Expected in 2025",
+        "desc": "A deep dive into India's booming property market and why global investors are shifting focus to the subcontinent."
+    },
+    {
+        "id": 2,
+        "category": "Real Estate",
+        "image": "https://images.pexels.com/photos/37347/office-freelancer-computer-business.jpg",
+        "date": "2025-01-12",
+        "title": "Why Co-working Spaces Are Becoming the Hot Property of 2025",
+        "desc": "Flexible offices, hybrid work culture, and investor-friendly models are reshaping commercial real estate."
+    },
+    {
+        "id": 3,
+        "category": "Real Estate",
+        "image": "https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg",
+        "date": "2025-01-15",
+        "title": "Top 10 Cities in India Offering Highest Rental Yield This Year",
+        "desc": "Explore cities with maximum ROI for rental investors with rapid urban expansion and job growth."
+    },
+    {
+        "id": 4,
+        "category": "Real Estate",
+        "image": "https://images.pexels.com/photos/7031407/pexels-photo-7031407.jpeg",
+        "date": "2025-01-18",
+        "title": "Smart Homes: How AI and Automation Are Transforming Modern Living",
+        "desc": "Technology-driven homes are no longer luxury—learn how automation adds convenience and property value."
+    },
+    {
+        "id": 5,
+        "category": "Real Estate",
+        "image": "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg",
+        "date": "2025-01-20",
+        "title": "Should You Buy or Rent in 2025? A Complete Market Comparison",
+        "desc": "An in-depth analysis of cost, ROI, lifestyle, and flexibility for new buyers and tenants."
+    },
+    {
+        "id": 6,
+        "category": "Real Estate",
+        "image": "https://images.pexels.com/photos/259098/pexels-photo-259098.jpeg",
+        "date": "2025-01-22",
+        "title": "Luxury Housing Boom: Why High-End Real Estate Is Growing Fast",
+        "desc": "Wealthy buyers and NRIs are driving demand for luxury apartments with world-class amenities."
+    },
+    {
+        "id": 7,
+        "category": "Real Estate",
+        "image": "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg",
+        "date": "2025-01-23",
+        "title": "Real Estate Investment Trusts (REITs): A Beginner’s Guide",
+        "desc": "An easy explanation on how REITs work and why they're becoming popular among young investors."
+    },
+    {
+        "id": 8,
+        "category": "Real Estate",
+        "image": "https://images.pexels.com/photos/259924/pexels-photo-259924.jpeg",
+        "date": "2025-01-25",
+        "title": "Home Loan Rates 2025: What Buyers Should Expect",
+        "desc": "Interest rate predictions and expert advice for anyone planning to buy a home soon."
+    },
+    {
+        "id": 9,
+        "category": "Real Estate",
+        "image": "https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg",
+        "date": "2025-01-28",
+        "title": "Budget 2025: Key Highlights and Impact on Real Estate Sector",
+        "desc": "How new taxation norms, subsidies, and government policies affect property buyers and investors."
+    },
+    {
+        "id": 10,
+        "category": "Real Estate",
+        "image": "https://images.pexels.com/photos/1571462/pexels-photo-1571462.jpeg",
+        "date": "2025-02-01",
+        "title": "Top Emerging Micro-Markets in India for High ROI",
+        "desc": "Upcoming real estate hotspots that offer great appreciation for early investors."
+    },
+    {
+        "id": 11,
+        "category": "Travel",
+        "image": "https://images.pexels.com/photos/346885/pexels-photo-346885.jpeg",
+        "date": "2025-01-05",
+        "title": "Top 10 Offbeat Travel Destinations to Explore in 2025",
+        "desc": "Discover unexplored locations, peaceful getaways, and nature-rich experiences."
+    },
+    {
+        "id": 12,
+        "category": "Travel",
+        "image": "https://images.pexels.com/photos/386009/pexels-photo-386009.jpeg",
+        "date": "2025-01-07",
+        "title": "The Ultimate Guide to Solo Traveling in India",
+        "desc": "Best places, safety tips, and must-have essentials for solo adventurers."
+    },
+    {
+        "id": 13,
+        "category": "Travel",
+        "image": "https://images.pexels.com/photos/3408353/pexels-photo-3408353.jpeg",
+        "date": "2025-01-09",
+        "title": "Best Budget-Friendly International Trips from India in 2025",
+        "desc": "Affordable overseas destinations for travelers looking to explore without breaking the bank."
+    },
+    {
+        "id": 14,
+        "category": "Travel",
+        "image": "https://images.pexels.com/photos/1659087/pexels-photo-1659087.jpeg",
+        "date": "2025-01-11",
+        "title": "Mountain vs Beach: Which Destination Should You Choose?",
+        "desc": "A comparison of two popular travel styles—and what kind of traveler you are."
+    },
+    {
+        "id": 15,
+        "category": "Travel",
+        "image": "https://images.pexels.com/photos/104927/pexels-photo-104927.jpeg",
+        "date": "2025-01-13",
+        "title": "Top 15 Adventure Activities Every Thrill-Seeker Must Try",
+        "desc": "Skydiving, bungee jumping, river rafting—your adventure bucket list starts here."
+    },
+    {
+        "id": 16,
+        "category": "Travel",
+        "image": "https://images.pexels.com/photos/21014/pexels-photo.jpg",
+        "date": "2025-01-16",
+        "title": "A Food Lover’s Travel Guide: Best Street Foods Around the World",
+        "desc": "Explore vibrant food cultures and must-try dishes from iconic cities."
+    },
+    {
+        "id": 17,
+        "category": "Travel",
+        "image": "https://images.pexels.com/photos/1008155/pexels-photo-1008155.jpeg",
+        "date": "2025-01-18",
+        "title": "Travel Photography Tips to Capture the Perfect Shot",
+        "desc": "A simple guide to taking professional-quality travel photos using your phone."
+    },
+    {
+        "id": 18,
+        "category": "Travel",
+        "image": "https://images.pexels.com/photos/237272/pexels-photo-237272.jpeg",
+        "date": "2025-01-21",
+        "title": "5 Most Beautiful Islands to Visit in 2025",
+        "desc": "Get ready for crystal-clear waters, white sand beaches, and tropical experiences."
+    },
+    {
+        "id": 19,
+        "category": "Travel",
+        "image": "https://images.pexels.com/photos/570772/pexels-photo-570772.jpeg",
+        "date": "2025-01-24",
+        "title": "How to Travel Full-Time While Working Remotely",
+        "desc": "A practical roadmap for digital nomads seeking work-life balance and freedom."
+    },
+    {
+        "id": 20,
+        "category": "Travel",
+        "image": "https://images.pexels.com/photos/3468858/pexels-photo-3468858.jpeg",
+        "date": "2025-01-28",
+        "title": "Top Winter Destinations in India You Must Explore",
+        "desc": "From snow-covered mountains to cozy hill stations—discover the beauty of Indian winters."
+    }
+]}
