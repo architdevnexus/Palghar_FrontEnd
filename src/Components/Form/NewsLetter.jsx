@@ -41,7 +41,7 @@ export default function NewsLetter() {
 
             <form
                 onSubmit={handleSubmit}
-                className="flex items-center gap-3 mt-2"
+                className="flex flex-wrap items-center gap-3 mt-2"
             >
                 <input
                     type="email"

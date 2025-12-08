@@ -33,7 +33,7 @@ export default function GetInTouch() {
     };
 
     return (
-        <div className="w-full bg-(--lightbg-color) py-12 flex justify-center">
+        <div className="w-full bg-(--lightbg-color) py-12 flex justify-center ">
             <div className="w-[95%] lg:w-[85%] relative flex flex-col lg:flex-row">
 
                 {/* LEFT SIDE CARD */}
@@ -82,6 +82,7 @@ export default function GetInTouch() {
                     lg:ml-[28%] 
                     md:px-24
                     border 
+                    rounded-2xl
                     border-gray-100
                 ">
                     <h2 className="text-3xl font-bold">Get in Touch</h2>

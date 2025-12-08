@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FiMenu, FiX } from "react-icons/fi";
 import { motion, AnimatePresence } from "framer-motion";
-import { Navdata } from "../DataStore/Navdata"
+import { Navdata } from "../DataStore/Navdata";
+
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
- 
+
   const mobileMenuVariants = {
     hidden: { x: "-100%" },
     visible: { x: 0 },
@@ -15,48 +16,63 @@ const Navbar = () => {
 
   return (
     <>
+      {/* NAVBAR */}
+      <nav className="
+        fixed top-2 md:ml-2 mx-auto rounded-2xl w-full md:w-[99%] z-50
+        bg-white/90 backdrop-blur-md
+        shadow-md
+      ">
+        <div className="
+          flex justify-between items-center
+          px-4 py-3
+          md:px-10 md:py-4
+          max-w-screen-2xl mx-auto
+        ">
+          {/* Logo */}
+          <img
+            src="/palghar_logo.svg"
+            alt="logo"
+            className="w-10 cursor-pointer"
+            onClick={() => navigate("/")}
+          />
 
-      {/* TOP NAVBAR */}
-      <nav className="flex p-4 md:mx-auto rounded-2xl max-w-[99%] items-center w-full fixed left-1 top-1 md:top-2 md:left-2 bg-white shadow-md z-50 justify-between">
+          {/* Desktop Menu */}
+          <ul className="hidden md:flex items-center gap-8 text-[16px] font-medium">
+            {Navdata.map((item) => (
+              <li
+                key={item.id}
+                onClick={() => navigate(item.path)}
+                className="
+                  cursor-pointer transition-all
+                  hover:text-(--primary-color)
+                "
+              >
+                {item.name}
+              </li>
+            ))}
+          </ul>
 
-        {/* Logo */}
-        <img
-          src="/palghar_logo.svg"
-          alt="logo"
-          className="w-10 cursor-pointer"
-          onClick={() => navigate("/")}
-        />
+          {/* Desktop CTA Button */}
+          <button
+            className="
+              hidden md:block px-5 py-2 rounded-md
+              bg-(--primary-color) text-white
+              hover:opacity-90 transition
+              text-sm font-medium
+            "
+            onClick={() => navigate("/contact")}
+          >
+            Enquire Now
+          </button>
 
-        {/* Desktop Menu */}
-        <ul className="hidden md:flex items-center gap-8 text-[16px]">
-          {Navdata.map((item) => (
-            <li
-              key={item.id}
-              className="hover:text-(--primary-color) cursor-pointer transition-all"
-              onClick={() => navigate(item.path)}
-            >
-              {item.name}
-            </li>
-          ))}
-        </ul>
-
-        {/* Enquire Now Button */}
-        <button
-          className="hidden md:block px-4 py-2 rounded-md bg-(--primary-color) text-white cursor-pointer hover:opacity-90 transition"
-          onClick={() => navigate("/contact")}
-        >
-          Enquire Now
-        </button>
-
-        {/* Mobile Menu Icon */}
-        <div
-          className="md:hidden text-3xl cursor-pointer"
-          onClick={() => setOpen(true)}
-          aria-label="Open Menu"
-          role="button"
-          tabIndex={0}
-        >
-          <FiMenu />
+          {/* Mobile Menu Icon */}
+          <button
+            className="md:hidden text-3xl cursor-pointer"
+            onClick={() => setOpen(true)}
+            aria-label="Open Menu"
+          >
+            <FiMenu />
+          </button>
         </div>
       </nav>
 
@@ -69,9 +85,13 @@ const Navbar = () => {
             animate="visible"
             exit="exit"
             transition={{ duration: 0.3 }}
-            className="fixed top-0 left-0 h-full w-64 bg-white shadow-xl p-6 z-50"
+            className="
+              fixed top-0 left-0 h-full w-72
+              bg-white shadow-xl
+              p-6 z-50 flex flex-col
+            "
           >
-            {/* Close Icon */}
+            {/* Header */}
             <div className="flex justify-between items-center mb-8">
               <img src="/palghar_logo.svg" alt="logo" className="w-10" />
               <FiX
@@ -81,21 +101,29 @@ const Navbar = () => {
               />
             </div>
 
-            {/* Mobile Navigation Links */}
+            {/* Mobile Links */}
             <nav className="flex flex-col gap-6 text-lg font-semibold">
               {Navdata.map((item) => (
                 <Link
                   key={item.id}
                   to={item.path}
-                  className="hover:text-(--primary-color)transition-all"
                   onClick={() => setOpen(false)}
+                  className="
+                    hover:text-(--primary-color)
+                    transition-all
+                  "
                 >
                   {item.name}
                 </Link>
               ))}
 
+              {/* CTA Button */}
               <button
-                className="mt-6 px-4 py-2 bg-(--primary-color) text-white rounded-md"
+                className="
+                  mt-6 px-4 py-3 rounded-md
+                  bg-(--primary-color) text-white
+                  text-center text-base
+                "
                 onClick={() => {
                   setOpen(false);
                   navigate("/contact");
@@ -108,7 +136,7 @@ const Navbar = () => {
         )}
       </AnimatePresence>
 
-      {/* DARK OVERLAY */}
+      {/* BACKDROP OVERLAY */}
       <AnimatePresence>
         {open && (
           <motion.div
@@ -121,7 +149,6 @@ const Navbar = () => {
           />
         )}
       </AnimatePresence>
-
     </>
   );
 };

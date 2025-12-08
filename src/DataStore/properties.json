@@ -1,0 +1,79 @@
+{
+  "properties": [
+    {
+      "id": 1,
+      "image": "https://images.unsplash.com/photo-1560185127-6a8c0d302c4f",
+      "title": "Imperial Crest Tower",
+      "subtitle": "Sector 12, Harmony Enclave",
+      "details": {
+        "bhk": "2 BHK",
+        "bathrooms": "2 Bathrooms",
+        "area": "4×3 m²",
+        "price": "₹82,00,000",
+        "location": "Harmony Enclave, Sector 12",
+        "status": "Ready to Move",
+        "builder": "Sunrise Developers"
+      }
+    },
+    {
+      "id": 2,
+      "image": "https://images.unsplash.com/photo-1599423300746-b62533397364",
+      "title": "Royal Orchid Residency",
+      "subtitle": "Palm Beach Road, Navi Mumbai",
+      "details": {
+        "bhk": "3 BHK",
+        "bathrooms": "3 Bathrooms",
+        "area": "6×4 m²",
+        "price": "₹1,45,00,000",
+        "location": "Palm Beach Road",
+        "status": "Under Construction",
+        "builder": "Orchid Builders"
+      }
+    },
+    {
+      "id": 3,
+      "image": "https://images.unsplash.com/photo-1572120360610-d971b9b78828",
+      "title": "Lakeview Heights",
+      "subtitle": "Powai, Mumbai",
+      "details": {
+        "bhk": "1 BHK",
+        "bathrooms": "1 Bathroom",
+        "area": "3×3.5 m²",
+        "price": "₹65,00,000",
+        "location": "Powai Lake",
+        "status": "Ready to Move",
+        "builder": "Horizon Constructions"
+      }
+    },
+    {
+      "id": 4,
+      "image": "https://images.unsplash.com/photo-1523217582562-09d0def993a6",
+      "title": "Skyline Platinum",
+      "subtitle": "Bandra West, Mumbai",
+      "details": {
+        "bhk": "4 BHK",
+        "bathrooms": "4 Bathrooms",
+        "area": "8×5 m²",
+        "price": "₹3,20,00,000",
+        "location": "Bandra West",
+        "status": "Premium Property",
+        "builder": "Platinum Group"
+      }
+    },
+    {
+      "id": 5,
+      "image": "https://images.unsplash.com/photo-1507089947368-19c1da9775ae",
+      "title": "Green Valley Residency",
+      "subtitle": "Thane West",
+      "details": {
+        "bhk": "2 BHK",
+        "bathrooms": "2 Bathrooms",
+        "area": "4×3 m²",
+        "price": "₹92,00,000",
+        "location": "Thane West",
+        "status": "Possession Soon",
+        "builder": "Green Leaf Developers"
+      }
+    }
+  ]
+}

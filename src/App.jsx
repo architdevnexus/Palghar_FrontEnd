@@ -9,6 +9,9 @@ const Login = lazy(() => import("./Pages/auth/Login"));
 const Signup = lazy(() => import("./Pages/auth/Signup"));
 const ForgotPassword = lazy(() => import("./Pages/auth/ForgotPassword"));
 const Aboutus = lazy(() => import("./Pages/main/AboutUS"))
+const Contact = lazy(() => import("./Pages/main/Contact"))
+const Blogs = lazy(() => import("./Pages/main/Blogs"))
+const Media = lazy(() => import("./Pages/main/Media"))
 
 // Global Components
 import GlobalLoader from "./Components/GlobalLoader";
@@ -33,17 +36,17 @@ export default function App() {
       <ToastContainer />
       <Router>
         <div className="min-h-screen flex flex-col gap-2 w-full text-gray-800">
-
-
           <Navbar />
           <div className="mt-24">
-
             <AnimatePresence mode="wait">
               <Suspense fallback={<PageLoader />}>
                 <Routes>
                   {/* Main Pages */}
                   <Route path="/" element={<Home />} />
                   <Route path="/about" element={<Aboutus />} />
+                  <Route path="/contact" element={<Contact />} />
+                  <Route path="/blog" element={<Blogs />} />
+                  <Route path="/media" element={<Media />} />
                   <Route path="/page/:_id" element={<DynamicPage />} />
 
                   {/* Auth Pages */}
