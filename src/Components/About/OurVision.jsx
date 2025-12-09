@@ -67,7 +67,7 @@ export default function OurVision() {
 
         {/* LEFT: HEADER */}
         <div className="flex flex-col justify-start">
-          <span className="border-l-8 border-(--primary-color) pl-3 text-xl font-semibold tracking-wide uppercase">
+          <span className="border-l-8 border-(--primary-color) pl-3 text-3xl font-semibold tracking-wide uppercase">
             Our Vision
           </span>
 
@@ -75,14 +75,14 @@ export default function OurVision() {
             About the new living style city
           </p>
 
-          <h2 className="font-bold text-base mt-3 leading-snug text-gray-900">
+          <h2 className="font-semibold text-xl mt-3 leading-snug text-gray-900">
             An Impeccable blend of modern features,<br />
             value added and world class infrastructure.
           </h2>
         </div>
 
         {/* RIGHT: FIRST 3 CARDS */}
-        <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-3 gap-8">
+        <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-3 gap-2">
           {firstRowCards.map((item, index) => (
             <VisionCard
               key={index}
@@ -96,7 +96,7 @@ export default function OurVision() {
       </div>
 
       {/* ROW 2 → Remaining Cards */}
-      <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-4 gap-8">
+      <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-4 gap-3">
         {remainingCards.map((item, index) => (
           <VisionCard
             key={index}
