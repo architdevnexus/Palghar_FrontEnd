@@ -9,6 +9,7 @@ import TestimonialsSlider from '../../Components/Testimonial'
 import WhatWeDo from '../../Components/WhatWeDo'
 import FAQ from '../../Components/FAQ'
 import GetInTouch from '../../Components/Form/GetInTouch'
+import HomeDream from "../../Components/Home/HomeDream"
 
 const Home = () => {
     return (
@@ -23,6 +24,7 @@ const Home = () => {
             <ProjectsTabs />
             <ExploreNewCity />
             {/* <HomeMap /> */}
+            <HomeDream />
             <TestimonialsSlider />
             <WhatWeDo />
             <FAQ />
