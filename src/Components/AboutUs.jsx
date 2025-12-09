@@ -36,9 +36,7 @@ const AboutUs = () => {
           About{" "}
           <span
             className="
-              bg-linear-to-r 
-              from-[#F1C40F] 
-              to-[#E67E22] 
+              bg-(--primary-color)
               bg-clip-text 
               text-transparent
             "
