@@ -45,7 +45,7 @@ export default function TestimonialsSlider() {
 
     return (
         <div
-            className="relative w-full py-20 flex flex-col items-center justify-center bg-[#FFBFA9] bg-[url('/testimonialBack.svg')] bg-cover bg-center bg-no-repeat px-4"
+            className="relative w-full py-20 flex flex-col items-center justify-center bg-[#E9F6F7] bg-[url('/testimonialBack.svg')] bg-cover bg-center bg-no-repeat px-4"
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
         >
@@ -82,7 +82,7 @@ export default function TestimonialsSlider() {
                                 w-52 sm:w-[260px]
                             "
                             style={{
-                                backgroundImage: `url('/testimonialOrange.svg')`,
+                                backgroundImage: `url('/testimonialBlue.svg')`,
                                 backgroundSize: "100% 100%",
                             }}
                         >
@@ -123,16 +123,16 @@ export default function TestimonialsSlider() {
                         <div className="flex justify-center sm:justify-end gap-3 sm:gap-4 mt-10">
                             <button
                                 onClick={handlePrev}
-                                className="p-2 sm:p-3 rounded-full bg-gray-200 hover:bg-gray-300 transition-all shadow-md hover:scale-105 cursor-pointer"
+                                className="p-2 sm:p-3 rounded-full bg-[#42B549] text-white transition-all shadow-md hover:scale-105 cursor-pointer"
                             >
-                                <FaChevronLeft className="text-gray-700 text-sm sm:text-base" />
+                                <FaChevronLeft className="text-sm sm:text-base" />
                             </button>
 
                             <button
                                 onClick={handleNext}
-                                className="p-2 sm:p-3 rounded-full bg-gray-200 hover:bg-gray-300 transition-all shadow-md hover:scale-105 cursor-pointer"
+                                className="p-2 sm:p-3 rounded-full bg-[#42B549] text-white transition-all shadow-md hover:scale-105 cursor-pointer"
                             >
-                                <FaChevronRight className="text-gray-700 text-sm sm:text-base" />
+                                <FaChevronRight className="text-sm sm:text-base" />
                             </button>
                         </div>
                     </motion.div>
