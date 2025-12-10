@@ -10,6 +10,7 @@ import WhatWeDo from '../../Components/WhatWeDo'
 import FAQ from '../../Components/FAQ'
 import GetInTouch from '../../Components/Form/GetInTouch'
 import HomeDream from "../../Components/Home/HomeDream"
+import WhatWeHaveDone from '../../Components/Home/WhatWeHaveDone'
 
 const Home = () => {
     return (
@@ -25,6 +26,7 @@ const Home = () => {
             <ExploreNewCity />
             {/* <HomeMap /> */}
             <HomeDream />
+            <WhatWeHaveDone/>
             <TestimonialsSlider />
             <WhatWeDo />
             <FAQ />
