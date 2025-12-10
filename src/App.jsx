@@ -12,6 +12,7 @@ const Aboutus = lazy(() => import("./Pages/main/AboutUS"))
 const Contact = lazy(() => import("./Pages/main/Contact"))
 const Blogs = lazy(() => import("./Pages/main/Blogs"))
 const Media = lazy(() => import("./Pages/main/Media"))
+const Projects = lazy(() => import("./Pages/main/Projects"))
 
 // Global Components
 import GlobalLoader from "./Components/GlobalLoader";
@@ -47,6 +48,7 @@ export default function App() {
                   <Route path="/contact" element={<Contact />} />
                   <Route path="/blog" element={<Blogs />} />
                   <Route path="/media" element={<Media />} />
+                  <Route path="/projects" element={<Projects/>}/>
                   <Route path="/page/:_id" element={<DynamicPage />} />
 
                   {/* Auth Pages */}
