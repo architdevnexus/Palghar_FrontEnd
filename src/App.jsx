@@ -13,6 +13,10 @@ const Contact = lazy(() => import("./Pages/main/Contact"))
 const Blogs = lazy(() => import("./Pages/main/Blogs"))
 const Media = lazy(() => import("./Pages/main/Media"))
 const Projects = lazy(() => import("./Pages/main/Projects"))
+const Privacy = lazy(() => import("./Pages/main/Privacy"))
+const Terms = lazy(() => import("./Pages/main/TermsCondition"))
+const Cancellation = lazy(() => import("./Pages/main/Cancellation"))
+
 
 // Global Components
 import GlobalLoader from "./Components/GlobalLoader";
@@ -48,8 +52,15 @@ export default function App() {
                   <Route path="/contact" element={<Contact />} />
                   <Route path="/blog" element={<Blogs />} />
                   <Route path="/media" element={<Media />} />
-                  <Route path="/projects" element={<Projects/>}/>
-                  <Route path="/page/:_id" element={<DynamicPage />} />
+                  <Route path="/projects" element={<Projects />} />
+
+                  <Route path="/cancellation" element={<Cancellation />} />
+                  <Route path="/terms" element={<Terms />} />
+                  <Route path="/privacy" element={<Privacy />} />
+
+
+
+                  <Route path="/blog/:id" element={<DynamicPage />} />
 
                   {/* Auth Pages */}
                   <Route path="/login" element={<Login />} />

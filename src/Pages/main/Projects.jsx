@@ -60,7 +60,7 @@ export default function Projects() {
       <ProjectHero />
 
       {/* PROJECT GRID */}
-      <section className="w-full px-4 md:px-10 lg:px-20 py-10">
+      <section className="w-full px-4 md:px-10 lg:px-20 py-10 bg-[#C9ECF0]">
         <h2 className="text-3xl md:text-4xl font-semibold text-center mb-10">
           Your Dream Home Coming Soon 
         </h2>

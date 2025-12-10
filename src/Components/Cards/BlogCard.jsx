@@ -40,7 +40,7 @@ export default function BlogCard({ item }) {
 
       {/* Button */}
       <button
-        onClick={() => navigate(item?.path)}
+          onClick={() => navigate(`/blog/${item.id}`)}  
         className="px-5 py-2 rounded-xl w-1/2 cursor-pointer bg-green-500 text-white font-medium hover:bg-green-600 transition"
       >
         Learn More
