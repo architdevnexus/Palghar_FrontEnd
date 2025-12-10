@@ -97,13 +97,13 @@ export default function Footer() {
                     ))}
 
                     <div className="flex flex-col mt-3 underline gap-8  text-sm">
-                        <span className="cursor-pointer  hover:text-(--primary-color)">
+                        <span className="cursor-pointer  hover:text-(--primary-color)" onClick={() => navigate('/privacy')}>
                             Privacy Policy
                         </span>
-                        <span className="cursor-pointer hover:text-(--primary-color)">
+                        <span className="cursor-pointer hover:text-(--primary-color)" onClick={() => navigate('/terms')}>
                             Terms & Conditions
                         </span>
-                        <span className="cursor-pointer hover:text-(--primary-color)">
+                        <span className="cursor-pointer hover:text-(--primary-color)" onClick={() => navigate('/cancellation')}>
                             Cancellations Policy
                         </span>
                     </div>

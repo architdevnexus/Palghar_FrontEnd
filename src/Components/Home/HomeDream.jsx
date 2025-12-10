@@ -26,6 +26,14 @@ export default function HomeDream() {
         {/* MIDDLE + RIGHT WRAPPER */}
         <div className="flex flex-col lg:flex-row gap-10 w-full lg:w-1/2">
 
+   {/* RIGHT IMAGE */}
+          <div className="flex-1 flex justify-center lg:justify-end">
+            <img
+              src="https://images.pexels.com/photos/34341418/pexels-photo-34341418.jpeg"
+              alt="Dream Project"
+              className="w-full max-w-xs md:max-w-sm h-80 md:h-96 object-cover rounded-3xl shadow-md"
+            />
+          </div>
           {/* TYPES OF DEVELOPMENT */}
           <div className="flex-1">
             <h2 className="text-xl md:text-2xl font-semibold text-gray-900 flex items-center gap-2">
@@ -52,14 +60,7 @@ export default function HomeDream() {
             </ul>
           </div>
 
-          {/* RIGHT IMAGE */}
-          <div className="flex-1 flex justify-center lg:justify-end">
-            <img
-              src="https://images.pexels.com/photos/34341418/pexels-photo-34341418.jpeg"
-              alt="Dream Project"
-              className="w-full max-w-xs md:max-w-sm h-80 md:h-96 object-cover rounded-3xl shadow-md"
-            />
-          </div>
+       
 
         </div>
       </div>
