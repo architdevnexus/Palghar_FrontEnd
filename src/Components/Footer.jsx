@@ -73,7 +73,7 @@ export default function Footer() {
                         </div>
 
                         <div className="mt-2 flex items-center gap-2 text-sm">
-                            <FaMailBulk /> help@examoneducation.com
+                            <FaMailBulk /> help@palghar.com
                         </div>
 
                         <div className="mt-2 flex items-center gap-2 text-sm">
@@ -127,7 +127,7 @@ export default function Footer() {
 
                 {/* ---------- Column 4 (Newsletter) ---------- */}
                 <div className="flex flex-col">
-                    
+
                     <NewsLetter />
                 </div>
             </div>
