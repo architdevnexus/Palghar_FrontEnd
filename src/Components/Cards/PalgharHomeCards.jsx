@@ -13,7 +13,7 @@ export default function PalgharHomeCard({ item }) {
         rounded-2xl
         p-6
         w-[320px]
-        h-[360px]         
+        h-[260px]         
         flex
         flex-col
         items-center
@@ -43,12 +43,12 @@ export default function PalgharHomeCard({ item }) {
             </div>
 
             {/* Company Name (2-line clamp) */}
-            <h2 className="text-lg font-bold uppercase leading-snug line-clamp-2 min-h-12">
+            <h2 className="text-lg font-bold uppercase leading-snug line-clamp-2 min-h-6">
                 {item?.name}
             </h2>
 
             {/* Category (single-line clamp) */}
-            <p className="text-sm text-gray-500 tracking-wide line-clamp-1 min-h-5">
+            <p className="text-sm text-gray-500 tracking-wide line-clamp-1 min-h-4">
                 {item?.category}
             </p>
 
