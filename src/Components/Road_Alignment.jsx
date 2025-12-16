@@ -1,153 +1,122 @@
-import React, { useState, useMemo, memo } from "react";
+import React, { useState, useMemo, useCallback, memo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import img1 from "../utlis/Roads_Proposed_Alignment_Images/1.png"
-import img2 from "../utlis/Roads_Proposed_Alignment_Images/2.png"
-import img3 from "../utlis/Roads_Proposed_Alignment_Images/3.png"
-import img4 from "../utlis/Roads_Proposed_Alignment_Images/4.png"
-import img5 from "../utlis/Roads_Proposed_Alignment_Images/5.png"
-import img6 from "../utlis/Roads_Proposed_Alignment_Images/6.png"
-import img7 from "../utlis/Roads_Proposed_Alignment_Images/7.png"
-import img8 from "../utlis/Roads_Proposed_Alignment_Images/8.png"
 
+// Images
+import img1 from "../utlis/Roads_Proposed_Alignment_Images/1.png";
+import img2 from "../utlis/Roads_Proposed_Alignment_Images/2.png";
+import img3 from "../utlis/Roads_Proposed_Alignment_Images/3.png";
+import img4 from "../utlis/Roads_Proposed_Alignment_Images/4.png";
+import img5 from "../utlis/Roads_Proposed_Alignment_Images/5.png";
+import img6 from "../utlis/Roads_Proposed_Alignment_Images/6.png";
+import img7 from "../utlis/Roads_Proposed_Alignment_Images/7.png";
+import img8 from "../utlis/Roads_Proposed_Alignment_Images/8.png";
 
+// ROAD DATA (can later be moved to JSON or API)
+const ROAD_DATA = Object.freeze([
+  { id: 1, label: "Roads Connecting in the Vicinity of the proposed road", image: img1 },
+  { id: 2, label: "Existing and Proposed Major Transportation Network in the region", image: img2 },
+  { id: 3, label: "Road Network Considered in the Study", image: img3 },
+  { id: 4, label: "Proposed Road Alignment for the Vadhavan Port", image: img4 },
+  { id: 5, label: "Connectivity of Vadodara Mumbai Expressway in the study area", image: img5 },
+  { id: 6, label: "Study Network with Classification Based on road width", image: img6 },
+  { id: 7, label: "Morning Peak Hour Link Flows in PCU/hr", image: img7 },
+  { id: 8, label: "Vadhavan Location With Reference To JNP & Mumbai Port", image: img8 }
+]);
 
-/* ===========================
-   DATA (can be moved to JSON)
-=========================== */
-const ROAD_DATA = [
-    {
-        id: 1,
-        label: "Roads Connecting in the Vicinity of the proposed road",
-        image: img1
-    },
-    {
-        id: 2,
-        label: "Existing and Proposed Major Transportation Network in the region",
-        image: img2
-    },
-    {
-        id: 3,
-        label: "Road Network Considered in the Study",
-        image: img3
-    },
-    {
-        id: 4,
-        label: "Proposed Road Alignment for the Vadhavan Port",
-        image: img4
-    },
-    {
-        id: 5,
-        label: "Connectivity of Vadodara Mumbai Expressway in the study area",
-        image: img5
-    },
-    {
-        id: 6,
-        label: "Study Network with Classification Based on road width",
-        image: img6
-    },
-    {
-        id: 7,
-        label: "Morning Peak Hour Link Flows in PCU/hr",
-        image: img7
-    },
-    {
-        id: 8,
-        label: "Vadhavan Location With Reference To JNP & Mumbai Port",
-        image: img8
-    }
-];
+// MEMOIZED MENU ITEM
+const MenuItem = memo(({ label, isActive, onClick }) => (
+  <button
+    onClick={onClick}
+    aria-current={isActive}
+    className={`
+      w-full text-left px-4 py-3 rounded-xl text-sm md:text-base font-medium
+      transition-all duration-200
+      focus:outline-none focus:ring-2 focus:ring-teal-500
+      ${isActive
+        ? "bg-teal-600 text-white shadow"
+        : "text-gray-700 hover:bg-gray-100"}
+    `}
+  >
+    {label}
+  </button>
+));
 
-/* ===========================
-   LEFT MENU ITEM (MEMOIZED)
-=========================== */
-const MenuItem = memo(({ item, isActive, onClick }) => {
-    return (
-        <button
-            onClick={onClick}
-            className={`text-left px-4 py-3 rounded-xl transition-all
-        focus:outline-none focus:ring-2 focus:ring-teal-500
-        ${isActive
-                    ? "bg-teal-600 text-white shadow-md"
-                    : "text-gray-600 hover:bg-gray-100"
-                }`}
-            aria-pressed={isActive}
-        >
-            {item.label}
-        </button>
-    );
-});
-
-/* ===========================
-   MAIN COMPONENT
-=========================== */
 export default function RoadAlignment() {
-    const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(0);
 
-    /* Prevent unnecessary recalculation */
-    const activeItem = useMemo(
-        () => ROAD_DATA[activeIndex],
-        [activeIndex]
-    );
+  // Memoize active item to prevent unnecessary recalculations
+  const activeItem = useMemo(() => ROAD_DATA[activeIndex], [activeIndex]);
 
-    return (
-        <section className="flex flex-col gap-6">
+  const handleSelect = useCallback((index) => {
+    setActiveIndex(index);
+  }, []);
 
-            {/* HEADING */}
-            <div className="flex items-center gap-3">
-                <span className="h-6 w-1 bg-green-600 rounded" />
-                <h2 className="text-xl font-semibold">
-                    Roads Proposed Alignment
-                </h2>
-            </div>
+  return (
+    <section className="w-full flex flex-col gap-6">
 
-            {/* CONTENT */}
-            <div className="flex flex-col-reverse lg:flex-row gap-6">
+      {/* Heading */}
+      <header className="flex items-center gap-3">
+        <span className="h-6 w-1 bg-green-600 rounded" />
+        <h2 className="text-xl md:text-2xl font-semibold text-gray-800">
+          Roads Proposed Alignment
+        </h2>
+      </header>
 
-                {/* LEFT MENU */}
-                <nav
-                    className="lg:w-[38%] bg-white rounded-2xl shadow p-4 flex flex-col gap-2"
-                    aria-label="Road alignment options"
-                >
-                    {ROAD_DATA.map((item, index) => (
-                        <MenuItem
-                            key={item.id}
-                            item={item}
-                            isActive={index === activeIndex}
-                            onClick={() => setActiveIndex(index)}
-                        />
-                    ))}
-                </nav>
+      {/* Layout */}
+      <div className="flex flex-col lg:flex-row gap-6">
 
-                {/* RIGHT CONTENT */}
-                <div className="flex-1 bg-white rounded-2xl shadow p-4 overflow-hidden">
+        {/* Left Menu */}
+        <nav
+          className="
+            lg:w-[38%] bg-white rounded-2xl shadow
+            p-2 flex flex-col gap-2
+            max-h-[70vh] overflow-y-auto
+          "
+          aria-label="Road alignment list"
+        >
+          {ROAD_DATA.map((item, index) => (
+            <MenuItem
+              key={item.id}
+              label={item.label}
+              isActive={index === activeIndex}
+              onClick={() => handleSelect(index)}
+            />
+          ))}
+        </nav>
 
-                    <AnimatePresence mode="wait">
-                        <motion.div
-                            key={activeItem.id}
-                            initial={{ opacity: 0, y: 15 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -10 }}
-                            transition={{ duration: 0.35, ease: "easeOut" }}
-                        >
-                            <h3 className="text-lg font-medium mb-3">
-                                {activeItem.label}
-                            </h3>
+        {/* Right Content */}
+        <div className="flex-1 bg-white rounded-2xl shadow p-4 md:p-6">
+          <AnimatePresence mode="wait">
+            <motion.article
+              key={activeItem.id}
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+            >
+              <h3 className="text-base md:text-lg font-medium mb-4 text-gray-800">
+                {activeItem.label}
+              </h3>
 
-                            <motion.img
-                                src={activeItem.image}
-                                alt={activeItem.label}
-                                loading="lazy"
-                                decoding="async"
-                                className="w-full rounded-xl object-cover"
-                                initial={{ scale: 0.97 }}
-                                animate={{ scale: 1 }}
-                                transition={{ duration: 0.4 }}
-                            />
-                        </motion.div>
-                    </AnimatePresence>
+              <motion.img
+                src={activeItem.image}
+                alt={activeItem.label}
+                loading="lazy"
+                decoding="async"
+                className="
+                  w-full rounded-xl
+                  object-contain md:object-cover
+                  max-h-[70vh]
+                "
+                initial={{ scale: 0.96 }}
+                animate={{ scale: 1 }}
+                transition={{ duration: 0.35 }}
+              />
+            </motion.article>
+          </AnimatePresence>
+        </div>
 
-                </div>
-            </div>
-        </section>
-    );
+      </div>
+    </section>
+  );
 }
