@@ -12,6 +12,7 @@ import GetInTouch from '../../Components/Form/GetInTouch'
 import HomeDream from "../../Components/Home/HomeDream"
 import WhatWeHaveDone from '../../Components/Home/WhatWeHaveDone'
 import Road_Alignment from '../../Components/Road_Alignment'
+import Parivar from '../../Components/Parivar'
 
 const Home = () => {
     return (
@@ -30,6 +31,7 @@ const Home = () => {
             <WhatWeHaveDone />
             <img src="/DevelopmentPath.svg" alt="" srcset="" className='w-[90%] m-auto h-96' />
             <Road_Alignment/>
+            <Parivar/>
             <TestimonialsSlider />
             <WhatWeDo />
             <FAQ />
