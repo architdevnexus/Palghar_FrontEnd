@@ -11,10 +11,11 @@ import FAQ from '../../Components/FAQ'
 import GetInTouch from '../../Components/Form/GetInTouch'
 import HomeDream from "../../Components/Home/HomeDream"
 import WhatWeHaveDone from '../../Components/Home/WhatWeHaveDone'
+import Road_Alignment from '../../Components/Road_Alignment'
 
 const Home = () => {
     return (
-        <div className='flex flex-col gap-3 items-start'>
+        <div className='flex flex-col gap-3  w-full'>
             <HomeHero />
             <section className='flex items-center mx-auto w-full max-w-6xl p-4'>
 
@@ -26,7 +27,9 @@ const Home = () => {
             <ExploreNewCity />
             {/* <HomeMap /> */}
             <HomeDream />
-            <WhatWeHaveDone/>
+            <WhatWeHaveDone />
+            <img src="/DevelopmentPath.svg" alt="" srcset="" className='w-[90%] m-auto h-96' />
+            <Road_Alignment/>
             <TestimonialsSlider />
             <WhatWeDo />
             <FAQ />

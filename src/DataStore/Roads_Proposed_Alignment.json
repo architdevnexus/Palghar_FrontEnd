@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "label": "Roads Connecting in the Vicinity of the proposed road",
+    "image": "src/utlis/Roads_Proposed_Alignment_Images/1.png"
+  },
+  {
+    "id": 2,
+    "label": "Nearby Highways",
+    "image": "/images/road-map-2.png"
+  },
+  {
+    "id": 3,
+    "label": "Port Access Roads",
+    "image": "/images/road-map-3.png"
+  },
+  {
+    "id": 4,
+    "label": "Industrial Area Connectivity",
+    "image": "/images/road-map-4.png"
+  },
+  {
+    "id": 5,
+    "label": "City Entry Routes",
+    "image": "/images/road-map-5.png"
+  },
+  {
+    "id": 6,
+    "label": "Logistics & Transport Routes",
+    "image": "/images/road-map-6.png"
+  },
+  {
+    "id": 7,
+    "label": "State Highway Network",
+    "image": "/images/road-map-7.png"
+  },
+  {
+    "id": 8,
+    "label": "Regional Road Map",
+    "image": "/images/road-map-8.png"
+  }
+]
