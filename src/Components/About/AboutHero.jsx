@@ -1,7 +1,7 @@
 export default function AboutHero() {
 const AboutHeader = () => {
   return (
-    <div className="absolute top-1/3 text-center md:left-10 z-10 w-3/4 md:w-1/2">
+    <div className="absolute text-center z-10 w-1/2 ">
       
       {/* OUTER WRAPPER — ACTS AS WHITE BORDER */}
       <div
@@ -31,7 +31,7 @@ const AboutHeader = () => {
     "https://images.pexels.com/photos/20851618/pexels-photo-20851618.jpeg";
 
   return (
-    <div className="relative w-full p-3 bg-[#f8f1eb] flex flex-col md:flex-row justify-between items-center">
+    <div className="relative w-full  bg-[#f8f1eb] flex flex-col md:flex-row justify-between items-center">
 
       {/* Left clipped header */}
       <AboutHeader />
@@ -40,7 +40,7 @@ const AboutHeader = () => {
       <img
         src={image}
         alt="About"
-        className="w-full md:w-[55%] ml-auto rounded-2xl shadow-xl object-cover"
+        className="w-full md:w-[80%] mr-2 h-120 ml-auto rounded-2xl shadow-xl object-cover"
       />
     </div>
   );
