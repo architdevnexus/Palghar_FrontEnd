@@ -1,4 +1,7 @@
 import { useState } from "react";
+// import MiraBefore from "../../utlis/WhatWeHaveDone/MiraBefore"
+// import MiraAfter from "../../utlis/WhatWeHaveDone/MiraAfter"
+
 
 export default function WhatWeHaveDone() {
   const Data = [
@@ -7,12 +10,12 @@ export default function WhatWeHaveDone() {
       images: [
         {
           year: "1995",
-          src: "https://images.pexels.com/photos/35082978/pexels-photo-35082978.jpeg",
+          src: 'src/utlis/WhatWeHaveDone/MiraBefore.svg',
           caption: '(witness by “Google–Dev”)'
         },
         {
           year: "2015",
-          src: "https://images.pexels.com/photos/8533860/pexels-photo-8533860.jpeg",
+          src: 'src/utlis/WhatWeHaveDone/MiraAfter.svg',
           caption: '(witness by “Google–Dev”)'
         }
       ]
@@ -20,22 +23,22 @@ export default function WhatWeHaveDone() {
     {
       heading: "VASAI - NALLA SOPARA",
       images: [
-        { year: "Old", src: "https://images.pexels.com/photos/35082978/pexels-photo-35082978.jpeg" },
-        { year: "New", src: "https://images.pexels.com/photos/8533860/pexels-photo-8533860.jpeg" }
+        { year: "Old", src: "src/utlis/WhatWeHaveDone/VasaiBefore.svg" },
+        { year: "New", src: "src/utlis/WhatWeHaveDone/VasaiAfter.svg" }
       ]
     },
     {
       heading: "NAIGOAN",
       images: [
-        { year: "Old", src: "https://images.pexels.com/photos/35082978/pexels-photo-35082978.jpeg" },
-        { year: "New", src: "https://images.pexels.com/photos/8533860/pexels-photo-8533860.jpeg" }
+        { year: "Old", src: "src/utlis/WhatWeHaveDone/NaigaonBefore.svg" },
+        { year: "New", src: "src/utlis/WhatWeHaveDone/NaigaonAfter.svg" }
       ]
     },
     {
       heading: "PALGHAR DISTRICT",
       images: [
-        { year: "Old", src: "https://images.pexels.com/photos/35082978/pexels-photo-35082978.jpeg" },
-        { year: "New", src: "https://images.pexels.com/photos/8533860/pexels-photo-8533860.jpeg" }
+        { year: "Old", src: "src/utlis/WhatWeHaveDone/NaigaonAfter.svg" },
+        { year: "New", src: "src/utlis/WhatWeHaveDone/PalgharAfter.svg" }
       ]
     }
   ];
@@ -60,10 +63,9 @@ export default function WhatWeHaveDone() {
               key={index}
               onClick={() => setActive(index)}
               className={`whitespace-nowrap cursor-pointer px-6 py-2 rounded-xl border font-medium text-sm md:text-base transition-all
-                ${
-                  active === index
-                    ? "bg-(--primary-color) text-white shadow-md border-transparent"
-                    : "bg-white text-gray-700 border-gray-300 hover:bg-gray-100"
+                ${active === index
+                  ? "bg-(--primary-color) text-white shadow-md border-transparent"
+                  : "bg-white text-gray-700 border-gray-300 hover:bg-gray-100"
                 }
               `}
             >

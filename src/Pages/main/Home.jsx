@@ -90,7 +90,7 @@ const Home = () => {
       <Suspense fallback={<SectionLoader />}>
         <RoadAlignment />
         <Parivar />
-        <GrowthCarausal/>
+        <GrowthCarausal />
         <TestimonialsSlider />
         <WhatWeDo />
         <FAQ />
