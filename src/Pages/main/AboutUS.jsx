@@ -4,6 +4,7 @@ import CoreSectors from "../../Components/About/CoreSectors";
 import ElementsTogether from "../../Components/About/ElementsTogether";
 import ModernTransportation from "../../Components/About/ModernTransportation";
 import OurVision from "../../Components/About/OurVision";
+import RegionToDevelop from "../../Components/About/RegionToDevelop";
 import GetInTouch from "../../Components/Form/GetInTouch";
 import WhatWeDo from "../../Components/WhatWeDo"
 export default function AboutUS() {
@@ -23,6 +24,7 @@ export default function AboutUS() {
             </section>
             <ModernTransportation />
             <ElementsTogether />
+            <RegionToDevelop/>
             <WhatWeDo />
             <GetInTouch />
         </div>

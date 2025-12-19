@@ -6,55 +6,61 @@ export default function OurVision() {
       title: "LANDSCAPED PARK",
       description:
         "Extensively landscaped parks with Fountains, Flower Beds, Green Belts, Large Ground and other recreation",
-      image: "https://images.pexels.com/photos/31746100/pexels-photo-31746100.jpeg",
+      image: "src/utlis/OurVision/LANDSCAPED_PARK.svg",
     },
     {
       title: "MALL",
       description:
         "Multiplex, Restaurant, Shopping Complex with Food Outlets, Gaming Zone for Recreation in Township Itself",
-      image: "https://images.pexels.com/photos/31746100/pexels-photo-31746100.jpeg",
+      image: "src/utlis/OurVision/MALL.svg",
     },
     {
       title: "EDUCATION GROWTH",
       description: "Primary & Secondary School & Colleges",
-      image: "https://images.pexels.com/photos/31746100/pexels-photo-31746100.jpeg",
+      image: "src/utlis/OurVision/EDUCATION GROWTH.svg",
     },
     {
       title: "DAILY UTILITY SERVICES",
       description:
         "They ensure that residents enjoy a smooth, comfortable, and stress-free lifestyle.",
-      image: "https://images.pexels.com/photos/31746100/pexels-photo-31746100.jpeg",
+      image: "src/utlis/OurVision/DAILY_UTILITY_SERVICES.svg",
     },
     {
       title: "WELL CONNECTED TRANSPORT SERVICES",
       description:
         "The region offers excellent connectivity through expanding road networks, suburban rail upgrades.",
-      image: "https://images.pexels.com/photos/31746100/pexels-photo-31746100.jpeg",
+      image: "src/utlis/OurVision/WELL_CONNECTED_TRANSPORT_SERVICES.svg",
     },
     {
       title: "MULTILEVEL SECURITY",
       description:
         "The township features 24×7 surveillance, controlled entry systems, trained security personnel.",
-      image: "https://images.pexels.com/photos/31746100/pexels-photo-31746100.jpeg",
+      image: "src/utlis/OurVision/MULTILEVEL_SECURITY.svg",
     },
     {
       title: "HEALTHCARE CENTER",
       description:
         "A dedicated healthcare center provides quick access to doctors, emergency care, and essential medical services.",
-      image: "https://images.pexels.com/photos/31746100/pexels-photo-31746100.jpeg",
+      image: "src/utlis/OurVision/HEALTHCARE_CENTER.svg",
     },
     {
+      title: "WELL CONNECTED TRANSPORT SERVICES",
+      description:
+        "The region offers excellent connectivity through expanding road networks, suburban rail upgrades.",
+      image: "src/utlis/OurVision/WELL_CONNECTED_TRANSPORT_SERVICES.svg",
+    },
+    {
+      title: "MULTILEVEL SECURITY",
+      description:
+        "The township features 24×7 surveillance, controlled entry systems, trained security personnel.",
+      image: "src/utlis/OurVision/MULTILEVEL_SECURITY.svg",
+    },
+      {
       title: "HEALTHCARE CENTER",
       description:
         "A dedicated healthcare center provides quick access to doctors, emergency care, and essential medical services.",
-      image: "https://images.pexels.com/photos/31746100/pexels-photo-31746100.jpeg",
-    },
-    {
-      title: "HEALTHCARE CENTER",
-      description:
-        "A dedicated healthcare center provides quick access to doctors, emergency care, and essential medical services.",
-      image: "https://images.pexels.com/photos/31746100/pexels-photo-31746100.jpeg",
-    },
+      image: "src/utlis/OurVision/HEALTHCARE_CENTER.svg",
+    }
   ];
 
   const firstRowCards = Data.slice(0, 3);

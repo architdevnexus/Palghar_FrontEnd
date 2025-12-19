@@ -64,7 +64,7 @@ export default function ExploreNewCitySlider() {
       <div className="max-w-5xl mx-auto text-center space-y-4 mb-8">
         <h2 className="text-2xl sm:text-3xl font-bold">Explore Cities</h2>
         <p className="text-black text-sm sm:text-base">
-          Discover top cities with available properties and explore neighborhoods with ease.
+        Take a deep dive and browse homes for sale, original neighborhood photos, resident reviews and local insights to find what is right for you.
         </p>
       </div>
 

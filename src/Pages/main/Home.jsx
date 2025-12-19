@@ -1,4 +1,5 @@
 import React, { lazy, Suspense } from "react";
+import HomeMap from "../../Components/Maps/HomeMap";
 
 /* ===========================
    Lazy Loaded Sections
@@ -39,6 +40,7 @@ const GetInTouch = lazy(() =>
   import("../../Components/Form/GetInTouch")
 );
 
+const GrowthCarausal = lazy(() => import("../../Components/GrowthCarausal"))
 /* ===========================
    Fallback Loader
 =========================== */
@@ -66,12 +68,13 @@ const Home = () => {
       </section>
 
       <Suspense fallback={<SectionLoader />}>
-        <NewProjectsSlider />
+        {/* <NewProjectsSlider /> */}
         <ProjectsTabs />
         <ExploreNewCity />
       </Suspense>
 
       <Suspense fallback={<SectionLoader />}>
+        <HomeMap />
         <HomeDream />
         <WhatWeHaveDone />
       </Suspense>
@@ -89,6 +92,7 @@ const Home = () => {
       <Suspense fallback={<SectionLoader />}>
         <RoadAlignment />
         <Parivar />
+        <GrowthCarausal />
         <TestimonialsSlider />
         <WhatWeDo />
         <FAQ />
