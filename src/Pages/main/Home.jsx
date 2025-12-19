@@ -39,6 +39,7 @@ const GetInTouch = lazy(() =>
   import("../../Components/Form/GetInTouch")
 );
 
+const GrowthCarausal = lazy(() => import("../../Components/GrowthCarausal"))
 /* ===========================
    Fallback Loader
 =========================== */
@@ -89,6 +90,7 @@ const Home = () => {
       <Suspense fallback={<SectionLoader />}>
         <RoadAlignment />
         <Parivar />
+        <GrowthCarausal/>
         <TestimonialsSlider />
         <WhatWeDo />
         <FAQ />
