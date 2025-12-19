@@ -4,22 +4,43 @@ import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 export default function GrowthCarausal() {
     const Data = [
         {
-            id: "palghar-2047",
-            image:
-                "https://images.pexels.com/photos/35202826/pexels-photo-35202826.jpeg",
-            title: "Palghar growth with glory ... 2047",
-            description:
-                "A future-focused infrastructure map showing Palghar as '4th Mumbai', highlighting the proposed Mira–Virar–Palghar Link Road, major expressways, rail corridors, ports, airports, and industrial hubs—positioning the region as a key growth engine of the Mumbai Metropolitan Region by 2047.",
+            "id": "palghar-2047",
+            "image": "src/utlis/GrowthCarausal/1.svg",
+            "title": "Palghar Growth with Glory – 2047",
+            "description": "A future-focused infrastructure vision positioning Palghar as the ‘4th Mumbai’. The map highlights the Mira–Virar–Palghar Link Road, expressways, suburban and high-speed rail corridors, ports, airports, and industrial clusters—showing Palghar as a major economic and urban growth engine of the Mumbai Metropolitan Region by 2047."
         },
         {
-            id: "palghar-2048",
-            image:
-                "https://images.pexels.com/photos/35202826/pexels-photo-35202826.jpeg",
-            title: "Palghar Growth with Glory – 2047",
-            description:
-                "An integrated vision showcasing transport corridors, logistics hubs, urban infrastructure, and future-ready connectivity aimed at transforming Palghar into a strategic metropolitan extension.",
+            "id": "2",
+            "image": "src/utlis/GrowthCarausal/2.svg",
+            "title": "Mira–Virar–Palghar Link Road",
+            "description": "This visual highlights the proposed Mira–Virar–Palghar Link Road and surrounding connectivity, showing how the corridor integrates coastal routes, highways, rail lines, ports, and urban nodes. It emphasizes improved north–south mobility, seamless links to Mumbai, ports, and industrial zones, and the role of this infrastructure in driving regional growth and development."
         },
-    ];
+        {
+            "id": "3",
+            "image": "src/utlis/GrowthCarausal/3.svg",
+            "title": "Mumbai Metropolitan Region (MMR) Connectivity",
+            "description": "This map showcases Palghar’s strategic position within the Mumbai Metropolitan Region, highlighting expressways, rail networks, coastal roads, water transport routes, RO-RO services, and economic corridors. It demonstrates seamless connectivity between Mumbai, Navi Mumbai, Virar, Palghar, Vadhvan Port, and key national routes, positioning Palghar as a vital growth hub within the expanding MMR."
+        },
+        {
+            "id": "4",
+            "image": "src/utlis/GrowthCarausal/4.svg",
+            "title": "Maharashtra Industrial & Economic Growth Hubs",
+            "description": "The visual presents Maharashtra’s regional development strategy through specialized industrial hubs. It highlights designated zones for Data Centers, Aerospace & Defence, EV & Automobile manufacturing, Agriculture, Textile, Semiconductor, and Steel industries across districts such as Palghar, Nashik, Chhatrapati Sambhajinagar, Amaravati, Nagpur, Jalgaon, and Gadchiroli—reflecting a sector-driven statewide growth plan."
+        },
+        {
+            "id": "5",
+            "image": "src/utlis/GrowthCarausal/5.svg",
+            "title": "Palghar District Regional Planning (MMRDA)",
+            "description": "This map illustrates Palghar District’s regional planning framework under the Mumbai Metropolitan Region Development Authority (MMRDA). It shows existing and proposed road networks, major transport corridors, land-use zoning, and administrative boundaries, clearly dividing Palghar into talukas such as Vasai, Palghar, Wada, Jawhar, and Dahanu to explain governance and development planning."
+        },
+        {
+            "id": "6",
+            "image": "src/utlis/GrowthCarausal/6.svg",
+            "title": "Palghar District within Mumbai Metropolitan Region",
+            "description": "The visual highlights Palghar District’s geographic location within the wider Mumbai Metropolitan Region, showing municipal limits, neighboring districts like Mumbai, Thane, Raigad, and Pune, along with major urban zones and transport corridors. It emphasizes Palghar’s integration into Mumbai’s suburban expansion and its role in future metropolitan growth."
+        }
+    ]
+
 
     const [current, setCurrent] = useState(0);
 
@@ -75,8 +96,8 @@ export default function GrowthCarausal() {
                             key={index}
                             onClick={() => setCurrent(index)}
                             className={`h-2.5 w-2.5 rounded-full transition-all ${current === index
-                                    ? "bg-white scale-110"
-                                    : "bg-white/50"
+                                ? "bg-white scale-110"
+                                : "bg-white/50"
                                 }`}
                         />
                     ))}

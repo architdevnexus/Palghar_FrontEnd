@@ -68,13 +68,13 @@ const Home = () => {
       </section>
 
       <Suspense fallback={<SectionLoader />}>
-        <NewProjectsSlider />
+        {/* <NewProjectsSlider /> */}
         <ProjectsTabs />
         <ExploreNewCity />
       </Suspense>
 
       <Suspense fallback={<SectionLoader />}>
-      <HomeMap/>
+        <HomeMap />
         <HomeDream />
         <WhatWeHaveDone />
       </Suspense>

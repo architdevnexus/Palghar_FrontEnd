@@ -1,7 +1,4 @@
 import { useState } from "react";
-// import MiraBefore from "../../utlis/WhatWeHaveDone/MiraBefore"
-// import MiraAfter from "../../utlis/WhatWeHaveDone/MiraAfter"
-
 
 export default function WhatWeHaveDone() {
   const Data = [
