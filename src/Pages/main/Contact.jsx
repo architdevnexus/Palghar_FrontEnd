@@ -18,7 +18,7 @@ export default function Contact() {
                     flex 
                     justify-center
                 "
-                style={{ marginTop: "-60px" }}   
+                style={{ marginTop: "-60px" }}
             >
                 <div className="w-[95%]">
                     <GetInTouch />
@@ -29,7 +29,7 @@ export default function Contact() {
             <div className="mt-10">
                 <HomeMap />
             </div>
-            <OtherCompany/>
+            <OtherCompany />
         </div>
     );
 }

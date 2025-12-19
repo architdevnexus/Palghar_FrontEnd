@@ -1,4 +1,5 @@
 import React, { lazy, Suspense } from "react";
+import HomeMap from "../../Components/Maps/HomeMap";
 
 /* ===========================
    Lazy Loaded Sections
@@ -73,6 +74,7 @@ const Home = () => {
       </Suspense>
 
       <Suspense fallback={<SectionLoader />}>
+      <HomeMap/>
         <HomeDream />
         <WhatWeHaveDone />
       </Suspense>
