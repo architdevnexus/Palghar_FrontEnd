@@ -74,7 +74,7 @@ export default function HomeMap() {
   }, []);
 
   return (
-    <div className="relative w-full h-screen">
+    <div className="relative max-w-7xl z-0 mx-auto  w-full h-screen">
       <MapContainer
         center={defaultCenter}
         zoom={defaultZoom}
@@ -96,7 +96,7 @@ export default function HomeMap() {
               click: () => setActive(property),
             }}
           >
-            <Popup>
+            <Popup className="bg-(--primary-color)">
               <strong>{property.name}</strong>
               <br />
               {property.location.area}, {property.location.city}

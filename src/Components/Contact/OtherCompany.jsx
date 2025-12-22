@@ -187,7 +187,7 @@ export default function OtherCompany() {
         </div>
 
         {/* RIGHT MAP */}
-        <div className="w-full h-[450px] md:h-[650px] rounded-xl overflow-hidden shadow-md">
+        <div className="w-full h-[450px] z-0 md:h-[650px] rounded-xl overflow-hidden shadow-md">
           <MapContainer
             center={defaultCenter}
             zoom={15}

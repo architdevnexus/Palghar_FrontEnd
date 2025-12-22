@@ -4,7 +4,7 @@ export default function MediaHero() {
             className="relative mx-auto h-[50vh] md:h-[60vh] w-[95%] rounded-2xl bg-center bg-cover flex items-center justify-center"
             style={{
                 backgroundImage:
-                    "url('/bg.svg')",
+                    "url('/mediabg.svg')",
                 // borderRadius:"20%"
             }}
         >
