@@ -121,7 +121,7 @@ const FindDreamHouse = () => {
                     <div className="flex items-center justify-end w-full">
 
                         {/* BUTTON */}
-                        <button className="w-1/2 cursor-pointer bg-(--btn-color) hover:bg-[#b75c4b] text-white p-3 rounded-xl font-semibold mt-2 transition-all">
+                        <button className="w-1/2 cursor-pointer bg-(--darkbg-color) hover:bg-[#b75c4b] text-white p-3 rounded-xl font-semibold mt-2 transition-all">
                             Search
                         </button>
                     </div>

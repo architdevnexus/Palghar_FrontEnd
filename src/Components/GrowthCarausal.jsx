@@ -40,8 +40,6 @@ export default function GrowthCarausal() {
             "description": "The visual highlights Palghar District’s geographic location within the wider Mumbai Metropolitan Region, showing municipal limits, neighboring districts like Mumbai, Thane, Raigad, and Pune, along with major urban zones and transport corridors. It emphasizes Palghar’s integration into Mumbai’s suburban expansion and its role in future metropolitan growth."
         }
     ]
-
-
     const [current, setCurrent] = useState(0);
 
     const nextSlide = () =>

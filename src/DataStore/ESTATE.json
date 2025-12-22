@@ -29,7 +29,7 @@
       "status": "Ongoing",
       "price": 4600000,
       "location": {
-        "city": "Boisar",
+        "city": "Raighad",
         "area": "Betegaon Road",
         "pincode": "401501"
       },
@@ -49,7 +49,7 @@
       "status": "Ongoing",
       "price": 8500000,
       "location": {
-        "city": "Wada",
+        "city": "Ratnagiri",
         "area": "Kanchad Road",
         "pincode": "421303"
       },
@@ -69,7 +69,7 @@
       "status": "Upcoming",
       "price": 3800000,
       "location": {
-        "city": "Saphale",
+        "city": "Thane",
         "area": "Saphale East",
         "pincode": "401102"
       },
@@ -89,7 +89,7 @@
       "status": "Ongoing",
       "price": 12500000,
       "location": {
-        "city": "Boisar",
+        "city": "Sindhudurg",
         "area": "Tarapur Road",
         "pincode": "401506"
       },
@@ -108,7 +108,7 @@
       "status": "Ongoing",
       "price": 24000000,
       "location": {
-        "city": "Boisar",
+        "city": "Mumbai City",
         "area": "MIDC Tarapur",
         "pincode": "401506"
       },
