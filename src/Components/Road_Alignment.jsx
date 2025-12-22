@@ -85,7 +85,7 @@ export default function RoadAlignment() {
         </nav>
 
         {/* Right Content */}
-        <div className="flex-1 bg-white rounded-2xl shadow p-4 md:p-6">
+        <div className="flex-1 p-4 md:p-2 rounded-2xl">
           <AnimatePresence mode="wait">
             <motion.article
               key={activeItem.id}
@@ -104,9 +104,9 @@ export default function RoadAlignment() {
                 loading="lazy"
                 decoding="async"
                 className="
-                  w-full rounded-xl
-                  object-contain md:object-cover
-                  max-h-[70vh]
+                  w-full rounded-3xl
+                  object-contain md:object-fill 
+                  max-h-[60vh]
                 "
                 initial={{ scale: 0.96 }}
                 animate={{ scale: 1 }}

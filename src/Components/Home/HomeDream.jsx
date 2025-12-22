@@ -4,7 +4,7 @@ export default function HomeDream() {
       <div className="bg-[#E6F7FA] rounded-3xl p-6 md:p-10 flex flex-col lg:flex-row items-start gap-10">
 
         {/* LEFT CONTENT — ALWAYS 50% ON LARGE SCREENS */}
-        <div className="lg:w-1/2 w-full">
+        <div className="md:w-1/2 w-full">
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900 leading-snug">
             PALGHAR PARIVAR’S DREAM <br /> PROJECT (2026–2035)
           </h1>
@@ -26,22 +26,22 @@ export default function HomeDream() {
         {/* MIDDLE + RIGHT WRAPPER */}
         <div className="flex flex-col lg:flex-row gap-10 w-full lg:w-1/2">
 
-   {/* RIGHT IMAGE */}
+          {/* RIGHT IMAGE */}
           <div className="flex-1 flex justify-center lg:justify-end">
             <img
               src="https://images.pexels.com/photos/34341418/pexels-photo-34341418.jpeg"
               alt="Dream Project"
-              className="w-full max-w-xs md:max-w-sm h-80 md:h-96 object-cover rounded-3xl shadow-md"
+              className="object-cover w-[263px] rounded-3xl shadow-md"
             />
           </div>
           {/* TYPES OF DEVELOPMENT */}
-          <div className="flex-1">
+          <div className="flex-1 justify-between">
             <h2 className="text-xl md:text-2xl font-semibold text-gray-900 flex items-center gap-2">
               <span className="block w-2 h-7 bg-teal-600 rounded-md"></span>
               Types of Development
             </h2>
 
-            <ul className="mt-4 space-y-3">
+            <ul className="mt-4 justify-between">
               {[
                 "Colony for Lower Middle Class",
                 "Colony for Middle Class",
@@ -50,7 +50,7 @@ export default function HomeDream() {
                 "Commercial / Entertainment Area",
                 "Industrial / Speciality Zone",
               ].map((item, i) => (
-                <li key={i} className="flex items-start gap-3">
+                <li key={i} className="flex items-start mt-12 gap-3">
                   <span className="w-3 h-3 rounded-full bg-green-500 mt-1"></span>
                   <span className="text-gray-800 text-sm md:text-base">
                     {item}
@@ -60,7 +60,7 @@ export default function HomeDream() {
             </ul>
           </div>
 
-       
+
 
         </div>
       </div>
