@@ -53,7 +53,7 @@ export default function WhatWeHaveDone() {
       {/* TABS */}
       <div className="relative w-full flex justify-center mb-10">
         <div
-          className="flex gap-3 p-2 rounded-xl bg-white w-full max-w-4xl overflow-x-auto hide-scrollbar"
+          className="flex items-center justify-around gap-1 p-2 rounded-xl bg-white w-full max-w-4xl overflow-x-auto hide-scrollbar"
         >
           {Data.map((item, index) => (
             <button
