@@ -2,7 +2,7 @@
   "properties": [
     {
       "id": 1,
-      "image": "https://images.unsplash.com/photo-1560185127-6a8c0d302c4f",
+      "image": "/bg.svg",
       "title": "Imperial Crest Tower",
       "subtitle": "Sector 12, Harmony Enclave",
       "details": {
@@ -17,7 +17,7 @@
     },
     {
       "id": 2,
-      "image": "https://images.unsplash.com/photo-1599423300746-b62533397364",
+      "image": "https://i.pinimg.com/736x/ff/97/bf/ff97bfc29aeeef0e5948e36228911f7d.jpg",
       "title": "Royal Orchid Residency",
       "subtitle": "Palm Beach Road, Navi Mumbai",
       "details": {
@@ -32,7 +32,7 @@
     },
     {
       "id": 3,
-      "image": "https://images.unsplash.com/photo-1572120360610-d971b9b78828",
+      "image": "https://i.pinimg.com/736x/ff/97/bf/ff97bfc29aeeef0e5948e36228911f7d.jpg",
       "title": "Lakeview Heights",
       "subtitle": "Powai, Mumbai",
       "details": {

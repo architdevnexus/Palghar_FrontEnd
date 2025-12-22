@@ -3,25 +3,6 @@ import { endPoints } from "./endpoints.jsx";
 
 // ------------- AUTH API CALLS -------------
 export const auth = {
-  login: async (body) => {
-    try {
-      const res = await instance.post(endPoints.auth.loginUser, body);
-      return res;
-    } catch (err) {
-      console.error("LOGIN ERROR:", err?.response?.data || err.message);
-      throw err;
-    }
-  },
-
-  signup: async (body) => {
-    try {
-      const res = await instance.post(endPoints.auth.signupUser, body);
-      return res;
-    } catch (err) {
-      console.error("SIGNUP ERROR:", err?.response?.data || err.message);
-      throw err;
-    }
-  },
 
   getinTouch: async (body) => {
     try {
@@ -31,6 +12,7 @@ export const auth = {
       console.error("getinTouch", error?.response?.data || error.message)
     }
   },
+ 
   newsLetter: async (body) => {
     try {
       const res = await instance.post(endPoints.auth.newLetter, body)
@@ -65,4 +47,12 @@ export const main = {
       throw err;
     }
   },
+  testimonial:async(body) =>{
+    try {
+      const res = await instance.post(endPoints.main.testimonial, body);
+      return res;
+    } catch (error) {
+      console.error("testimonial" , err?.response?.data || err.message)
+    }
+  }
 };

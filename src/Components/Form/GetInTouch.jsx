@@ -17,20 +17,45 @@ export default function GetInTouch() {
     };
 
     const handleSubmit = async (e) => {
-        e.preventDefault();
-        setLoading(true);
+  e.preventDefault();
 
-        try {
-            await auth.getinTouch(formData); // corrected function name
-            setSuccess("Message sent successfully!");
-            setFormData({ name: "", email: "", message: "" });
-        } catch (error) {
-            console.error(error);
-            setSuccess("Something went wrong. Try again.");
-        }
+  if (!formData.name || !formData.email || !formData.message) {
+    setSuccess("Please fill all required fields.");
+    return;
+  }
 
-        setLoading(false);
-    };
+  setLoading(true);
+
+  try {
+    // 🔍 Log payload before API call (dev only)
+    if (process.env.NODE_ENV === "development") {
+      console.log("GetInTouch Payload 👉", formData);
+    }
+
+    const res = await auth.getinTouch(formData);
+
+    if (res?.status === 200 || res?.status === 201) {
+      setSuccess("Message sent successfully!");
+
+      setFormData({
+        name: "",
+        email: "",
+        message: ""
+      });
+    } else {
+      setSuccess("Something went wrong. Try again.");
+    }
+  } catch (error) {
+    console.error(
+      "GetInTouch Error 👉",
+      error?.response?.data || error.message
+    );
+    setSuccess("Something went wrong. Try again.");
+  } finally {
+    setLoading(false);
+  }
+};
+
 
     return (
         <div className="w-full bg-(--lightbg-color) py-12 flex justify-center ">
