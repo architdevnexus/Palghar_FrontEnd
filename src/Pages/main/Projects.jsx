@@ -8,7 +8,7 @@ export default function Projects() {
       id: 1,
       projectname: "Yogesh Signature",
       address: "Near Juhu Circle, Gulmohar Lane, Mumbai",
-      img: "https://images.pexels.com/photos/1333397/pexels-photo-1333397.jpeg",
+      img: "https://i.pinimg.com/736x/51/5d/bd/515dbd1e135853ef04eefb0bd320e362.jpg",
       locationUrl: "https://maps.google.com/?q=Near+Juhu+Circle+Mumbai",
       status: "COMING SOON..."
     },
@@ -16,7 +16,7 @@ export default function Projects() {
       id: 2,
       projectname: "Skyline Avenue",
       address: "Opp. Golden Nest Circle, Mira Road East",
-      img: "https://images.pexels.com/photos/1333397/pexels-photo-1333397.jpeg",
+      img: "https://i.pinimg.com/736x/ff/97/bf/ff97bfc29aeeef0e5948e36228911f7d.jpg",
       locationUrl: "https://maps.google.com/?q=Mira+Road+East",
       status: "NEW LAUNCH"
     },
@@ -24,7 +24,7 @@ export default function Projects() {
       id: 3,
       projectname: "Green Valley Homes",
       address: "Near Vasai Phatak, Vasai West",
-      img: "https://images.pexels.com/photos/1333397/pexels-photo-1333397.jpeg",
+      img: "https://i.pinimg.com/736x/51/5d/bd/515dbd1e135853ef04eefb0bd320e362.jpg",
       locationUrl: "https://maps.google.com/?q=Vasai+West",
       status: "BOOKING OPEN"
     },
@@ -32,7 +32,7 @@ export default function Projects() {
       id: 4,
       projectname: "Palm Residency",
       address: "Behind Maxus Mall, Bhayandar West",
-      img: "https://images.pexels.com/photos/1333397/pexels-photo-1333397.jpeg",
+      img: "https://i.pinimg.com/736x/ff/97/bf/ff97bfc29aeeef0e5948e36228911f7d.jpg",
       locationUrl: "https://maps.google.com/?q=Bhayandar+West",
       status: "SOLD OUT"
     },
@@ -40,7 +40,7 @@ export default function Projects() {
       id: 5,
       projectname: "Elite Heights",
       address: "Ambadi Road, Vasai West",
-      img: "https://images.pexels.com/photos/1333397/pexels-photo-1333397.jpeg",
+      img: "https://i.pinimg.com/736x/51/5d/bd/515dbd1e135853ef04eefb0bd320e362.jpg",
       locationUrl: "https://maps.google.com/?q=Ambadi+Road+Vasai+West",
       status: "POSSESSION SOON"
     },
@@ -48,7 +48,7 @@ export default function Projects() {
       id: 6,
       projectname: "Ocean View Towers",
       address: "Near Arnala Beach, Virar West",
-      img: "https://images.pexels.com/photos/1333397/pexels-photo-1333397.jpeg",
+      img: "https://i.pinimg.com/736x/ff/97/bf/ff97bfc29aeeef0e5948e36228911f7d.jpg",
       locationUrl: "https://maps.google.com/?q=Arnala+Beach+Virar",
       status: "COMING SOON..."
     }

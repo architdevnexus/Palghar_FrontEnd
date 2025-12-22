@@ -1,7 +1,7 @@
 export default function AboutHero() {
 const AboutHeader = () => {
   return (
-    <div className="absolute text-center z-10 w-1/2 ">
+    <div className="absolute mt-32 sm:mt-0  text-center z-10 w-full sm:w-1/2">
       
       {/* OUTER WRAPPER — ACTS AS WHITE BORDER */}
       <div
@@ -12,14 +12,14 @@ const AboutHeader = () => {
       >
         {/* INNER LAYER — ACTUAL COLORED SHAPE */}
         <div
-          className="h-32 md:h-68 flex justify-around  items-center px-8 
+          className="h-42   md:h-68 flex justify-around  items-center px-8 
           text-white text-2xl md:text-5xl font-semibold 
           bg-(--primary-color) mr-2 rounded-2xl"
           style={{
             clipPath: "polygon(0 0, 100% 0%, 60% 100%, 0 100%)",
           }}
         >
-          About Us <span></span>
+          About Us 
         </div>
       </div>
     </div>

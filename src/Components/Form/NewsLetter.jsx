@@ -6,31 +6,42 @@ export default function NewsLetter() {
     const [loading, setLoading] = useState(false);
     const [message, setMessage] = useState("");
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        if (!email.trim()) {
-            setMessage("Please enter a valid email.");
-            return;
-        }
+   const handleSubmit = async (e) => {
+  e.preventDefault();
 
-        try {
-            setLoading(true);
-            setMessage("");
+  if (!email.trim()) {
+    setMessage("Please enter a valid email.");
+    return;
+  }
 
-            const res = await auth.newsLetter({ email }); // ⬅️ API call
+  try {
+    setLoading(true);
+    setMessage("");
 
-            if (res?.status) {
-                setMessage("Thank you for subscribing!");
-                setEmail("");
-            } else {
-                setMessage("Subscription failed. Try again!");
-            }
-        } catch (error) {
-            setMessage("Something went wrong.");
-        } finally {
-            setLoading(false);
-        }
-    };
+    // 🔍 Dev-only logging
+    if (process.env.NODE_ENV === "development") {
+      console.log("Newsletter Payload 👉", { email });
+    }
+
+    const res = await auth.newsLetter({ email });
+
+    if (res?.status === 200 || res?.status === 201) {
+      setMessage("Thank you for subscribing!");
+      setEmail("");
+    } else {
+      setMessage("Subscription failed. Try again!");
+    }
+  } catch (error) {
+    console.error(
+      "Newsletter Error 👉",
+      error?.response?.data || error.message
+    );
+    setMessage("Something went wrong.");
+  } finally {
+    setLoading(false);
+  }
+};
+
 
     return (
         <div className="flex flex-col items-start justify-start gap-2">

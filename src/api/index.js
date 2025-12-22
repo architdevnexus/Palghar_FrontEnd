@@ -4,8 +4,8 @@ import { useAppStore } from "../store/authStore";
 
 // Create axios instance
 export const instance = axios.create({
-  baseURL: "https://your-api-url.com",
-  timeout: 15000,
+  baseURL: import.meta.env.VITE_BASE_URL,
+  timeout: 1500,
 });
 
 // REQUEST INTERCEPTOR

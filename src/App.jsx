@@ -63,9 +63,9 @@ export default function App() {
                   <Route path="/blog/:id" element={<DynamicPage />} />
 
                   {/* Auth Pages */}
-                  <Route path="/login" element={<Login />} />
+                  {/* <Route path="/login" element={<Login />} />
                   <Route path="/signup" element={<Signup />} />
-                  <Route path="/forgot-password" element={<ForgotPassword />} />
+                  <Route path="/forgot-password" element={<ForgotPassword />} /> */}
 
                   {/* 404 */}
                   <Route
