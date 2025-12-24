@@ -18,15 +18,17 @@ const PalgharHomeCard = ({ item = {} }) => {
                 h-[260px]
                 flex
                 flex-col
-                justify-center
                 items-center
                 text-center
                 gap-3
-                transition
+                
+                hover:shadow-md
+                transition-all
+                duration-300
             "
         >
             {/* Logo */}
-            <div className="flex items-center justify-center shrink-0">
+            <div className="w-20 h-12 flex items-center justify-center shrink-0">
                 <img
                     src="/palghar_logo.svg"
                     alt={`${name} logo`}
@@ -36,12 +38,23 @@ const PalgharHomeCard = ({ item = {} }) => {
             </div>
 
             {/* Company Name */}
-            <h2 className="text-lg font-bold uppercase leading-snug line-clamp-2 min-h-6">
+            <h2
+                className="
+                    text-sm
+                    font-bold
+                    uppercase
+                    tracking-wide
+                    leading-snug
+                    min-h-10
+                    line-clamp-2
+                "
+                title={name}   // shows full name on hover
+            >
                 {name}
             </h2>
 
             {/* Category */}
-            <p className="text-sm text-gray-500 tracking-wide line-clamp-1 min-h-4">
+            <p className="text-xs text-gray-500 min-h-4 line-clamp-1">
                 {category}
             </p>
 
@@ -52,11 +65,11 @@ const PalgharHomeCard = ({ item = {} }) => {
             <div className="flex-1" />
 
             {/* Email */}
-            <div className="flex items-center gap-2 text-gray-600 text-sm">
+            <div className="flex items-center gap-2 text-gray-600 text-xs">
                 <span className="bg-teal-500 text-white rounded-full p-1 flex items-center justify-center">
                     <MdEmail size={14} />
                 </span>
-                <span className="text-xs break-all line-clamp-2">
+                <span className="break-all line-clamp-2">
                     {email}
                 </span>
             </div>
