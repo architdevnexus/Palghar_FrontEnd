@@ -1,20 +1,24 @@
-import { useState, useMemo, useCallback } from "react";
+import { useState, useEffect, useMemo, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { CiSearch } from "react-icons/ci";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Data from "../DataStore/ESTATE.json";
 import ProjectShowCase from "./Cards/ProjectShowCase";
-
+import { useMainStore } from "../store/GetAllData"
 const TABS = ["All", "Upcoming", "Ongoing", "Completed"];
 const ITEMS_PER_PAGE = 4;
 
 export default function ProjectsShowCase() {
     const allProjects = Data?.palghar_properties ?? [];
-
+    const { data, loading, error, fetchAllData } = useMainStore();
     const [activeTab, setActiveTab] = useState("All");
     const [search, setSearch] = useState("");
     const [page, setPage] = useState(1);
 
+    useEffect(() => {
+        fetchAllData()
+    }, [])
+    console.log(data)
     /* ------------------ FILTER PROJECTS ------------------ */
     const filteredProjects = useMemo(() => {
         const query = search.toLowerCase();
@@ -80,11 +84,10 @@ export default function ProjectsShowCase() {
                         <button
                             key={tab}
                             onClick={() => handleTabChange(tab)}
-                            className={`px-5 py-2 rounded-2xl text-sm font-medium transition-all ${
-                                activeTab === tab
-                                    ? "bg-(--primary-color) text-white shadow-lg"
-                                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                            }`}
+                            className={`px-5 py-2 rounded-2xl text-sm font-medium transition-all ${activeTab === tab
+                                ? "bg-(--primary-color) text-white shadow-lg"
+                                : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                                }`}
                         >
                             {tab}
                         </button>

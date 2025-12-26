@@ -6,17 +6,23 @@ export const useMainStore = create((set) => ({
   loading: false,
   error: null,
 
-  // Fetch All Data
-  fetchAllData: async () => {
+  fetchAllData: async (params = {}) => {
     try {
       set({ loading: true, error: null });
 
-      const res = await main.allData();
-      set({ data: res.data, loading: false });
+      const res = await main.allData(params);
 
+      set({
+        data: res.data,
+        loading: false,
+      });
     } catch (err) {
-      set({ error: err?.response?.data || "Something went wrong", loading: false });
+      set({
+        error:
+          err?.response?.data?.message ||
+          "Failed to fetch data",
+        loading: false,
+      });
     }
   },
-
 }));
