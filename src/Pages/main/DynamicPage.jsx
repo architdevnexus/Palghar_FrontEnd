@@ -1,20 +1,48 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import Datas from "../../DataStore/blogs.json";
 
 const DynamicPage = () => {
   const { id } = useParams();
-  const Data = Datas?.Data || [];
+  const [blog, setBlog] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  // Find the blog that matches the ID
-  const blog = Data.find((item) => item.id === parseInt(id));
+  useEffect(() => {
+    const fetchBlog = async () => {
+      setLoading(true);
+      setError(null);
 
-  // If blog not found, show a 404 message
-  if (!blog) {
+      try {
+        const res = await fetch(`${import.meta.env.VITE_BASE_URL}/api/blog/${id}`);
+        if (!res.ok) {
+          throw new Error("Blog not found");
+        }
+
+        const data = await res.json();
+        setBlog(data.blog || null);
+      } catch (err) {
+        setError(err.message || "Something went wrong");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchBlog();
+  }, [id]);
+
+  if (loading) {
     return (
       <div className="w-full h-screen flex items-center justify-center">
-        <h2 className="text-2xl font-semibold">Blog not found.</h2>
-        <Link to="/blogs" className="text-blue-500 ml-4 underline">
+        <h2 className="text-2xl font-semibold">Loading...</h2>
+      </div>
+    );
+  }
+
+  if (error || !blog) {
+    return (
+      <div className="w-full h-screen flex flex-col items-center justify-center">
+        <h2 className="text-2xl font-semibold">{error || "Blog not found."}</h2>
+        <Link to="/blogs" className="text-blue-500 mt-4 underline">
           Go Back
         </Link>
       </div>

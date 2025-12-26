@@ -83,10 +83,7 @@ export default function Parivar() {
                                     <PalgharHomeCard item={item} />
                                 </div>
 
-                                {/* DESKTOP GREEN DIVIDER */}
-                                {/* {isDivider && (
-                                    <div className="hidden md:block col-span-full h-1 bg-green-500 mx-6 rounded-2xl" />
-                                )} */}
+                              
                             </div>
                         );
                     })}

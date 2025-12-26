@@ -30,7 +30,7 @@ const MenuItem = memo(({ label, isActive, onClick }) => (
     aria-current={isActive}
     className={`
       w-full text-left px-4 py-3 rounded-xl text-sm md:text-base font-medium
-      transition-all duration-200
+      transition-all duration-200 cursor-pointer
       focus:outline-none focus:ring-2 focus:ring-teal-500
       ${isActive
         ? "bg-teal-600 text-white shadow"
@@ -70,7 +70,7 @@ export default function RoadAlignment() {
           className="
             lg:w-[38%] bg-white rounded-2xl shadow
             p-2 flex flex-col gap-2
-            max-h-[70vh] overflow-y-auto
+            max-h-[70vh] overflow-y-auto 
           "
           aria-label="Road alignment list"
         >

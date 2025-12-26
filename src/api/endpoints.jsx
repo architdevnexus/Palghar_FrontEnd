@@ -1,11 +1,13 @@
+// src/api/endpoints.js
 export const endPoints = {
   auth: {
-    getinTouch: 'api/getintouch',
-    newsLetter: 'api/newsLetter',
-    enquiry: 'api/enquiry',
-    testimonial: 'api/testimonial'
+    getInTouch: "/api/contact/create",
+    newsLetter: "/api/subscribe",
+    enquiry: "/api/enquiry/create",
   },
+
   main: {
-    allData: 'api/allData'
-  }
-}
+    allData: "/api/propertyandprojects/all",
+    testimonial: "/api/testimonials/all",
+  },
+};

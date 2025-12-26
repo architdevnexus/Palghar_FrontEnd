@@ -1,9 +1,8 @@
 import { useEffect, useState, useCallback } from "react";
 import { X } from "lucide-react";
-import { main } from "../../api/apiCall";
 
 export default function EnquireForm({ open, onClose }) {
-  const [loading, setLoading] = useState(false);
+  const BASE_URL = import.meta.env.VITE_BASE_URL;
 
   const [formData, setFormData] = useState({
     name: "",
@@ -14,13 +13,18 @@ export default function EnquireForm({ open, onClose }) {
     message: ""
   });
 
-  // Prevent background scroll
+  const [loading, setLoading] = useState(false);
+  const [successMessage, setSuccessMessage] = useState("");
+
+  // Prevent background scroll when modal is open
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "auto";
-    return () => (document.body.style.overflow = "auto");
+    return () => {
+      document.body.style.overflow = "auto";
+    };
   }, [open]);
 
-  // Optimized change handler
+  // Input change handler
   const handleChange = useCallback((e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -28,49 +32,54 @@ export default function EnquireForm({ open, onClose }) {
 
   // Submit handler
   const handleSubmit = async (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  if (!formData.name || !formData.phone || !formData.email) {
-    alert("Please fill all required fields");
-    return;
-  }
+    const { name, phone, email, city, enquiryType, message } = formData;
 
-  try {
+    if (!name || !phone || !email) {
+      alert("Please fill all required fields");
+      return;
+    }
+
     setLoading(true);
+    setSuccessMessage("");
 
-    const payload = {
-      ...formData,
-      countryCode: "+91"
-    };
+    try {
+      const payload = { name, phone, email, city, enquiryType, message, countryCode: "+91" };
+      console.log("Enquiry Payload 👉", payload);
 
-    // ✅ LOG DATA BEFORE API CALL
-    console.log("Enquiry Payload 👉", payload);
-
-    const res = await main.enquiry(payload);
-    console.log("Enquiry Response 👉", res);
-
-    if (res?.status === 200 || res?.status === 201) {
-      alert("Enquiry submitted successfully");
-
-      setFormData({
-        name: "",
-        phone: "",
-        email: "",
-        city: "",
-        enquiryType: "",
-        message: ""
+      const res = await fetch(`${BASE_URL}/api/enquiry/create`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
+        body: JSON.stringify(payload)
       });
 
-      onClose();
-    }
-  } catch (error) {
-    console.error("Enquiry Error 👉", error?.response?.data || error.message);
-    alert("Something went wrong");
-  } finally {
-    setLoading(false);
-  }
-};
+      const text = await res.text();
+      let data = null;
+      try { data = JSON.parse(text); } catch { console.warn("Response not JSON:", text); }
 
+      if (res.ok) {
+        setSuccessMessage("✅ Your enquiry has been submitted successfully!");
+        setFormData({
+          name: "",
+          phone: "",
+          email: "",
+          city: "",
+          enquiryType: "",
+          message: ""
+        });
+        setTimeout(onClose, 2000); // auto-close after 2s
+      } else {
+        setSuccessMessage(`⚠️ ${data?.message || "Something went wrong. Try again."}`);
+      }
+    } catch (err) {
+      console.error("Enquiry Error 👉", err);
+      setSuccessMessage("⚠️ Something went wrong. Try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   if (!open) return null;
 
@@ -95,6 +104,13 @@ export default function EnquireForm({ open, onClose }) {
         <p className="text-center text-sm text-gray-600 mb-5">
           Please share your details, and our team will get in touch with you shortly.
         </p>
+
+        {/* Success Message */}
+        {successMessage && (
+          <div className="mb-4 rounded-lg bg-green-100 px-4 py-2 text-center text-sm text-green-700">
+            {successMessage}
+          </div>
+        )}
 
         {/* Form */}
         <form className="space-y-4" onSubmit={handleSubmit}>

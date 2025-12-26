@@ -1,81 +1,89 @@
 import { useState } from "react";
-import { auth } from "../../api/apiCall";
 
 export default function NewsLetter() {
-    const [email, setEmail] = useState("");
-    const [loading, setLoading] = useState(false);
-    const [message, setMessage] = useState("");
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState("");
 
-   const handleSubmit = async (e) => {
-  e.preventDefault();
+  const BASE_URL = import.meta.env.VITE_BASE_URL;
 
-  if (!email.trim()) {
-    setMessage("Please enter a valid email.");
-    return;
-  }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-  try {
-    setLoading(true);
-    setMessage("");
-
-    // 🔍 Dev-only logging
-    if (process.env.NODE_ENV === "development") {
-      console.log("Newsletter Payload 👉", { email });
+    if (!email.trim()) {
+      setMessage("Please enter a valid email.");
+      return;
     }
 
-    const res = await auth.newsLetter({ email });
+    try {
+      setLoading(true);
+      setMessage("");
 
-    if (res?.status === 200 || res?.status === 201) {
+      const payload = { email };
+
+      // ✅ Vite-safe dev log
+      if (import.meta.env.DEV) {
+        console.log("Newsletter Payload 👉", payload);
+      }
+
+      const res = await fetch(`${BASE_URL}/api/subscribe`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+        credentials: "include", // required if backend uses cookies
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data?.message || "Subscription failed");
+      }
+
       setMessage("Thank you for subscribing!");
       setEmail("");
-    } else {
-      setMessage("Subscription failed. Try again!");
+    } catch (error) {
+      console.error("Newsletter Error 👉", error.message);
+      setMessage(error.message || "Something went wrong.");
+    } finally {
+      setLoading(false);
     }
-  } catch (error) {
-    console.error(
-      "Newsletter Error 👉",
-      error?.response?.data || error.message
-    );
-    setMessage("Something went wrong.");
-  } finally {
-    setLoading(false);
-  }
-};
+  };
 
+  return (
+    <div className="flex flex-col items-start justify-start gap-2">
+      <span className="text-lg font-semibold">Newsletter Signup</span>
+      <span className="text-sm text-white">
+        Subscribe to our Newsletter for latest updates!
+      </span>
 
-    return (
-        <div className="flex flex-col items-start justify-start gap-2">
-            <span className="text-lg font-semibold">Newsletter Signup</span>
-            <span className="text-sm text-white">
-                Subscribe to our Newsletter for latest updates!
-            </span>
+      <form
+        onSubmit={handleSubmit}
+        className="flex flex-wrap items-center gap-3 mt-2"
+      >
+        <input
+          type="email"
+          placeholder="Enter your email"
+          className="bg-white text-(--primary-color) outline-none px-4 py-2 rounded-xl w-60"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
 
-            <form
-                onSubmit={handleSubmit}
-                className="flex flex-wrap items-center gap-3 mt-2"
-            >
-                <input
-                    type="email"
-                    placeholder="Enter your email"
-                    className="bg-white text-(--primary-color) outline-none px-4 py-2 rounded-xl w-60"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                />
+        <button
+          type="submit"
+          disabled={loading}
+          className="bg-(--primary-color) text-white px-5 py-2 rounded-xl disabled:opacity-50"
+        >
+          {loading ? "..." : "Subscribe"}
+        </button>
+      </form>
 
-                <button
-                    type="submit"
-                    disabled={loading}
-                    className="bg-(--primary-color) text-white px-5 py-2 rounded-xl disabled:opacity-50"
-                >
-                    {loading ? "..." : "Subscribe"}
-                </button>
-            </form>
-
-            {message && (
-                <span className="text-sm text-red-500 mt-1">
-                    {message}
-                </span>
-            )}
-        </div>
-    );
+      {message && (
+        <span className="text-sm text-(--primary-color) mt-1">
+          {message}
+        </span>
+      )}
+    </div>
+  );
 }

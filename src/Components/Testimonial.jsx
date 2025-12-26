@@ -1,16 +1,23 @@
 import { useState, useEffect, useMemo, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import Data from "../DataStore/testimonials.json";
 
-export default function TestimonialsSlider() {
-    // Memoize testimonials to avoid recalculations
-    const testimonials = useMemo(() => Data?.testimonials || [], []);
+import { useTestimonialStore } from "../store/GetTestimonial"
+
+export default function TestimonialSlider() {
+    // Memoize testimonial to avoid recalculations
+
+
+    const { testimonial, loading, error, fetchTestimonial } = useTestimonialStore();
 
     const [index, setIndex] = useState(0);
     const [isPaused, setIsPaused] = useState(false);
 
-    const total = testimonials.length;
+    const total = testimonial.length;
+
+    useEffect(() => {
+        fetchTestimonial();
+    }, [])
 
     // Navigation functions (memoized)
     const handlePrev = useCallback(() => {
@@ -36,12 +43,12 @@ export default function TestimonialsSlider() {
     if (total === 0) {
         return (
             <div className="py-20 text-center text-gray-700">
-                No testimonials available.
+                No testimonial available.
             </div>
         );
     }
 
-    const current = testimonials[index];
+    const current = testimonial[index];
 
     return (
         <div
@@ -141,4 +148,3 @@ export default function TestimonialsSlider() {
         </div>
     );
 }
-    

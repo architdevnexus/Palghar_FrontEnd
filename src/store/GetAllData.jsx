@@ -1,22 +1,40 @@
 import { create } from "zustand";
-import { main } from "../api/apiCall";
 
 export const useMainStore = create((set) => ({
-  data: null,
+  projectdata: [],
   loading: false,
   error: null,
 
-  // Fetch All Data
-  fetchAllData: async () => {
+  // Fetch all properties and projects
+  fetchAllData: async (params = {}) => {
+    const BASE_URL = import.meta.env.VITE_BASE_URL;
+    set({ loading: true, error: null });
+
     try {
-      set({ loading: true, error: null });
+      // Construct query string if params exist
+      const queryString = new URLSearchParams(params).toString();
+      const url = `${BASE_URL}/api/propertandprojects/all${queryString ? `?${queryString}` : ""}`;
 
-      const res = await main.allData();
-      set({ data: res.data, loading: false });
+      const res = await fetch(url);
+      if (!res.ok) {
+        const errorText = await res.text();
+        let errorData;
+        try {
+          errorData = JSON.parse(errorText);
+        } catch {
+          errorData = { message: errorText };
+        }
+        throw new Error(errorData.message || "Failed to fetch data");
+      }
 
+      const data = await res.json();
+      set({ projectdata: data?.data, loading: false });
     } catch (err) {
-      set({ error: err?.response?.data || "Something went wrong", loading: false });
+      console.error("FetchAllData Error 👉", err);
+      set({
+        error: err.message || "Failed to fetch data",
+        loading: false,
+      });
     }
   },
-
 }));
