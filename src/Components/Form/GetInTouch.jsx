@@ -26,7 +26,7 @@ export default function GetInTouch() {
   setStatus({ message: "", type: "" });
 
   try {
-    const res = await fetch(`${BASE_URL}/contact/create`, {
+    const res = await fetch(`${BASE_URL}/api/contact/create`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       credentials: "include", // send cookies

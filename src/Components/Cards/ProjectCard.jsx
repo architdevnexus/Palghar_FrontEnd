@@ -2,11 +2,7 @@ import { IoLocationOutline } from "react-icons/io5";
 import { GoArrowUpRight } from "react-icons/go";
 
 export default function ProjectCard({
-    img,
-    projectname,
-    address,
-    locationUrl = "#",
-    status = "COMING SOON...",
+   item
 }) {
     return (
         <div
@@ -20,8 +16,8 @@ export default function ProjectCard({
             {/* IMAGE (fixed height & consistent) */}
             <div className="w-full h-56 md:h-64 shrink-0">
                 <img
-                    src={img}
-                    alt={projectname}
+                    src={item?.image}
+                    alt={item?.name}
                     className="w-full h-full object-cover"
                 />
             </div>
@@ -30,16 +26,16 @@ export default function ProjectCard({
             <div className="px-5 py-4 flex flex-col justify-between grow min-h-[150px]">
                 <div className="flex flex-col gap-2">
                     <h3 className="text-xl font-semibold text-gray-900">
-                        {projectname}
+                        {item?.name}
                     </h3>
 
                     <p className="text-gray-500 text-sm line-clamp-2">
-                        {address}
+                        {item?.address}
                     </p>
                 </div>
 
                 <a
-                    href={locationUrl}
+                    href={item?.map_url}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="
@@ -63,7 +59,7 @@ export default function ProjectCard({
                         bg-[#E8FCFF] text-[#00879F] font-medium text-sm
                     "
                 >
-                    ✨ {status}
+                    ✨ {item?.status}
                 </span>
             </div>
         </div>

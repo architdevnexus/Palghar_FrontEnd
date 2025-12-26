@@ -2,177 +2,171 @@ import { useState, useEffect, useMemo, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { CiSearch } from "react-icons/ci";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import Data from "../DataStore/ESTATE.json";
 import ProjectShowCase from "./Cards/ProjectShowCase";
-import { useMainStore } from "../store/GetAllData"
-const TABS = ["All", "Upcoming", "Ongoing", "Completed"];
+import { useMainStore } from "../store/GetAllData";
+
 const ITEMS_PER_PAGE = 4;
 
 export default function ProjectsShowCase() {
-    const allProjects = Data?.palghar_properties ?? [];
-    const { data, loading, error, fetchAllData } = useMainStore();
-    const [activeTab, setActiveTab] = useState("All");
-    const [search, setSearch] = useState("");
-    const [page, setPage] = useState(1);
+  const { projectdata, loading, error, fetchAllData } = useMainStore();
 
-    useEffect(() => {
-        fetchAllData()
-    }, [])
-    console.log(data)
-    /* ------------------ FILTER PROJECTS ------------------ */
-    const filteredProjects = useMemo(() => {
-        const query = search.toLowerCase();
+  const [activeTab, setActiveTab] = useState("All");
+  const [search, setSearch] = useState("");
+  const [page, setPage] = useState(1);
 
-        return allProjects.filter((project) => {
-            const statusMatch =
-                activeTab === "All"
-                    ? true
-                    : (project?.status ?? "").toLowerCase() === activeTab.toLowerCase();
+  useEffect(() => {
+    fetchAllData();
+  }, [fetchAllData]);
 
-            const searchMatch =
-                (project?.name ?? "").toLowerCase().includes(query) ||
-                (project?.location?.area ?? "").toLowerCase().includes(query) ||
-                (project?.location?.city ?? "").toLowerCase().includes(query);
+  /* ------------------ PROJECT DATA ------------------ */
+  const allProjects = useMemo(
+    () => projectdata?.[0]?.properties || [],
+    [projectdata]
+  );
 
-            return statusMatch && searchMatch;
-        });
-    }, [allProjects, activeTab, search]);
+  /* ------------------ AUTO STATUS TABS ------------------ */
+  const TABS = useMemo(() => {
+    const statuses = new Set();
 
-    /* ------------------ PAGINATION ------------------ */
-    const totalPages = useMemo(
-        () => Math.ceil(filteredProjects.length / ITEMS_PER_PAGE),
-        [filteredProjects.length]
-    );
+    allProjects.forEach((project) => {
+      if (project?.status) {
+        statuses.add(project.status);
+      }
+    });
 
-    const currentProjects = useMemo(() => {
-        const start = (page - 1) * ITEMS_PER_PAGE;
-        return filteredProjects.slice(start, start + ITEMS_PER_PAGE);
-    }, [filteredProjects, page]);
+    return ["All", ...Array.from(statuses)];
+  }, [allProjects]);
 
-    /* ------------------ HANDLERS ------------------ */
-    const handleTabChange = useCallback((tab) => {
-        setActiveTab(tab);
-        setPage(1);
-    }, []);
+  /* ------------------ FILTER ------------------ */
+  const filteredProjects = useMemo(() => {
+    const query = search.toLowerCase();
 
-    const handleSearchChange = useCallback((e) => {
-        setSearch(e.target.value);
-        setPage(1);
-    }, []);
+    return allProjects.filter((project) => {
+      const statusMatch =
+        activeTab === "All"
+          ? true
+          : project?.status?.toLowerCase() === activeTab.toLowerCase();
 
-    const handlePrevPage = useCallback(
-        () => setPage((prev) => Math.max(prev - 1, 1)),
-        []
-    );
+      const searchMatch =
+        project?.name?.toLowerCase().includes(query) ||
+        project?.location?.area?.toLowerCase().includes(query) ||
+        project?.location?.city?.toLowerCase().includes(query);
 
-    const handleNextPage = useCallback(
-        () => setPage((prev) => Math.min(prev + 1, totalPages)),
-        [totalPages]
-    );
+      return statusMatch && searchMatch;
+    });
+  }, [allProjects, activeTab, search]);
 
-    return (
-        <div className="w-full p-6 space-y-6">
-            <h2 className="text-black font-bold text-3xl text-center">
-                Project Showcase
-            </h2>
+  /* ------------------ PAGINATION ------------------ */
+  const totalPages = Math.ceil(filteredProjects.length / ITEMS_PER_PAGE);
 
-            {/* FILTER BAR */}
-            <div className="max-w-full w-full flex-wrap flex items-center gap-4 justify-center">
-                {/* Tabs */}
-                <div className="flex gap-3 justify-between max-w-md rounded-2xl p-1 bg-white overflow-x-auto no-scrollbar mb-6">
-                    {TABS.map((tab) => (
-                        <button
-                            key={tab}
-                            onClick={() => handleTabChange(tab)}
-                            className={`px-5 py-2 rounded-2xl text-sm font-medium transition-all ${activeTab === tab
-                                ? "bg-(--primary-color) text-white shadow-lg"
-                                : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                                }`}
-                        >
-                            {tab}
-                        </button>
-                    ))}
-                </div>
+  const currentProjects = useMemo(() => {
+    const start = (page - 1) * ITEMS_PER_PAGE;
+    return filteredProjects.slice(start, start + ITEMS_PER_PAGE);
+  }, [filteredProjects, page]);
 
-                {/* Search */}
-                <div className="flex justify-center mb-6">
-                    <div className="flex w-full rounded-2xl overflow-hidden border border-gray-300">
-                        <input
-                            type="text"
-                            placeholder="Search projects by name, area, or city..."
-                            value={search}
-                            onChange={handleSearchChange}
-                            className="flex-1 px-4 py-2 outline-none text-(--primary-color)"
-                        />
-                        <div className="flex items-center px-4 bg-(--primary-color) text-white">
-                            <CiSearch size={24} />
-                        </div>
-                    </div>
-                </div>
-            </div>
+  /* ------------------ HANDLERS ------------------ */
+  const handleTabChange = useCallback((tab) => {
+    setActiveTab(tab);
+    setPage(1);
+  }, []);
 
-            {/* PROJECT GRID */}
-            <AnimatePresence mode="wait">
-                <motion.div
-                    key={`${activeTab}-${search}-${page}`}
-                    layout
-                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
-                >
-                    {currentProjects.length ? (
-                        currentProjects.map((project) => (
-                            <motion.div
-                                key={project?.id}
-                                layout
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                exit={{ opacity: 0, y: -20 }}
-                                transition={{ duration: 0.3 }}
-                            >
-                                <ProjectShowCase
-                                    title={project?.name ?? "Unnamed Project"}
-                                    image={
-                                        project?.images?.[0] ??
-                                        "https://via.placeholder.com/400x250"
-                                    }
-                                    bhk={project?.config ?? "-"}
-                                    sqft={project?.carpet_sqft ?? "-"}
-                                    area={project?.location?.area ?? "-"}
-                                    city={project?.location?.city ?? "-"}
-                                />
-                            </motion.div>
-                        ))
-                    ) : (
-                        <p className="text-center col-span-full text-gray-500 mt-10">
-                            No projects found.
-                        </p>
-                    )}
-                </motion.div>
-            </AnimatePresence>
+  const handleSearchChange = useCallback((e) => {
+    setSearch(e.target.value);
+    setPage(1);
+  }, []);
 
-            {/* PAGINATION */}
-            {totalPages > 1 && (
-                <div className="flex justify-center items-center gap-4 mt-6">
-                    <button
-                        onClick={handlePrevPage}
-                        disabled={page === 1}
-                        className="p-2 rounded-full bg-gray-200 hover:bg-gray-300 disabled:opacity-50"
-                    >
-                        <ChevronLeft size={20} />
-                    </button>
+  const handlePrevPage = () => setPage((p) => Math.max(p - 1, 1));
+  const handleNextPage = () => setPage((p) => Math.min(p + 1, totalPages));
 
-                    <span className="text-gray-700 font-medium">
-                        Page {page} of {totalPages}
-                    </span>
+  return (
+    <div className="w-full p-6 space-y-6">
+      <h2 className="font-bold text-3xl text-center">Project Showcase</h2>
 
-                    <button
-                        onClick={handleNextPage}
-                        disabled={page === totalPages}
-                        className="p-2 rounded-full bg-gray-200 hover:bg-gray-300 disabled:opacity-50"
-                    >
-                        <ChevronRight size={20} />
-                    </button>
-                </div>
-            )}
+      {/* FILTER BAR */}
+      <div className="flex flex-wrap justify-center gap-4">
+        <div className="flex gap-2 bg-white p-1 rounded-2xl flex-wrap justify-center">
+          {TABS.map((tab) => (
+            <button
+              key={tab}
+              onClick={() => handleTabChange(tab)}
+              className={`px-5 py-2 rounded-2xl text-sm font-medium transition-all
+                ${
+                  activeTab === tab
+                    ? "bg-(--primary-color) text-white shadow-lg"
+                    : "bg-gray-100 hover:bg-gray-200"
+                }`}
+            >
+              {tab}
+            </button>
+          ))}
         </div>
-    );
+
+        {/* Search */}
+        <div className="flex border rounded-2xl overflow-hidden">
+          <input
+            type="text"
+            value={search}
+            onChange={handleSearchChange}
+            placeholder="Search projects..."
+            className="px-4 py-2 outline-none"
+          />
+          <div className="px-4 flex items-center bg-(--primary-color) text-white">
+            <CiSearch size={22} />
+          </div>
+        </div>
+      </div>
+
+      {/* GRID */}
+      <AnimatePresence mode="wait">
+        <motion.div
+          layout
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+        >
+          {!loading && currentProjects.length ? (
+            currentProjects.map((project) => (
+              <motion.div
+                key={project?._id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+              >
+                <ProjectShowCase item={project} />
+              </motion.div>
+            ))
+          ) : (
+            !loading && (
+              <p className="col-span-full text-center text-gray-500">
+                No projects found.
+              </p>
+            )
+          )}
+        </motion.div>
+      </AnimatePresence>
+
+      {/* PAGINATION */}
+      {totalPages > 1 && (
+        <div className="flex justify-center items-center gap-4">
+          <button
+            onClick={handlePrevPage}
+            disabled={page === 1}
+            className="p-2 rounded-full bg-gray-200 disabled:opacity-50"
+          >
+            <ChevronLeft />
+          </button>
+
+          <span className="font-medium">
+            Page {page} of {totalPages}
+          </span>
+
+          <button
+            onClick={handleNextPage}
+            disabled={page === totalPages}
+            className="p-2 rounded-full bg-gray-200 disabled:opacity-50"
+          >
+            <ChevronRight />
+          </button>
+        </div>
+      )}
+    </div>
+  );
 }
