@@ -65,10 +65,10 @@ const DynamicPage = () => {
       </div>
 
       {/* Blog Title */}
-      <h1 className="text-3xl md:text-4xl font-bold mb-6">{blog.title}</h1>
+      <h1 className="text-lg md:text-xl font-bold mb-6">{blog.title}</h1>
 
       {/* Blog Description */}
-      <p className="text-gray-700 text-lg leading-relaxed">{blog.blogContent}</p>
+      <p className="text-gray-700 text-base leading-relaxed">{blog.blogContent}</p>
     </div>
   );
 };
