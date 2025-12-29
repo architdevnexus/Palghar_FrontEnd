@@ -1,9 +1,17 @@
 import { useMemo } from "react";
 import { useNavigate } from "react-router-dom";
+import DOMPurify from "dompurify";
 
 /* ---------- utils ---------- */
 const truncate = (text = "", max) =>
   text.length > max ? text.slice(0, max) + "..." : text;
+
+/* Strip HTML to plain text */
+const stripHTML = (html = "") => {
+  const div = document.createElement("div");
+  div.innerHTML = html;
+  return div.textContent || div.innerText || "";
+};
 
 export default function BlogCard({ item }) {
   const navigate = useNavigate();
@@ -18,6 +26,20 @@ export default function BlogCard({ item }) {
       month: date.toLocaleString("en-US", { month: "short" }),
     };
   }, [item?.createdAt]);
+
+  /* ---------- Safe Preview Content ---------- */
+  const previewText = useMemo(() => {
+    if (!item?.blogContent) return "";
+
+    // 1. Sanitize HTML
+    const cleanHTML = DOMPurify.sanitize(item.blogContent);
+
+    // 2. Convert to plain text
+    const textOnly = stripHTML(cleanHTML);
+
+    // 3. Truncate for card preview
+    return truncate(textOnly, 180);
+  }, [item?.blogContent]);
 
   return (
     <div className="w-full max-w-md flex flex-col gap-4 p-4 rounded-2xl shadow-md bg-white relative">
@@ -44,14 +66,14 @@ export default function BlogCard({ item }) {
       {/* Title & Description */}
       <div className="flex flex-col gap-2">
 
-        {/* Fixed-height title */}
+        {/* Title */}
         <h2 className="text-xl font-semibold border-l-4 pl-3 border-teal-600 line-clamp-2 min-h-14">
           {truncate(item?.title, 50)}
         </h2>
 
-        {/* Fixed-height description */}
+        {/* Sanitized Description Preview */}
         <p className="text-gray-600 text-sm line-clamp-4 min-h-20">
-          {truncate(item?.blogContent, 180)}
+          {previewText}
         </p>
       </div>
 
