@@ -16,7 +16,7 @@ export default function Projects() {
     () => projectdata?.[0]?.projects || [],
     [projectdata]
   );
-
+console.log(projects)
   return (
     <div className="w-full flex flex-col">
       {/* HERO SECTION */}

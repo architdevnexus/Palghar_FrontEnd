@@ -1,135 +1,220 @@
-import React, { useMemo, useState } from "react";
-import Data from "../../DataStore/ESTATE.json";
-import { FaChevronCircleDown } from "react-icons/fa";
+import React, {
+  useEffect,
+  useMemo,
+  useState,
+  useCallback,
+} from "react";
+import { useMainStore } from "../../store/GetAllData";
+import Modal from "../PopUp/Modal";
+
 const FindDreamHouse = () => {
-    const realData = Data?.palghar_properties ?? [];
+  const { loading, error, fetchAllData, projectdata } = useMainStore();
 
-    // Safely convert location object to readable text
-    const formatLocation = (loc) => {
-        if (typeof loc === "string") return loc;
-        if (typeof loc === "object" && loc !== null) {
-            return `${loc.area || ""}, ${loc.city || ""} (${loc.pincode || ""})`;
-        }
-        return "Unknown";
-    };
+  const [showPopup, setShowPopup] = useState(false);
 
-    // Extract unique values
-    const { locations, types, statuses } = useMemo(() => {
-        const loc = new Map(); // map for unique formatted + raw storage
-        const typ = new Set();
-        const stat = new Set();
+  const [filters, setFilters] = useState({
+    location: "",
+    type: "",
+    status: "",
+  });
 
-        realData.forEach((item) => {
-            if (item.location) {
-                const label = formatLocation(item.location);
-                loc.set(label, item.location); // key = rendered string, value = actual object/string
-            }
-            if (item.type) typ.add(item.type);
-            if (item.status) stat.add(item.status);
-        });
+  /* ---------- FETCH DATA ---------- */
+  useEffect(() => {
+    fetchAllData();
+  }, [fetchAllData]);
 
-        return {
-            locations: [...loc.keys()],
-            types: [...typ],
-            statuses: [...stat],
-        };
-    }, [realData]);
+  /* ---------- NORMALIZE DATA ---------- */
+  const data = useMemo(() => {
+    const source = projectdata?.[0];
+    if (!source) return [];
 
-    // Form State
-    const [form, setForm] = useState({
-        location: "",
-        type: "",
-        status: "",
+    const properties =
+      source.properties?.map((p) => ({
+        id: p._id,
+        name: p.name,
+        city: p.location?.city || "",
+        area: p.location?.area || "",
+        status: p.status,
+        type: p.type,
+        image: p.images?.[0]?.url,
+        price: p.pricing?.sale_price,
+      })) || [];
+
+    const projects =
+      source.projects?.map((p) => ({
+        id: p._id,
+        name: p.name,
+        city: p.address || "",
+        area: "",
+        status: p.status,
+        type: "Project",
+        image: p.image?.url,
+      })) || [];
+
+    return [...properties, ...projects];
+  }, [projectdata]);
+
+  /* ---------- FILTER OPTIONS ---------- */
+  const options = useMemo(() => {
+    const locations = new Set();
+    const types = new Set();
+    const statuses = new Set();
+
+    data.forEach((item) => {
+      locations.add(
+        `${item.city}${item.area ? `, ${item.area}` : ""} • ${item.status}`
+      );
+      types.add(item.type);
+      statuses.add(item.status);
     });
 
-    const handleChange = (e) => {
-        setForm({ ...form, [e.target.name]: e.target.value });
+    return {
+      locations: [...locations],
+      types: [...types],
+      statuses: [...statuses],
     };
+  }, [data]);
 
+  /* ---------- FILTER CHANGE ---------- */
+  const onChange = useCallback((e) => {
+    const { name, value } = e.target;
+    setFilters((prev) => ({ ...prev, [name]: value }));
+  }, []);
+
+  /* ---------- FILTER RESULTS ---------- */
+  const results = useMemo(() => {
+    return data.filter((item) => {
+      const locationKey = `${item.city}${item.area ? `, ${item.area}` : ""} • ${item.status}`;
+
+      if (filters.location && filters.location !== locationKey) return false;
+      if (filters.type && filters.type !== item.type) return false;
+      if (filters.status && filters.status !== item.status) return false;
+
+      return true;
+    });
+  }, [data, filters]);
+
+  /* ---------- LOADING ---------- */
+  if (loading) {
     return (
-        <div className="w-full flex justify-center p-4">
-            {/* Card */}
-            <div className="bg-(--primary-color) p-2 md:p-4 rounded-2xl border-4 border-white shadow-xl max-w-4xl w-full relative">
-
-                {/* Logo Box */}
-                <div className="absolute w-3/4 -top-10 left-1/2 -translate-x-1/2 bg-white px-1 py-2 rounded-xl shadow-lg flex items-center gap-2">
-                    <img src="/palghar_logo.svg" alt="logo" className="w-14" />
-                    <span className="font-semibold text-lg">Palghar Infrastructure</span>
-                </div>
-
-                <h2 className="text-center font-bold text-xl mt-10 mb-6 underline">
-                    Find Your Dream Home
-                </h2>
-
-                {/* FORM */}
-                <div className="flex flex-col gap-4">
-
-                    {/* LOCATION */}
-                    <div className="flex items-center w-full bg-white rounded-xl overflow-hidden">
-                        <select
-                            name="location"
-                            value={form.location}
-                            onChange={handleChange}
-                            className="p-3 w-full outline-none text-gray-700"
-                        >
-                            <option value="">Location</option>
-                            {locations.map((locText, i) => (
-                                <option key={i} value={locText}>
-                                    {locText}
-                                </option>
-                            ))}
-                        </select>
-                    </div>
-
-                    {/* TYPE */}
-                    <div className="flex items-center w-full bg-white rounded-xl overflow-hidden">
-                        <select
-                            name="type"
-                            value={form.type}
-                            onChange={handleChange}
-                            className="p-3 w-full outline-none text-gray-700"
-                        >
-                            <option value="">Type</option>
-                            {types.map((typ, i) => (
-                                <option key={i} value={typ}>
-                                    {typ}
-                                </option>
-                            ))}
-                        </select>
-
-
-                    </div>
-
-                    {/* STATUS */}
-                    <div className="flex items-center w-full bg-white rounded-xl overflow-hidden">
-                        <select
-                            name="status"
-                            value={form.status}
-                            onChange={handleChange}
-                            className="p-3 w-full outline-none text-gray-700"
-                        >
-                            <option value="">Status</option>
-                            {statuses.map((stat, i) => (
-                                <option key={i} value={stat}>
-                                    {stat}
-                                </option>
-                            ))}
-                        </select>
-
-
-                    </div>
-                    <div className="flex items-center justify-end w-full">
-
-                        {/* BUTTON */}
-                        <button className="w-1/2 cursor-pointer bg-(--darkbg-color) hover:bg-[#b75c4b] text-white p-3 rounded-xl font-semibold mt-2 transition-all">
-                            Search
-                        </button>
-                    </div>
-
-                </div>
-            </div>
-        </div>
+      <div className="flex justify-center py-10">
+        <div className="w-full max-w-md h-72 bg-gray-200 animate-pulse rounded-3xl" />
+      </div>
     );
+  }
+
+  if (error) {
+    return (
+      <p className="text-center text-red-500 py-10">
+        {error}
+      </p>
+    );
+  }
+
+  return (
+    <>
+      {/* SEARCH CARD */}
+      <div className="flex justify-center px-4 py-10">
+        <div className="w-full max-w-md bg-[var(--primary-color)] p-6 rounded-3xl shadow-xl text-white">
+          <h2 className="text-center text-2xl font-bold mb-6">
+            Find Your Dream Home
+          </h2>
+
+          <div className="flex flex-col gap-4">
+            <select
+              name="location"
+              onChange={onChange}
+              className="p-3 rounded-xl cursor-pointer text-black"
+            >
+              <option value="">Select Location</option>
+              {options.locations.map((l) => (
+                <option key={l} value={l}>{l}</option>
+              ))}
+            </select>
+
+            <select
+              name="type"
+              onChange={onChange}
+              className="p-3 rounded-xl cursor-pointer text-black"
+            >
+              <option value="">Select Type</option>
+              {options.types.map((t) => (
+                <option key={t} value={t}>{t}</option>
+              ))}
+            </select>
+
+            <select
+              name="status"
+              onChange={onChange}
+              className="p-3 cursor-pointer rounded-xl text-black"
+            >
+              <option value="">Select Status</option>
+              {options.statuses.map((s) => (
+                <option key={s} value={s}>{s}</option>
+              ))}
+            </select>
+
+            <button
+              onClick={() => setShowPopup(true)}
+              className="bg-black hover:bg-gray-900 transition p-3 rounded-xl font-semibold"
+            >
+              Search Properties
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* ---------- RESULTS MODAL ---------- */}
+      {showPopup && (
+        <Modal onClose={() => setShowPopup(false)}>
+          <h3 className="text-2xl font-bold mb-6">
+            Search Results
+          </h3>
+
+          {results.length === 0 ? (
+            <p className="text-center text-gray-500">
+              No properties found
+            </p>
+          ) : (
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {results.map((item) => (
+                <div
+                  key={item.id}
+                  className="border rounded-2xl overflow-hidden shadow hover:shadow-lg transition"
+                >
+                  <img
+                    src={item.image || "/placeholder.jpg"}
+                    alt={item.name}
+                    className="h-40 w-full object-cover"
+                  />
+
+                  <div className="p-4">
+                    <h4 className="font-semibold">{item.name}</h4>
+                    <p className="text-sm text-gray-500">
+                      {item.city}
+                    </p>
+                    <div className="flex justify-between mt-3 text-sm">
+                      <span className="bg-gray-100 px-2 py-1 rounded">
+                        {item.type}
+                      </span>
+                      <span className="text-green-600 font-medium">
+                        {item.status}
+                      </span>
+                    </div>
+                    {item.price && (
+                      <p className="mt-2 font-bold">
+                        ₹ {item.price}
+                      </p>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </Modal>
+      )}
+    </>
+  );
 };
 
 export default FindDreamHouse;

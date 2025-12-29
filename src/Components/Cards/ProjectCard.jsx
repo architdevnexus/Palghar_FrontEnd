@@ -16,7 +16,7 @@ export default function ProjectCard({
             {/* IMAGE (fixed height & consistent) */}
             <div className="w-full h-56 md:h-64 shrink-0">
                 <img
-                    src={item?.image}
+                    src={item?.image?.url}
                     alt={item?.name}
                     className="w-full h-full object-cover"
                 />

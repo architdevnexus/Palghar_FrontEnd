@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useMemo , useEffect} from "react";
 import Data from "../../DataStore/ESTATE.json";
 import FindDreamHouse from "../Form/FindDreamHouse";
 import WhoWeAre from "../WhoWeAre";
@@ -10,6 +10,7 @@ import "swiper/css/autoplay";
 
 const HomeHero = () => {
     const realData = Data?.palghar_properties ?? [];
+   
 
     const { images } = useMemo(() => {
         const imgs = [];
