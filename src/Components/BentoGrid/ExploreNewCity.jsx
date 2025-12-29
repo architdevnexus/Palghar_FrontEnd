@@ -21,7 +21,7 @@ export default function ExploreNewCitySlider() {
     () => projectdata?.[0]?.properties || [],
     [projectdata]
   );
-
+console.log(allCities)
   /* ---------------- RESPONSIVE ---------------- */
   const getCardsPerSlide = () =>
     window.innerWidth < 640
@@ -152,7 +152,7 @@ export default function ExploreNewCitySlider() {
               >
                 <ExploreCityCard
                   city={city?.location?.city || "Unknown"}
-                  image={city?.images?.[0]}
+                  image={city?.images?.[0]?.url}
                   link={`/city/${city?.location?.city?.toLowerCase() || ""}`}
                   loading="lazy"
                 />
