@@ -1,134 +1,185 @@
-import React, { useMemo, useState } from "react";
-import Data from "../../DataStore/ESTATE.json";
-import { FaChevronCircleDown } from "react-icons/fa";
+import React, {
+    useEffect,
+    useMemo,
+    useState,
+    useCallback,
+} from "react";
+import { useMainStore } from "../../store/GetAllData";
+import SearchPopup from "../PopUp/SearchPopup";
+
 const FindDreamHouse = () => {
-    const realData = Data?.palghar_properties ?? [];
+    const { loading, error, fetchAllData, projectdata } = useMainStore();
+    const [showPopup, setShowPopup] = useState(false);
 
-    // Safely convert location object to readable text
-    const formatLocation = (loc) => {
-        if (typeof loc === "string") return loc;
-        if (typeof loc === "object" && loc !== null) {
-            return `${loc.area || ""}, ${loc.city || ""} (${loc.pincode || ""})`;
-        }
-        return "Unknown";
-    };
-
-    // Extract unique values
-    const { locations, types, statuses } = useMemo(() => {
-        const loc = new Map(); // map for unique formatted + raw storage
-        const typ = new Set();
-        const stat = new Set();
-
-        realData.forEach((item) => {
-            if (item.location) {
-                const label = formatLocation(item.location);
-                loc.set(label, item.location); // key = rendered string, value = actual object/string
-            }
-            if (item.type) typ.add(item.type);
-            if (item.status) stat.add(item.status);
-        });
-
-        return {
-            locations: [...loc.keys()],
-            types: [...typ],
-            statuses: [...stat],
-        };
-    }, [realData]);
-
-    // Form State
-    const [form, setForm] = useState({
+    const [filters, setFilters] = useState({
         location: "",
         type: "",
         status: "",
     });
 
-    const handleChange = (e) => {
-        setForm({ ...form, [e.target.name]: e.target.value });
-    };
+    /* ---------- FETCH DATA ---------- */
+    useEffect(() => {
+        fetchAllData();
+    }, [fetchAllData]);
+
+    /* ---------- NORMALIZE DATA ---------- */
+    const data = useMemo(() => {
+        const source = projectdata?.[0];
+        if (!source) return [];
+
+        const properties =
+            source.properties?.map((p) => ({
+                id: p._id,
+                name: p.name,
+                city: p.location?.city || "",
+                area: p.location?.area || "",
+                status: p.status,
+                type: p.type,
+                image: p.images?.[0]?.url,
+                price: p.pricing?.sale_price,
+            })) || [];
+
+        const projects =
+            source.projects?.map((p) => ({
+                id: p._id,
+                name: p.name,
+                city: p.address || "",
+                area: "",
+                status: p.status,
+                type: "Project",
+                image: p.image?.url,
+            })) || [];
+
+        return [...properties, ...projects];
+    }, [projectdata]);
+
+    /* ---------- FILTER OPTIONS ---------- */
+    const options = useMemo(() => {
+        const locations = new Set();
+        const types = new Set();
+        const statuses = new Set();
+
+        data.forEach((item) => {
+            locations.add(
+                `${item.city}${item.area ? `, ${item.area}` : ""} • ${item.status}`
+            );
+            types.add(item.type);
+            statuses.add(item.status);
+        });
+
+        return {
+            locations: [...locations],
+            types: [...types],
+            statuses: [...statuses],
+        };
+    }, [data]);
+
+    /* ---------- FILTER CHANGE ---------- */
+    const onChange = useCallback((e) => {
+        const { name, value } = e.target;
+        setFilters((prev) => ({ ...prev, [name]: value }));
+    }, []);
+
+    /* ---------- FILTER RESULTS ---------- */
+    const results = useMemo(() => {
+        return data.filter((item) => {
+            const locationKey = `${item.city}${item.area ? `, ${item.area}` : ""
+                } • ${item.status}`;
+
+            if (filters.location && filters.location !== locationKey) return false;
+            if (filters.type && filters.type !== item.type) return false;
+            if (filters.status && filters.status !== item.status) return false;
+
+            return true;
+        });
+    }, [data, filters]);
+
+    /* ---------- LOADING ---------- */
+    if (loading) {
+        return (
+            <div className="flex justify-center py-10">
+                <div className="w-full max-w-md h-72 bg-gray-200 animate-pulse rounded-3xl" />
+            </div>
+        );
+    }
+
+    if (error) {
+        return (
+            <p className="text-center text-red-500 py-10">
+                {error}
+            </p>
+        );
+    }
 
     return (
-        <div className="w-full flex justify-center p-4">
-            {/* Card */}
-            <div className="bg-(--primary-color) p-2 md:p-4 rounded-2xl border-4 border-white shadow-xl max-w-4xl w-full relative">
+        <>
+            {/* SEARCH CARD */}
+            <div className="flex relative justify-center relative px-4 py-10">
+                <div className="w-full max-w-md bg-[var(--primary-color)] p-6 rounded-3xl shadow-xl text-white">
+                    <h2 className="text-center text-2xl font-bold mb-6">
+                        Find Your Dream Home
+                    </h2>
 
-                {/* Logo Box */}
-                <div className="absolute w-3/4 -top-10 left-1/2 -translate-x-1/2 bg-white px-1 py-2 rounded-xl shadow-lg flex items-center gap-2">
-                    <img src="/palghar_logo.svg" alt="logo" className="w-14" />
-                    <span className="font-semibold text-lg">Palghar Infrastructure</span>
-                </div>
-
-                <h2 className="text-center font-bold text-xl mt-10 mb-6 underline">
-                    Find Your Dream Home
-                </h2>
-
-                {/* FORM */}
-                <div className="flex flex-col gap-4">
-
-                    {/* LOCATION */}
-                    <div className="flex items-center w-full bg-white rounded-xl overflow-hidden">
+                    <div className="flex flex-col gap-4">
                         <select
                             name="location"
-                            value={form.location}
-                            onChange={handleChange}
-                            className="p-3 w-full outline-none text-gray-700"
+                            onChange={onChange}
+                            className="p-3 rounded-xl text-black"
                         >
-                            <option value="">Location</option>
-                            {locations.map((locText, i) => (
-                                <option key={i} value={locText}>
-                                    {locText}
+                            <option value="">Select Location</option>
+                            {options.locations.map((l) => (
+                                <option key={l} value={l}>
+                                    {l}
                                 </option>
                             ))}
                         </select>
-                    </div>
 
-                    {/* TYPE */}
-                    <div className="flex items-center w-full bg-white rounded-xl overflow-hidden">
                         <select
                             name="type"
-                            value={form.type}
-                            onChange={handleChange}
-                            className="p-3 w-full outline-none text-gray-700"
+                            onChange={onChange}
+                            className="p-3 rounded-xl text-black"
                         >
-                            <option value="">Type</option>
-                            {types.map((typ, i) => (
-                                <option key={i} value={typ}>
-                                    {typ}
+                            <option value="">Select Type</option>
+                            {options.types.map((t) => (
+                                <option key={t} value={t}>
+                                    {t}
                                 </option>
                             ))}
                         </select>
 
-
-                    </div>
-
-                    {/* STATUS */}
-                    <div className="flex items-center w-full bg-white rounded-xl overflow-hidden">
                         <select
                             name="status"
-                            value={form.status}
-                            onChange={handleChange}
-                            className="p-3 w-full outline-none text-gray-700"
+                            onChange={onChange}
+                            className="p-3 rounded-xl text-black"
                         >
-                            <option value="">Status</option>
-                            {statuses.map((stat, i) => (
-                                <option key={i} value={stat}>
-                                    {stat}
+                            <option value="">Select Status</option>
+                            {options.statuses.map((s) => (
+                                <option key={s} value={s}>
+                                    {s}
                                 </option>
                             ))}
                         </select>
 
-
-                    </div>
-                    <div className="flex items-center justify-end w-full">
-
-                        {/* BUTTON */}
-                        <button className="w-1/2 cursor-pointer bg-(--darkbg-color) hover:bg-[#b75c4b] text-white p-3 rounded-xl font-semibold mt-2 transition-all">
-                            Search
+                        <button
+                            onClick={() => setShowPopup(true)}
+                            className="bg-black hover:bg-gray-900 transition p-3 rounded-xl font-semibold"
+                        >
+                            Search Properties
                         </button>
                     </div>
-
                 </div>
             </div>
-        </div>
+            <div className="absolute">
+
+                {/* ✅ REUSABLE POPUP */}
+                <SearchPopup
+                    open={showPopup}
+                    onClose={() => setShowPopup(false)}
+                    results={results}
+                    loading={loading}
+                />
+            </div>
+        </>
     );
 };
 
