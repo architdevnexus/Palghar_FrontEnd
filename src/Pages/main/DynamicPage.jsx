@@ -53,7 +53,7 @@ const DynamicPage = () => {
     <div className="w-full max-w-5xl mx-auto px-4 md:px-10 py-10">
       {/* Blog Image */}
       <img
-        src={blog.image}
+        src={blog.featureImage}
         alt={blog.title}
         className="w-full h-64 md:h-96 object-cover rounded-xl mb-6"
       />
@@ -68,7 +68,7 @@ const DynamicPage = () => {
       <h1 className="text-3xl md:text-4xl font-bold mb-6">{blog.title}</h1>
 
       {/* Blog Description */}
-      <p className="text-gray-700 text-lg leading-relaxed">{blog.desc}</p>
+      <p className="text-gray-700 text-lg leading-relaxed">{blog.blogContent}</p>
     </div>
   );
 };

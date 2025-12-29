@@ -114,7 +114,7 @@ const FindDreamHouse = () => {
     return (
         <>
             {/* SEARCH CARD */}
-            <div className="flex relative justify-center relative px-4 py-10">
+            <div className="flex relative justify-center px-4 py-10">
                 <div className="w-full max-w-md bg-[var(--primary-color)] p-6 rounded-3xl shadow-xl text-white">
                     <h2 className="text-center text-2xl font-bold mb-6">
                         Find Your Dream Home
