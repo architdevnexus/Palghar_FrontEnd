@@ -13,12 +13,14 @@ export default function TestimonialSlider() {
     const [index, setIndex] = useState(0);
     const [isPaused, setIsPaused] = useState(false);
 
+
+
     const total = testimonial.length;
 
     useEffect(() => {
         fetchTestimonial();
     }, [])
-
+// console.log(testimonial)
     // Navigation functions (memoized)
     const handlePrev = useCallback(() => {
         setIndex(prev => (prev === 0 ? total - 1 : prev - 1));
@@ -49,6 +51,7 @@ export default function TestimonialSlider() {
     }
 
     const current = testimonial[index];
+    // console.log("current",current)
 
     return (
         <div

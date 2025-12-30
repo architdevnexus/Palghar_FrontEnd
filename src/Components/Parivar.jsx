@@ -1,5 +1,6 @@
 import PalgharHomeCard from "./Cards/PalgharHomeCards";
 
+
 export default function Parivar() {
     const palgharHomeCards = [
         {
