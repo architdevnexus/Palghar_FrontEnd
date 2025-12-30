@@ -2,7 +2,7 @@ import { createPortal } from "react-dom";
 
 const Modal = ({ children, onClose }) => {
   return createPortal(
-    <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/60">
+    <div className="fixed inset-0 z-9999 flex items-center justify-center bg-black/60">
       <div className="relative w-full max-w-5xl max-h-[85vh] bg-white rounded-3xl p-6 overflow-y-auto">
 
         <button
