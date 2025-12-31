@@ -41,7 +41,7 @@ export default function ProjectShowCase({ item }) {
       {/* Bottom Floating Info Card */}
       <div
         className="
-          absolute bottom-4 left-4 right-4
+          absolute bottom-0 left-0 
           bg-white/95 backdrop-blur-lg 
           rounded-xl p-4
           shadow-lg flex flex-col gap-3 z-10
