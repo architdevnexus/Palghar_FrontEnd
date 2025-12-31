@@ -117,8 +117,8 @@ export default function TestimonialSlider() {
                         <div className="absolute top-4 right-[15%] sm:right-6 translate-x-1/2 sm:translate-x-0">
                             <div className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-full bg-gray-300 flex items-center justify-center overflow-hidden ring-4 ring-white shadow-lg">
                                 <img
-                                    src={current?.image || "https://i.pinimg.com/originals/5f/8e/96/5f8e96cb23f0d31ab72682ac56db7bf7.png"}
-                                    alt="User"
+                                    src={current?.image}
+                                    alt={current.name}
                                     className="w-full h-full object-cover"
                                 />
                             </div>
