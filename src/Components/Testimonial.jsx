@@ -1,153 +1,145 @@
-import { useState, useEffect, useMemo, useCallback } from "react";
+import { useState, useEffect, useCallback, memo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { useTestimonialStore } from "../store/GetTestimonial";
 
-import { useTestimonialStore } from "../store/GetTestimonial"
+const AUTO_SLIDE_TIME = 5000;
 
-export default function TestimonialSlider() {
-    // Memoize testimonial to avoid recalculations
+function TestimonialSlider() {
+  const { testimonial = [], loading, fetchTestimonial } =
+    useTestimonialStore();
 
+  const [index, setIndex] = useState(0);
+  const [paused, setPaused] = useState(false);
 
-    const { testimonial, loading, error, fetchTestimonial } = useTestimonialStore();
+  const total = testimonial.length;
 
-    const [index, setIndex] = useState(0);
-    const [isPaused, setIsPaused] = useState(false);
+  /* -------- Fetch once -------- */
+  useEffect(() => {
+    fetchTestimonial();
+  }, [fetchTestimonial]);
 
+  /* -------- Reset index on data change -------- */
+  useEffect(() => {
+    if (index >= total) setIndex(0);
+  }, [index, total]);
 
+  /* -------- Navigation -------- */
+  const prev = useCallback(() => {
+    setIndex((i) => (i === 0 ? total - 1 : i - 1));
+  }, [total]);
 
-    const total = testimonial.length;
+  const next = useCallback(() => {
+    setIndex((i) => (i === total - 1 ? 0 : i + 1));
+  }, [total]);
 
-    useEffect(() => {
-        fetchTestimonial();
-    }, [])
-    console.log(testimonial)
-    // Navigation functions (memoized)
-    const handlePrev = useCallback(() => {
-        setIndex(prev => (prev === 0 ? total - 1 : prev - 1));
-    }, [total]);
+  /* -------- Auto slide -------- */
+  useEffect(() => {
+    if (paused || total <= 1) return;
+    const timer = setInterval(next, AUTO_SLIDE_TIME);
+    return () => clearInterval(timer);
+  }, [paused, total, next]);
 
-    const handleNext = useCallback(() => {
-        setIndex(prev => (prev === total - 1 ? 0 : prev + 1));
-    }, [total]);
+  if (loading) {
+    return <div className="py-20 text-center">Loading testimonials…</div>;
+  }
 
-    // Auto-slide effect
-    useEffect(() => {
-        if (isPaused || total === 0) return;
+  if (!total) {
+    return <div className="py-20 text-center">No testimonials found.</div>;
+  }
 
-        const interval = setInterval(() => {
-            setIndex(prev => (prev === total - 1 ? 0 : prev + 1));
-        }, 5000); // 5-second auto-slide
+  const current = testimonial[index];
+  const rating = Math.min(5, Math.max(0, Math.round(current?.rating || 0)));
 
-        return () => clearInterval(interval);
-    }, [isPaused, total]);
+  return (
+    <section
+      className="relative w-full py-20 bg-[#E9F6F7] bg-[url('/testimonialBack.svg')] bg-cover bg-center"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+    >
+      <h2 className="text-center text-3xl md:text-4xl font-bold mb-14">
+        What Our Clients Say
+      </h2>
 
-    // If no data exists
-    if (total === 0) {
-        return (
-            <div className="py-20 text-center text-gray-700">
-                No testimonial available.
+      <div className="relative max-w-4xl mx-auto px-4">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, x: 60 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -60 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+            className="relative bg-white rounded-3xl shadow-xl px-6 sm:px-10 pt-16 pb-14"
+          >
+            {/* ---------- Blue Label ---------- */}
+            <div
+              className="absolute -top-8 -left-12 sm:-left-26 w-[280px] text-white rounded-2xl px-2 py-4"
+              style={{
+                backgroundImage: "url('/testimonialBlue.svg')",
+                backgroundSize: "100% 100%",
+                backgroundRepeat: "no-repeat",
+              }}
+            >
+                <div className="translate-x-12 -translate-y-2">
+
+              <h3 className="font-semibold text-sm sm:text-base">
+                {current?.name}
+              </h3>
+              <p className="text-xs opacity-90">{current?.property}</p>
+              <p className="text-[11px] opacity-80">
+                {current?.propertyBought}
+              </p>
+
+              <div className="flex gap-0.5 mt-1 text-yellow-300 text-xs">
+                {[...Array(rating)].map((_, i) => (
+                  <span key={i}>★</span>
+                ))}
+              </div>
+                </div>
             </div>
-        );
-    }
 
-    const current = testimonial[index];
-    // console.log("current",current)
-
-    return (
-        <div
-            className="relative w-full py-20 flex flex-col items-center justify-center bg-[#E9F6F7] bg-[url('/testimonialBack.svg')] bg-cover bg-center bg-no-repeat px-4"
-            onMouseEnter={() => setIsPaused(true)}
-            onMouseLeave={() => setIsPaused(false)}
-        >
-            {/* Heading */}
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-black mb-10 sm:mb-14 text-center">
-                What Our Clients Say
-            </h2>
-
-            {/* Slider Container */}
-            <div className="relative w-full max-w-4xl mx-auto px-2 sm:px-4">
-                <AnimatePresence mode="wait">
-                    <motion.div
-                        key={index}
-                        initial={{ opacity: 0, x: 100 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: -100 }}
-                        transition={{ duration: 0.45, ease: "easeOut" }}
-                        className="relative bg-white rounded-3xl shadow-xl px-4 sm:px-8 md:px-10 py-10 sm:py-14 overflow-visible"
-                    >
-                        {/* Orange Label */}
-                        <div
-                            className="
-                                absolute 
-                                -top-3 
-                                left-1/4     
-                                sm:-left-20
-                                -translate-x-1/2 
-                                sm:translate-x-0
-                                text-white 
-                                py-5 sm:py-8 px-8 sm:px-8 
-                                rounded-2xl 
-                                bg-no-repeat 
-                                bg-cover 
-                                w-52 sm:w-[260px]
-                            "
-                            style={{
-                                backgroundImage: `url('/testimonialBlue.svg')`,
-                                backgroundSize: "100% 100%",
-                            }}
-                        >
-                            <div className="flex flex-col items-start justify-start -mt-4 ">
-                                <h3 className="font-semibold text-sm sm:text-base">
-                                    {current.name}
-                                </h3>
-
-                                <p className="text-[10px] opacity-90">
-                                    {current.propertyBought}
-                                </p>
-
-                                <div className="flex text-yellow-300 text-xs sm:text-sm">
-                                    {[...Array(Math.round(current.rating || 0))].map((_, i) => (
-                                        <span key={i}>⭐</span>
-                                    ))}
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Avatar */}
-                        <div className="absolute top-4 right-[15%] sm:right-6 translate-x-1/2 sm:translate-x-0">
-                            <div className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-full bg-gray-300 flex items-center justify-center overflow-hidden ring-4 ring-white shadow-lg">
-                                <img
-                                    src={current?.image}
-                                    alt={current.name}
-                                    className="w-full h-full object-cover"
-                                />
-                            </div>
-                        </div>
-
-                        {/* Review */}
-                        <p className="text-center text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed mt-10 sm:mt-12 px-2 sm:px-6">
-                            “{current.review}”
-                        </p>
-
-                        {/* Navigation */}
-                        <div className="flex justify-center sm:justify-end gap-3 sm:gap-4 mt-10">
-                            <button
-                                onClick={handlePrev}
-                                className="p-2 sm:p-3 rounded-full bg-[#42B549] text-white transition-all shadow-md hover:scale-105 cursor-pointer"
-                            >
-                                <FaChevronLeft className="text-sm sm:text-base" />
-                            </button>
-
-                            <button
-                                onClick={handleNext}
-                                className="p-2 sm:p-3 rounded-full bg-[#42B549] text-white transition-all shadow-md hover:scale-105 cursor-pointer"
-                            >
-                                <FaChevronRight className="text-sm sm:text-base" />
-                            </button>
-                        </div>
-                    </motion.div>
-                </AnimatePresence>
+            {/* ---------- Avatar ---------- */}
+            <div className="absolute -top-6 right-6 sm:right-10">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden ring-4 ring-white bg-gray-200 shadow-lg">
+                <img
+                  src={current?.image || "/avatar-fallback.png"}
+                  alt={current?.name || "Client"}
+                  loading="lazy"
+                  onError={(e) =>
+                    (e.currentTarget.src = "/avatar-fallback.png")
+                  }
+                  className="w-full h-full object-cover"
+                />
+              </div>
             </div>
-        </div>
-    );
+
+            {/* ---------- Review ---------- */}
+            <p className="mt-10 sm:mt-14 text-center text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed px-2 sm:px-6">
+              “{current?.review}”
+            </p>
+
+            {/* ---------- Controls ---------- */}
+            <div className="flex justify-center sm:justify-end gap-4 mt-10">
+              <button
+                onClick={prev}
+                aria-label="Previous testimonial"
+                className="p-3 rounded-full bg-[#42B549] text-white shadow-md hover:scale-105 transition"
+              >
+                <FaChevronLeft />
+              </button>
+              <button
+                onClick={next}
+                aria-label="Next testimonial"
+                className="p-3 rounded-full bg-[#42B549] text-white shadow-md hover:scale-105 transition"
+              >
+                <FaChevronRight />
+              </button>
+            </div>
+          </motion.div>
+        </AnimatePresence>
+      </div>
+    </section>
+  );
 }
+
+export default memo(TestimonialSlider);
