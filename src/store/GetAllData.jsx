@@ -8,7 +8,7 @@ export const useMainStore = create((set) => ({
   // Fetch all properties and projects
   fetchAllData: async (params = {}) => {
     const BASE_URL = import.meta.env.VITE_BASE_URL;
-    console.log(BASE_URL)
+    // console.log(BASE_URL)
     set({ loading: true, error: null });
 
     try {

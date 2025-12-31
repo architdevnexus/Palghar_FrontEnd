@@ -14,14 +14,14 @@ export default function ExploreNewCitySlider() {
   /* ---------------- FETCH ---------------- */
   useEffect(() => {
     fetchAllData();
-  }, [fetchAllData]);
+  }, []);
 
   /* ---------------- DATA ---------------- */
   const allCities = useMemo(
     () => projectdata?.[0]?.properties || [],
     [projectdata]
   );
-console.log(allCities)
+// console.log(allCities)
   /* ---------------- RESPONSIVE ---------------- */
   const getCardsPerSlide = () =>
     window.innerWidth < 640
