@@ -68,12 +68,12 @@ export default function WhatWeHaveDone() {
 
       {/* TABS */}
       <div className="relative flex justify-center mb-10">
-        <div className="flex gap-1 p-2 rounded-xl bg-white w-full max-w-4xl overflow-x-auto hide-scrollbar">
+        <div className="flex gap-1 p-2 rounded-xl bg-white  overflow-x-auto hide-scrollbar">
           {DATA.map((item, index) => (
             <button
               key={item.heading}
               onClick={() => setActive(index)}
-              className={`px-6 py-2 rounded-xl border text-sm md:text-base font-medium transition-all whitespace-nowrap
+              className={`px-6 py-2 rounded-xl border cursor-pointer text-sm md:text-base font-medium transition-all whitespace-nowrap
                 ${
                   active === index
                     ? "bg-[var(--primary-color)] text-white shadow-md border-transparent"
