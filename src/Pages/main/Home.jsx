@@ -72,9 +72,16 @@ const Home = () => {
         <ProjectsTabs />
         <ExploreNewCity />
       </Suspense>
+      <section className="max-w-7xl m-4">
+
+        <HomeMap />
+      </section>
+      
 
       <Suspense fallback={<SectionLoader />}>
-        <HomeMap />
+     
+
+
         <HomeDream />
         <WhatWeHaveDone />
       </Suspense>
