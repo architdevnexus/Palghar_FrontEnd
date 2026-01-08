@@ -77,7 +77,7 @@ export default function GetInTouch() {
         </div>
 
         {/* RIGHT FORM */}
-        <div className="bg-white shadow-2xl px-8 py-6 w-full lg:w-full lg:ml-[28%] md:px-24 border rounded-2xl border-gray-100">
+        <div className="bg-white shadow-2xl px-8 py-6 w-full mt-3 lg:w-full lg:ml-[28%] md:px-24 border rounded-2xl border-gray-100">
           <h2 className="text-3xl font-bold">Get in Touch</h2>
           <p className="text-gray-600 mt-3 mb-8 max-w-xl">
             Please don’t hesitate to reach out to us whenever you need assistance. We will respond promptly.
