@@ -95,7 +95,7 @@ export default function ExploreNewCitySlider() {
   if (error || !slides.length) return null;
 
   return (
-    <div className="w-full py-12 px-4 sm:px-6 lg:px-12">
+    <div className="w-full py-8 px-4 sm:px-6 lg:px-12">
       {/* Title */}
       <div className="max-w-5xl mx-auto text-center space-y-4 mb-8">
         <h2 className="text-2xl sm:text-3xl font-bold">Explore Cities</h2>

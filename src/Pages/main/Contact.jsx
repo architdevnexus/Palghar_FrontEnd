@@ -26,9 +26,10 @@ export default function Contact() {
             </div>
 
             {/* MAP SECTION */}
-            <div className="mt-10">
-                <HomeMap />
-            </div>
+           <section className="max-w-full flex items-center justify-center mx-4">
+           
+                   <HomeMap />
+                 </section>
             <OtherCompany />
         </div>
     );

@@ -72,7 +72,7 @@ const Home = () => {
         <ProjectsTabs />
         <ExploreNewCity />
       </Suspense>
-      <section className="max-w-7xl m-4">
+      <section className="max-w-full flex items-center justify-center mx-4">
 
         <HomeMap />
       </section>
