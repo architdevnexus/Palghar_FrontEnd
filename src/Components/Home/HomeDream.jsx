@@ -6,7 +6,7 @@ export default function HomeDream() {
         {/* LEFT CONTENT — ALWAYS 50% ON LARGE SCREENS */}
         <div className="md:w-1/2 w-full">
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900 leading-snug">
-            PALGHAR DREAM <br /> PROJECT (2026–2035)
+            PALGHAR DREAM PROJECT <br />(2026–2035)
           </h1>
 
           <p className="text-gray-700 mt-4 leading-relaxed text-sm md:text-base">
