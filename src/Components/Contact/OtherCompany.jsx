@@ -34,26 +34,26 @@ const COMPANIES = [
     contact: "+91-XXXXXXXXXX",
     location: { lat: 19.2832, lng: 72.8701 },
   },
-  {
-    sr_no: 3,
-    company_name: "Palghar Holding Pvt. Ltd",
-    logo: PalgharLogo,
-    address:
-      "Shop No. B34, Shanti Shopping Center, Mira Road East, Thane - 401107",
-    email: "palgharholdingpvt.limited@gmail.com",
-    contact: "+91-XXXXXXXXXX",
-    location: { lat: 19.2821, lng: 72.869 },
-  },
-  {
-    sr_no: 4,
-    company_name: "Palghar Advisor LLP",
-    logo: PalgharLogo,
-    address:
-      "Shop No. B34, Shanti Shopping Center, Mira Road East, Thane - 401107",
-    email: "palgharadvisorllp@gmail.com",
-    contact: "+91-XXXXXXXXXX",
-    location: { lat: 19.284, lng: 72.871 },
-  },
+  // {
+  //   sr_no: 3,
+  //   company_name: "Palghar Holding Pvt. Ltd",
+  //   logo: PalgharLogo,
+  //   address:
+  //     "Shop No. B34, Shanti Shopping Center, Mira Road East, Thane - 401107",
+  //   email: "palgharholdingpvt.limited@gmail.com",
+  //   contact: "+91-XXXXXXXXXX",
+  //   location: { lat: 19.2821, lng: 72.869 },
+  // },
+  // {
+  //   sr_no: 4,
+  //   company_name: "Palghar Advisor LLP",
+  //   logo: PalgharLogo,
+  //   address:
+  //     "Shop No. B34, Shanti Shopping Center, Mira Road East, Thane - 401107",
+  //   email: "palgharadvisorllp@gmail.com",
+  //   contact: "+91-XXXXXXXXXX",
+  //   location: { lat: 19.284, lng: 72.871 },
+  // },
 ];
 
 /* ------------------ ICONS ------------------ */
@@ -135,10 +135,10 @@ export default function OtherCompany() {
         </div>
 
         {/* MAP */}
-        <div className="w-full h-[300px] sm:h-[450px] lg:h-[650px] rounded-xl overflow-hidden shadow-md">
+        <div className="w-full h-[300px] sm:h-[450px] lg:h-[650px] -z-10 rounded-xl overflow-hidden shadow-md">
           <MapContainer
             center={activePosition}
-            zoom={15}
+            zoom={20}
             scrollWheelZoom={false}
             preferCanvas
             className="w-full h-full"
