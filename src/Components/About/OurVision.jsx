@@ -51,25 +51,7 @@ export default function OurVision() {
       description:
         "A dedicated healthcare center provides quick access to doctors, emergency care, and essential medical services.",
       image: HEALTHCARE_CENTER,
-    },
-    {
-      title: "WELL CONNECTED TRANSPORT SERVICES",
-      description:
-        "The region offers excellent connectivity through expanding road networks, suburban rail upgrades.",
-      image: WELL_CONNECTED_TRANSPORT_SERVICES,
-    },
-    {
-      title: "MULTILEVEL SECURITY",
-      description:
-        "The township features 24×7 surveillance, controlled entry systems, trained security personnel.",
-      image: MULTILEVEL_SECURITY,
-    },
-    {
-      title: "HEALTHCARE CENTER",
-      description:
-        "A dedicated healthcare center provides quick access to doctors, emergency care, and essential medical services.",
-      image: HEALTHCARE_CENTER,
-    },
+    }
   ];
 
   const firstRowCards = Data.slice(0, 3);

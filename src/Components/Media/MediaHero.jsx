@@ -9,7 +9,7 @@ export default function MediaHero() {
             }}
         >
             {/* Overlay */}
-            <div className="absolute inset-0 bg-black/20  rounded-2xl"></div>
+            <div className="absolute inset-0 bg-black/1  rounded-2xl"></div>
 
             {/* Centered Title Box */}
             <div className="relative z-10 px-10 py-6 h-40 w-1/2 flex items-center justify-center bg-(--primary-color)

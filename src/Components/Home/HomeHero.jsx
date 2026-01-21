@@ -105,6 +105,8 @@ const HomeHero = () => {
           right-0 
           bottom-4
           md:bottom-0
+          rounded-2xl
+          md:rounded-l-2xl
           w-full
           sm:w-[80%]
           md:w-[60%]

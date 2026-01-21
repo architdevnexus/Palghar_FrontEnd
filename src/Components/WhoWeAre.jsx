@@ -42,7 +42,7 @@ const WhoWeAre = () => {
 
     return (
         <div className="flex flex-col items-center justify-center 
-                        bg-white rounded-l-2xl p-5 shadow-xl 
+                        bg-white rounded-2xl md:rounded-l-2xl p-5 shadow-xl 
                         w-full max-w-4xl mx-auto ">
 
             {/* Title */}

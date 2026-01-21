@@ -1,22 +1,22 @@
 export default function RegionToDevelop() {
     return (
         <section className="w-full bg-white py-10 md:py-14">
-            <div className="max-w-[1440px] mx-auto px-4 md:px-8 space-y-14">
+            <div className="max-w-full mx-auto px-4 md:px-8 space-y-14">
 
                 {/* ================= FIRST REGION ================= */}
-                <div className="flex flex-col lg:flex-row items-center justify-between gap-10">
+                <div className="flex flex-col lg:flex-row items-start justify-around gap-10">
 
                     {/* LEFT TEXT BOX */}
                     <div className="lg:w-[42%] w-full flex justify-start">
                         <div
-                            className="text-white rounded-2xl p-6 md:p-8 w-full max-w-[420px]"
+                            className="text-white rounded-2xl p-6 md:p-8 w-full max-w-[450px]"
                             style={{
                                 backgroundImage: 'url("/greenBlack.svg")',
                                 backgroundRepeat: "no-repeat",
                                 backgroundSize: "cover",
                             }}
                         >
-                            <h2 className="text-lg md:text-xl font-semibold leading-snug">
+                            <h2 className="text-lg md:text-2xl font-semibold leading-snug">
                                 ACCORDING TO YOU, BY WHEN WILL THIS REGION DEVELOP?
                             </h2>
 
@@ -49,24 +49,23 @@ export default function RegionToDevelop() {
                 <div className="flex flex-col lg:flex-row items-start gap-10">
 
                     {/* LEFT MAP */}
-                    <div className="lg:w-[45%] w-full flex justify-start">
+                    <div className="lg:w-[65%] w-full flex justify-start">
                         <img
                             src="/RegionToDevelop.svg"
                             alt="IMEC Corridor Map"
-                            className="w-full max-w-[520px] rounded-xl object-contain"
+                            className="w-full h-full rounded-xl object-contain"
                         />
                     </div>
 
                     {/* RIGHT CONTENT */}
                     <div className="lg:w-[55%] w-full text-gray-800 leading-relaxed text-sm md:text-base">
-                        <p>
+                        <p className="text-2xl">
                             <span className="font-bold text-4xl mr-1 float-left leading-none">
                                 P
-                            </span>
-                            alghar is a key location for the India–Middle East–Europe Economic
-                            Corridor (IMEC) due to the development of the Vadhavan Port, which
+                            </span>alghar is a key location for the India–Middle East–Europe Economic Corridor (IMEC) due to the development of the Vadhavan Port, which
                             will serve as a major gateway for the corridor’s eastern leg.
                             <br /><br />
+                            <br />
                             The Vadhavan Port, a new deep-draft port under construction in the
                             Palghar district of Maharashtra, is projected to act as a crucial
                             entry and exit point for trade through the IMEC and the
