@@ -13,48 +13,48 @@ export default function GetInTouch() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
- const handleSubmit = async (e) => {
-  e.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-  const { name, email, message } = formData;
-  if (!name || !email || !message) {
-    setStatus({ message: "Please fill all required fields.", type: "error" });
-    return;
-  }
+    const { name, email, message } = formData;
+    if (!name || !email || !message) {
+      setStatus({ message: "Please fill all required fields.", type: "error" });
+      return;
+    }
 
-  setLoading(true);
-  setStatus({ message: "", type: "" });
+    setLoading(true);
+    setStatus({ message: "", type: "" });
 
-  try {
-    const res = await fetch(`${BASE_URL}/api/contact/create`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      credentials: "include", // send cookies
-      body: JSON.stringify(formData),
-    });
-
-    // Read body once as text
-    const text = await res.text();
-    let data = null;
     try {
-      data = JSON.parse(text); // try parse JSON
-    } catch {
-      console.warn("Response not JSON:", text);
-    }
+      const res = await fetch(`${BASE_URL}/api/contact/create`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        credentials: "include", // send cookies
+        body: JSON.stringify(formData),
+      });
 
-    if (res.ok) {
-      setStatus({ message: "Message sent successfully!", type: "success" });
-      setFormData({ name: "", email: "", message: "" });
-    } else {
-      setStatus({ message: data?.message || "Something went wrong. Try again.", type: "error" });
+      // Read body once as text
+      const text = await res.text();
+      let data = null;
+      try {
+        data = JSON.parse(text); // try parse JSON
+      } catch {
+        console.warn("Response not JSON:", text);
+      }
+
+      if (res.ok) {
+        setStatus({ message: "Message sent successfully!", type: "success" });
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        setStatus({ message: data?.message || "Something went wrong. Try again.", type: "error" });
+      }
+    } catch (err) {
+      console.error("Error 👉", err);
+      setStatus({ message: "Something went wrong. Try again.", type: "error" });
+    } finally {
+      setLoading(false);
     }
-  } catch (err) {
-    console.error("Error 👉", err);
-    setStatus({ message: "Something went wrong. Try again.", type: "error" });
-  } finally {
-    setLoading(false);
-  }
-};
+  };
 
   return (
     <div className="w-full bg-(--lightbg-color) py-12 flex justify-center">
@@ -63,16 +63,16 @@ export default function GetInTouch() {
         <div className="bg-(--darkbg-color) text-white rounded-xl shadow-xl p-8 w-full h-96 lg:w-[32%] lg:absolute lg:left-0 lg:top-1/2 lg:-translate-y-1/2 grid items-center z-10">
           <h2 className="text-2xl font-semibold mb-6">Contact Us</h2>
           <div className="flex items-center gap-4 mb-4 text-lg">
-            <MdEmail size={28} /> help@palghar.com
+            <MdEmail size={28} />palghar.infrastructurellp@gmaail.com
           </div>
           <div className="flex items-center gap-4 mb-4 text-lg">
-            <MdCall size={28} /> +91 9711034055
+            <MdCall size={28} /> +91 88980 12184
           </div>
           <div className="flex items-center gap-4 text-lg leading-6">
             <MdLocationPin size={30} />
-            26/B, Tower B–2,
-            <br />
-            Spaze Itech Park
+            Shop No. B34 , Shanti Shopping center,
+            <br /> Mira Road East, Thane - 401107,
+
           </div>
         </div>
 
@@ -127,9 +127,8 @@ export default function GetInTouch() {
 
             {status.message && (
               <p
-                className={`text-sm ${
-                  status.type === "success" ? "text-green-600" : "text-red-600"
-                }`}
+                className={`text-sm ${status.type === "success" ? "text-green-600" : "text-red-600"
+                  }`}
               >
                 {status.message}
               </p>

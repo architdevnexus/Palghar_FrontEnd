@@ -14,7 +14,7 @@ export default function Parivar() {
             id: 2,
             name: "PALGHAR Infrastructure LLP",
             category: "LAND & DEVELOPERS",
-            email: "palgharholdingpvt.limited@gmail.com",
+            email: "palghar.infrastructurellp@gmail.com",
             path: "/palghar-holding",
         }
         // {
