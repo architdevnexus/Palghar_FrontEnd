@@ -97,7 +97,7 @@ export default function EnquireForm({ open, onClose }) {
 
         {/* Logo */}
         <div className="flex justify-center mb-4">
-          <img src="/palghar_logo.svg" alt="Palghar Logo" className="h-14" />
+          <img src="/Logo.png" alt="Palghar Logo" className="h-14" />
         </div>
 
         {/* Title */}

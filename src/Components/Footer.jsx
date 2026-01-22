@@ -36,7 +36,7 @@ export default function Footer() {
                 {/* ---------- Column 1 ---------- */}
                 <div className="flex flex-col gap-5">
                     <div className="flex items-start gap-4">
-                        <img src="/palghar_logo.svg" alt="logo" className="w-12 h-12" />
+                        <img src="/Logo.png" alt="logo" className="w-12 h-12" />
 
                         <div>
                             <h2 className="text-lg font-bold">Palghar Infrastructure</h2>

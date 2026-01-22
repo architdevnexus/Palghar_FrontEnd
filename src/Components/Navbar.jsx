@@ -108,7 +108,7 @@ const Navbar = () => {
             >
               {/* Header */}
               <div className="flex items-center justify-between mb-8">
-                <img src="/palghar_logo.svg" alt="logo" className="w-10" />
+                <img src="/Logo.png" alt="logo" className="w-10" />
                 <FiX
                   className="text-3xl cursor-pointer"
                   onClick={closeMenu}

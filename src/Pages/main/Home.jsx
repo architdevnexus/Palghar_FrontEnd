@@ -76,10 +76,10 @@ const Home = () => {
 
         <HomeMap />
       </section>
-      
+
 
       <Suspense fallback={<SectionLoader />}>
-     
+
 
 
         <HomeDream />
@@ -99,6 +99,7 @@ const Home = () => {
       <Suspense fallback={<SectionLoader />}>
         <RoadAlignment />
         <Parivar />
+        <img src="/VadhavanPort.svg" alt="" />
         <GrowthCarausal />
         <TestimonialsSlider />
         <WhatWeDo />
