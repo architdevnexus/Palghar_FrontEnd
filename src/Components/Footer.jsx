@@ -69,15 +69,15 @@ export default function Footer() {
                         </p>
 
                         <div className="mt-3 flex items-center gap-2 text-sm">
-                            <FaPhone /> +91 83688 86542
+                            <FaPhone /> +91 88980 12184
                         </div>
 
                         <div className="mt-2 flex items-center gap-2 text-sm">
-                            <FaMailBulk /> help@palghar.com
+                            <FaMailBulk /> palghar.infrastructurellp@gmaail.com
                         </div>
 
                         <div className="mt-2 flex items-center gap-2 text-sm">
-                            <FaLocationArrow /> Gurgaon, Haryana, India
+                            <FaLocationArrow /> Shop No. B34 , Shanti Shopping center ,Mira Road East, Thane - 401107
                         </div>
                     </div>
                 </div>
