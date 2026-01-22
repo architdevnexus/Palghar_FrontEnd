@@ -84,7 +84,7 @@ export default function Parivar() {
                                     <PalgharHomeCard item={item} />
                                 </div>
 
-                              
+
                             </div>
                         );
                     })}

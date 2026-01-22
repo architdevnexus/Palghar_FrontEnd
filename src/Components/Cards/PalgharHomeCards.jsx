@@ -30,7 +30,7 @@ const PalgharHomeCard = ({ item = {} }) => {
             {/* Logo */}
             <div className="w-20 h-12 flex items-center justify-center shrink-0">
                 <img
-                    src="/palghar_logo.svg"
+                    src="/Logo.png"
                     alt={`${name} logo`}
                     className="w-full h-full object-contain"
                     loading="lazy"

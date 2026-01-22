@@ -10,7 +10,7 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 
 /* ------------------ LOGO ------------------ */
-import PalgharLogo from "/palghar_logo.svg";
+import PalgharLogo from "/Logo.png";
 
 /* ------------------ DATA (STATIC) ------------------ */
 const COMPANIES = [

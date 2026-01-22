@@ -12,7 +12,7 @@ import "leaflet/dist/leaflet.css";
 import Data from "../../DataStore/ESTATE.json";
 
 // ✅ IMPORTANT: import image for production
-import markerIcon from "/palghar_logo.svg";
+import markerIcon from "/Logo.png";
 
 /* -----------------------------
    City fallback coordinates

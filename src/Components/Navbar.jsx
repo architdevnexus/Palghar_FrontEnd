@@ -45,7 +45,7 @@ const Navbar = () => {
         >
           {/* Logo */}
           <img
-            src="/palghar_logo.svg"
+            src="/Logo.png"
             alt="logo"
             className="w-10 cursor-pointer"
             onClick={() => navigate("/")}

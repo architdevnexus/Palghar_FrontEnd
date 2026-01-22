@@ -20,7 +20,7 @@ export default function Media() {
     [projectdata]
   );
 
-  console.log(mediaItems)
+  // console.log(mediaItems)
 
   // Pagination logic
   const totalPages = Math.ceil(mediaItems.length / ITEMS_PER_PAGE);
