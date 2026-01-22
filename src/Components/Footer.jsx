@@ -73,7 +73,7 @@ export default function Footer() {
                         </div>
 
                         <div className="mt-2 flex items-center gap-2 text-sm">
-                            <FaMailBulk /> palghar.infrastructurellp@gmaail.com
+                            <FaMailBulk /> palghar.infrastructurellp@gmail.com
                         </div>
 
                         <div className="mt-2 flex items-center gap-2 text-sm">

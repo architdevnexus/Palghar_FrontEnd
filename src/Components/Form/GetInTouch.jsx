@@ -63,7 +63,7 @@ export default function GetInTouch() {
         <div className="bg-(--darkbg-color) text-white rounded-xl shadow-xl p-8 w-full h-96 lg:w-[32%] lg:absolute lg:left-0 lg:top-1/2 lg:-translate-y-1/2 grid items-center z-10">
           <h2 className="text-2xl font-semibold mb-6">Contact Us</h2>
           <div className="flex items-center gap-4 mb-4 text-lg">
-            <MdEmail size={28} />palghar.infrastructurellp@gmaail.com
+            <MdEmail size={28} />palghar.infrastructurellp@gmail.com
           </div>
           <div className="flex items-center gap-4 mb-4 text-lg">
             <MdCall size={28} /> +91 88980 12184
@@ -71,7 +71,7 @@ export default function GetInTouch() {
           <div className="flex items-center gap-4 text-lg leading-6">
             <MdLocationPin size={30} />
             Shop No. B34 , Shanti Shopping center,
-            <br /> Mira Road East, Thane - 401107,
+             Mira Road East,<br /> Thane - 401107,
 
           </div>
         </div>
