@@ -1,69 +1,57 @@
 export default function HomeDream() {
   return (
-    <div className="w-full px-4 md:px-10">
-      <div className="bg-[#E6F7FA] rounded-3xl p-6 md:p-10 flex flex-col lg:flex-row items-start gap-10">
+    <section className="w-full px-4 md:px-10 py-10">
+      <div className="bg-[#E6F7FA] rounded-3xl overflow-hidden">
+        <div className="grid grid-cols-1 lg:grid-cols-2 items-center">
 
-        {/* LEFT CONTENT — ALWAYS 50% ON LARGE SCREENS */}
-        <div className="md:w-1/2 w-full">
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 leading-snug">
-            PALGHAR DREAM PROJECT <br />(2026–2035)
-          </h1>
+          {/* LEFT CONTENT */}
+          <div className="p-6 md:p-10 lg:p-14">
+            <h1 className="text-3xl md:text-4xl  font-bold text-gray-900 leading-snug">
+              PALGHAR DREAM PROJECT
+              <br />
+              <span className="text-teal-700">(2026–2035)</span>
+            </h1>
 
-          <p className="text-gray-700 mt-4 leading-relaxed text-sm md:text-base">
-            Dream of The Palghar is to develop a complete township,
-            having balanced & rational combination of Exclusive Residential
-            Premises, for all income groups, Shopping & Entertainment Arcades –
-            for their recreation & day to day requirements and industrial
-            Estates or Speciality Zones like SEEPZ & NOIDA, which can provide
-            employment to the local residents. The Company believes such
-            systematically planned colonies can automatically become small towns
-            in their own, giving true sense to the word township. This will also
-            help eliminate the problem of migration and dense population
-            concentration in Metro Cities.
-          </p>
-        </div>
+            {/* TYPES OF DEVELOPMENT */}
+            <div className="mt-10">
+              <h2 className="text-xl md:text-2xl font-semibold text-gray-900 flex items-center gap-3">
+                <span className="w-2 h-8 bg-teal-600 rounded-md"></span>
+                Types of Development
+              </h2>
 
-        {/* MIDDLE + RIGHT WRAPPER */}
-        <div className="flex flex-col lg:flex-row gap-10 w-full lg:w-1/2">
+              <ul className="mt-6 space-y-4">
+                {[
+                  "Colony for Lower Middle Class",
+                  "Colony for Middle Class",
+                  "Colony for Higher Middle Class",
+                  "Colony for Higher Class",
+                  "Commercial / Entertainment Area",
+                  "Industrial / Speciality Zone",
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <span className="w-3 h-3 rounded-full bg-green-500 mt-1"></span>
+                    <span className="text-gray-800 text-sm md:text-base">
+                      {item}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
 
           {/* RIGHT IMAGE */}
-          <div className="flex-1 flex justify-center lg:justify-end">
+          <div className="relative h-[300px] md:h-[420px] lg:h-full">
             <img
               src="https://images.pexels.com/photos/34341418/pexels-photo-34341418.jpeg"
-              alt="Dream Project"
-              className="object-cover w-[263px] rounded-3xl shadow-md"
+              alt="Palghar Dream Project"
+              className="absolute inset-0 w-full h-full object-cover"
             />
+
+        
           </div>
-          {/* TYPES OF DEVELOPMENT */}
-          <div className="flex-1 justify-between">
-            <h2 className="text-xl md:text-2xl font-semibold text-gray-900 flex items-center gap-2">
-              <span className="block w-2 h-7 bg-teal-600 rounded-md"></span>
-              Types of Development
-            </h2>
-
-            <ul className="mt-4 justify-between">
-              {[
-                "Colony for Lower Middle Class",
-                "Colony for Middle Class",
-                "Colony for Higher Middle Class",
-                "Colony for Higher Class",
-                "Commercial / Entertainment Area",
-                "Industrial / Speciality Zone",
-              ].map((item, i) => (
-                <li key={i} className="flex items-start mt-12 gap-3">
-                  <span className="w-3 h-3 rounded-full bg-green-500 mt-1"></span>
-                  <span className="text-gray-800 text-sm md:text-base">
-                    {item}
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-
 
         </div>
       </div>
-    </div>
+    </section>
   );
 }

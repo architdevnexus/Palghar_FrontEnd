@@ -7,7 +7,7 @@ import { CiSquareChevDown } from "react-icons/ci";
 const LogoBox = React.memo(() => (
   <div className="absolute -top-14 left-14 sm:left-24 flex items-center gap-3 rounded-2xl bg-white px-4 py-3 shadow-lg">
     <img
-      src="/palghar_logo.svg"
+      src="/Logo.png"
       alt="Palghar Infrastructure"
       className="h-12 w-12 object-contain"
     />
