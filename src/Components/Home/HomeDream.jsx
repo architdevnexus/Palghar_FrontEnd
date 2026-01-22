@@ -42,7 +42,7 @@ export default function HomeDream() {
           {/* RIGHT IMAGE */}
           <div className="relative h-[300px] md:h-[420px] lg:h-full">
             <img
-              src="https://images.pexels.com/photos/34341418/pexels-photo-34341418.jpeg"
+              src="/DreamHome.svg"
               alt="Palghar Dream Project"
               className="absolute inset-0 w-full h-full object-cover"
             />
