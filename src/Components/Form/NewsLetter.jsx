@@ -65,7 +65,7 @@ export default function NewsLetter() {
         <input
           type="email"
           placeholder="Enter your email"
-          className="bg-white text-(--primary-color) outline-none px-4 py-2 rounded-xl w-60"
+          className="bg-white text-(--primary-color) outline-none px-4 py-2 rounded-xl min-w-50 w-full"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />

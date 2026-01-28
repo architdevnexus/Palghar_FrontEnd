@@ -13,6 +13,22 @@ export default function EnquireForm({ open, onClose }) {
     message: ""
   });
 
+
+  const citySuggestions = [
+    "Mumbai",
+    "Thane",
+    "Mira Road",
+    "Bhayander",
+    "Palghar",
+    "Vasai",
+    "Virar",
+    "Nalasopara",
+    "Boisar",
+    "Dahisar",
+    "Borivali",
+    "Andheri",
+  ];
+
   const [loading, setLoading] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
 
@@ -86,7 +102,7 @@ export default function EnquireForm({ open, onClose }) {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
       <div className="relative w-full max-w-md rounded-2xl bg-white p-6 shadow-xl animate-fadeIn">
-        
+
         {/* Close Button */}
         <button
           onClick={onClose}
@@ -153,14 +169,25 @@ export default function EnquireForm({ open, onClose }) {
           />
 
           <div className="flex gap-2">
-            <input
-              type="text"
-              name="city"
-              value={formData.city}
-              onChange={handleChange}
-              placeholder="City"
-              className="w-1/2 rounded-lg bg-gray-100 px-4 py-2 text-sm outline-none focus:ring-2 focus:ring-teal-500"
-            />
+            {/* CITY + TYPE */}
+            <div className="flex gap-6">
+              <input
+                type="text"
+                name="city"
+                list="city-list"
+                value={formData.city}
+                onChange={handleChange}
+                className="w-full rounded-lg bg-gray-100 px-4 py-2 text-sm outline-none focus:ring-2 focus:ring-teal-500"
+
+                placeholder="Select or type city"
+              />
+
+              <datalist id="city-list">
+                {citySuggestions.map((city) => (
+                  <option key={city} value={city} />
+                ))}
+              </datalist>
+            </div>
             <select
               name="enquiryType"
               value={formData.enquiryType}

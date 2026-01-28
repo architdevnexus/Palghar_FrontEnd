@@ -76,12 +76,14 @@ export default function OurVision() {
   const remainingCards = Data.slice(3);
 
   return (
-    <section className="w-full px-4 md:px-10 lg:px-20 py-12 bg-white">
+    <section className="w-full px-4 md:px-16 lg:px-16 py-12 bg-white">
       {/* ROW 1 */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+      <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-3">
+
         {/* HEADER */}
-        <div className="flex flex-col">
-          <span className="border-l-8 border-[var(--primary-color)] pl-3 text-3xl font-semibold tracking-wide uppercase">
+
+        <div className=" text-left p-4">
+          <span className="border-l-8 border-(--primary-color) pl-3 text-3xl font-semibold tracking-wide uppercase">
             Our Vision
           </span>
 
@@ -97,16 +99,16 @@ export default function OurVision() {
         </div>
 
         {/* FIRST 3 CARDS */}
-        <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-2">
-          {firstRowCards.map((item, index) => (
-            <VisionCard
-              key={index}
-              image={item.image}
-              title={item.title}
-              description={item.description}
-            />
-          ))}
-        </div>
+        {/* <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-2"> */}
+        {firstRowCards.map((item, index) => (
+          <VisionCard
+            key={index}
+            image={item.image}
+            title={item.title}
+            description={item.description}
+          />
+        ))}
+        {/* </div> */}
       </div>
 
       {/* ROW 2 */}

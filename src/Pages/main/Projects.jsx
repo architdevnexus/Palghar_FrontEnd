@@ -2,7 +2,7 @@ import { useEffect, useMemo } from "react";
 import ProjectHero from "../../Components/Projects/ProjectHero";
 import GetInTouch from "../../Components/Form/GetInTouch";
 import ProjectCard from "../../Components/Cards/ProjectCard";
-import { useMainStore } from "../../store/GetAllData";
+import { useMainStore } from "../../store/GetAllData.jsx";
 
 export default function Projects() {
   const { projectdata, loading, error, fetchAllData } = useMainStore();

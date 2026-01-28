@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 export default function TrendingBlog({ blogs = [] }) {
   const navigate = useNavigate();
 
+  console.log(blogs)
+
   const Item = ({ item }) => {
     return (
       <div
@@ -18,10 +20,14 @@ export default function TrendingBlog({ blogs = [] }) {
 
         {/* Blog text */}
         <div className="flex flex-col">
-          <span className="font-semibold text-sm leading-tight">
-            {item.blogContent?.length > 28
-              ? item.blogContent.slice(0, 28) + " ..."
-              : item.blogContent}
+          <span dangerouslySetInnerHTML={{
+            __html:
+              item.blogContent?.length > 60
+                ? item.blogContent.slice(0, 60) + " ..."
+                : item.blogContent
+
+          }} className="font-semibold text-sm leading-tight">
+
           </span>
           <span className="italic text-xs text-gray-500 mt-1">
             {new Date(item.createdAt).toLocaleDateString()}
@@ -52,7 +58,7 @@ export default function TrendingBlog({ blogs = [] }) {
       <div className="mt-10 border-l-4 pl-4" style={{ borderColor: "var(--primary-color)" }}>
         {/* Scrollable Area */}
         <div className="flex flex-col gap-6 max-h-[520px] overflow-y-auto pr-2 scrollbar-hide">
-          {blogs.slice(0, 10).map((item) => (
+          {blogs.slice(0, 7).map((item) => (
             <Item key={item._id} item={item} />
           ))}
         </div>

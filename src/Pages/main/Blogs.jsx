@@ -63,7 +63,7 @@ export default function Blogs() {
         {/* RIGHT */}
         <aside className="hidden lg:block lg:w-1/3">
           <h2 className="text-2xl font-bold mb-6">Trending</h2>
-          <TrendingBlog items={topBlogs} />
+          <TrendingBlog blogs={topBlogs} />
         </aside>
       </div>
 

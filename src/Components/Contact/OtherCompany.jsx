@@ -32,7 +32,8 @@ const COMPANIES = [
       "Shop No. B34, Shanti Shopping Center, Mira Road East, Thane - 401107",
     email: "palghargrowth.partnerllp@gmail.com",
     contact: "+91-70219 35692",
-    location: { lat: 19.2832, lng: 72.8701 },
+    location: { lat: 19.2813, lng: 72.8684 },
+
   },
   // {
   //   sr_no: 3,
@@ -108,11 +109,10 @@ export default function OtherCompany() {
             <div
               key={item.sr_no}
               onClick={() => handleSelect(index)}
-              className={`flex gap-4 p-4 sm:p-5 rounded-xl cursor-pointer border transition ${
-                activeIndex === index
+              className={`flex gap-4 p-4 sm:p-5 rounded-xl cursor-pointer border transition ${activeIndex === index
                   ? "bg-[#E6F7FA] border-cyan-500 shadow-lg"
                   : "bg-white border-gray-200 hover:shadow-md"
-              }`}
+                }`}
             >
               <div className="min-w-[70px] sm:min-w-[90px] h-20 sm:h-28">
                 <img

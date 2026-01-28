@@ -38,8 +38,8 @@ const Navbar = () => {
       >
         <div
           className="
-            flex items-center justify-between
-            px-4 py-3 md:px-10 md:py-4
+            flex items-center justify-evenly
+            px-4 py-2 md:px-10 md:py-2
             max-w-screen-2xl mx-auto
           "
         >
@@ -47,7 +47,7 @@ const Navbar = () => {
           <img
             src="/Logo.png"
             alt="logo"
-            className="w-10 cursor-pointer"
+            className="w-14   cursor-pointer"
             onClick={() => navigate("/")}
           />
 

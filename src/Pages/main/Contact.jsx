@@ -1,5 +1,6 @@
 import ContactHero from "../../Components/Contact/ContactHero";
 import OtherCompany from "../../Components/Contact/OtherCompany";
+import EnquireForm from "../../Components/Form/EnquireForm";
 import GetInTouch from "../../Components/Form/GetInTouch";
 import HomeMap from "../../Components/Maps/HomeMap";
 
@@ -14,22 +15,22 @@ export default function Contact() {
             <div
                 className="
                     relative 
-                    w-full 
+                     
                     flex 
                     justify-center
+                    mt-1
                 "
-                style={{ marginTop: "-60px" }}
+           
             >
-                <div className="w-[95%]">
-                    <GetInTouch />
-                </div>
+                <GetInTouch />
+
             </div>
 
             {/* MAP SECTION */}
-           <section className="max-w-full flex items-center justify-center mx-4">
-           
-                   <HomeMap />
-                 </section>
+            <section className="max-w-full flex items-center justify-center mx-4">
+
+                {/* <HomeMap /> */}
+            </section>
             <OtherCompany />
         </div>
     );

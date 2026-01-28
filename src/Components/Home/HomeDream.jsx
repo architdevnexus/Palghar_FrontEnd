@@ -1,6 +1,6 @@
 export default function HomeDream() {
   return (
-    <section className="w-full px-4 md:px-10 py-10">
+    <section className="w-full px-6 py-10">
       <div className="bg-[#E6F7FA] rounded-3xl overflow-hidden">
         <div className="grid grid-cols-1 lg:grid-cols-2 items-center">
 

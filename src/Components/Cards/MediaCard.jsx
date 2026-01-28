@@ -1,8 +1,11 @@
-export default function MediaCard({ item }) {
+export default function MediaCard({ item, onClick }) {
   const imageUrl = item?.images?.[0]?.url;
+
+  console.log(item)
 
   return (
     <div
+      onClick={onClick}
       className="
         relative w-full h-80 rounded-2xl overflow-hidden group cursor-pointer
         transition-transform duration-500 hover:scale-[1.02]

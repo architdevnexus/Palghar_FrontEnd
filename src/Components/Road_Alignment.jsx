@@ -52,7 +52,7 @@ export default function RoadAlignment() {
   }, []);
 
   return (
-    <section className="w-full flex flex-col gap-6">
+    <section className="w-full p-6 flex flex-col gap-6">
 
       {/* Heading */}
       <header className="flex items-center gap-3">

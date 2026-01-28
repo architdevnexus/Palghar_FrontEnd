@@ -60,7 +60,7 @@ export default function WhatWeHaveDone() {
   );
 
   return (
-    <section className="w-full px-4 md:px-10 lg:px-20 py-14 bg-[#F4F9F9]">
+    <section className="w-full px-6 py-14 bg-[#F4F9F9]">
       {/* TITLE */}
       <h2 className="text-center text-3xl md:text-4xl font-semibold text-gray-900 mb-12">
         What We Have Done
@@ -76,7 +76,7 @@ export default function WhatWeHaveDone() {
               className={`px-6 py-2 rounded-xl border cursor-pointer text-sm md:text-base font-medium transition-all whitespace-nowrap
                 ${
                   active === index
-                    ? "bg-[var(--primary-color)] text-white shadow-md border-transparent"
+                    ? "bg-(--primary-color) text-white shadow-md border-transparent"
                     : "bg-white text-gray-700 border-gray-300 hover:bg-gray-100"
                 }`}
             >
@@ -88,7 +88,7 @@ export default function WhatWeHaveDone() {
 
       {/* SUB TITLE */}
       <div className="flex items-center gap-2 mb-8">
-        <div className="w-2 h-8 bg-[var(--primary-color)] rounded" />
+        <div className="w-2 h-8 bg-(--primary-color) rounded" />
         <h3 className="text-xl md:text-2xl font-semibold">
           Our First Vision in (20 Years)
         </h3>

@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Data from "../DataStore/ESTATE.json";
 import { Navdata } from "../DataStore/Navdata";
 
@@ -14,10 +14,21 @@ import {
 import { CiYoutube } from "react-icons/ci";
 
 import NewsLetter from "../Components/Form/NewsLetter";
+import { useEffect } from "react";
+import { useMainStore } from "../store/GetAllData.jsx";
 
 export default function Footer() {
+
+    const { projectdata, loading, error, fetchAllData } = useMainStore();
+
+    useEffect(() => {
+        fetchAllData();
+    }, []);
     const navigate = useNavigate();
-    const Location = Data?.palghar_properties || [];
+
+    const projects = projectdata?.map((e) => e?.projects).flat().slice(0, 4) || [];
+
+    !loading && console.log(projects)
 
     const socialMedia = [
         { id: 1, link: "/insta", icon: <FaInstagram /> },
@@ -28,13 +39,13 @@ export default function Footer() {
     ];
 
     return (
-        <footer className="relative bg-(--footer-color) text-white px-6 md:px-12 lg:px-20 py-16">
+        <footer className="relative bg-(--footer-color) text-white px-6 md:px-12 lg:px-20 pb-3 pt-10">
 
             {/* GRID START */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12">
+            <div className="grid grid-cols-1  sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-12">
 
                 {/* ---------- Column 1 ---------- */}
-                <div className="flex flex-col gap-5">
+                <div className="flex     flex-col gap-5">
                     <div className="flex items-start gap-4">
                         <img src="/Logo.png" alt="logo" className="w-12 h-12" />
 
@@ -61,29 +72,11 @@ export default function Footer() {
                     </div>
 
                     {/* Contact Section */}
-                    <div className="mt-2">
-                        <h3 className="text-lg font-bold mb-2">Contact Details</h3>
-                        <p className="text-sm opacity-75 max-w-xs leading-5">
-                            If you have any questions or need help feel free
-                            to contact our team!
-                        </p>
 
-                        <div className="mt-3 flex items-center gap-2 text-sm">
-                            <FaPhone /> +91 88980 12184
-                        </div>
-
-                        <div className="mt-2 flex items-center gap-2 text-sm">
-                            <FaMailBulk /> palghar.infrastructurellp@gmail.com
-                        </div>
-
-                        <div className="mt-2 flex items-center gap-2 text-sm">
-                            <FaLocationArrow /> Shop No. B34 , Shanti Shopping center ,Mira Road East, Thane - 401107
-                        </div>
-                    </div>
                 </div>
 
                 {/* ---------- Column 2 (Links) ---------- */}
-                <div className="flex flex-col gap-3">
+                <div className="flex     flex-col gap-3">
                     <h2 className="text-lg font-semibold">Links</h2>
 
                     {Navdata.map((link) => (
@@ -96,40 +89,78 @@ export default function Footer() {
                         </span>
                     ))}
 
-                    <div className="flex flex-col mt-3 underline gap-8  text-sm">
-                        <span className="cursor-pointer  hover:text-(--primary-color)" onClick={() => navigate('/privacy')}>
-                            Privacy Policy
-                        </span>
-                        <span className="cursor-pointer hover:text-(--primary-color)" onClick={() => navigate('/terms')}>
-                            Terms & Conditions
-                        </span>
-                        <span className="cursor-pointer hover:text-(--primary-color)" onClick={() => navigate('/cancellation')}>
-                            Cancellations Policy
-                        </span>
-                    </div>
+
                 </div>
 
-                {/* ---------- Column 3 (Locations) ---------- */}
-                <div className="flex flex-col gap-3">
-                    <h2 className="text-lg font-semibold">Locations</h2>
+                {/* ---------- Column 3 (projects) ---------- */}
+                <div className="flex     flex-col gap-3">
+                    <h2 className="text-lg font-semibold">Projects</h2>
 
-                    <div className="flex flex-col max-h-80 overflow-y-scroll gap-2 text-sm opacity-80">
-                        {Location.map((e, idx) => (
-                            <span
-                                key={idx}
-                                className="hover:text-(--primary-color) cursor-pointer"
-                            >
-                                {e.location?.city}
-                            </span>
-                        ))}
+                    {/* <div className="flex flex-col max-h-80 gap-2 text-sm opacity-80"> */}
+                    {projects?.map((e, idx) => (
+                        <Link
+                            to={e.map_url || '#'}
+                            key={idx}
+                            className="hover:text-(--primary-color) text-sm  cursor-pointer"
+                        >
+                            {e?.name}
+                        </Link>
+                    ))}
+                    {/* </div> */}
+                </div>
+
+
+                {/* Contact info */}
+                <div className="flex flex-col    justify-between mt-2">
+                    <div>
+                        <h3 className="text-lg font-bold mb-2">Contact Details</h3>
+                        <p className="text-sm opacity-75 max-w-xs leading-5">
+                            If you have any questions or need help feel free
+                            to contact our team!
+                        </p>
+                    </div>
+
+                    <div className="mt-3 flex items-center gap-2 text-sm">
+                        <FaPhone className="shrink-0" /> +91 88980 12184
+                    </div>
+
+                    <div className="mt-2 flex items-start gap-2 text-sm">
+                        <FaMailBulk className="shrink-0 mt-1" />
+                        <a
+                            target="_blank"
+                            href="mailto:palghar.infrastructurellp@gmail.com"
+                            className="break-all hover:underline"
+                        >
+                            palghar.infrastructurellp@gmail.com
+                        </a>
+                    </div>
+
+
+                    <div className="mt-2 flex items-center gap-2 text-sm">
+                        <FaLocationArrow className="shrink-0" /> Shop No. B34 , Shanti Shopping center ,Mira Road East, Thane - 401107
                     </div>
                 </div>
 
                 {/* ---------- Column 4 (Newsletter) ---------- */}
-                <div className="flex flex-col">
+                <div className="flex     flex-col">
 
                     <NewsLetter />
                 </div>
+            </div>
+
+
+
+            {/* Legal Links */}
+            <div className="flex justify-center text-gray-  mt-5  underline gap-5  text-sm">
+                <span className="cursor-pointer  hover:text-(--primary-color)" onClick={() => navigate('/privacy')}>
+                    Privacy Policy
+                </span>
+                <span className="cursor-pointer hover:text-(--primary-color)" onClick={() => navigate('/terms')}>
+                    Terms & Conditions
+                </span>
+                <span className="cursor-pointer hover:text-(--primary-color)" onClick={() => navigate('/cancellation')}>
+                    Cancellations Policy
+                </span>
             </div>
 
             {/* Bottom Large Text */}

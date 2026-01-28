@@ -49,7 +49,7 @@ export default function FAQ() {
     };
 
     return (
-        <div className="w-full flex flex-col items-center py-16 px-6">
+        <div className="w-full flex flex-col   items-center py-5 px-6">
             {/* Heading */}
             <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center">
                 Frequently Asked Questions
