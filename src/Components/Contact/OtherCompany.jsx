@@ -21,9 +21,10 @@ const COMPANIES = [
     address:
       "Shop No. B34, Shanti Shopping Center, Mira Road East, Thane - 401107",
     email: "palghar.infrastructurellp@gmail.com",
-    contact: "+91-88980 12184",
-    location: { lat: 19.2813, lng: 72.8684 },
+    contact: "+91 88985 88985",
+    location: { lat: 19.275959, lng: 72.857361 },
   },
+  
   {
     sr_no: 2,
     company_name: "Palghar Growth Partner LLP",
@@ -31,8 +32,8 @@ const COMPANIES = [
     address:
       "Shop No. B34, Shanti Shopping Center, Mira Road East, Thane - 401107",
     email: "palghargrowth.partnerllp@gmail.com",
-    contact: "+91-70219 35692",
-    location: { lat: 19.2813, lng: 72.8684 },
+    contact: "+91 88985 88985",
+    location: { lat: 19.275959, lng: 72.857361 },
 
   },
   // {

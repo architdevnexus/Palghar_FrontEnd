@@ -73,14 +73,14 @@ export default function NewsLetter() {
         <button
           type="submit"
           disabled={loading}
-          className="bg-(--primary-color) text-white px-5 py-2 rounded-xl disabled:opacity-50"
+          className="bg-[#23c1eb] text-white px-5 py-2 rounded-xl disabled:opacity-50"
         >
           {loading ? "..." : "Subscribe"}
         </button>
       </form>
 
       {message && (
-        <span className="text-sm text-(--primary-color) mt-1">
+        <span className="text-sm text-[#23c1eb] mt-1">
           {message}
         </span>
       )}

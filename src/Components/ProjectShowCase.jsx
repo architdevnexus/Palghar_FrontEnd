@@ -92,7 +92,7 @@ export default function ProjectsShowCase() {
               className={`px-5 py-2 rounded-2xl text-sm font-medium transition-all
                 ${
                   activeTab === tab
-                    ? "bg-(--primary-color) text-white shadow-lg"
+                    ? "bg-[#23c1eb] text-white shadow-lg"
                     : "bg-gray-100 hover:bg-gray-200"
                 }`}
             >
@@ -110,7 +110,7 @@ export default function ProjectsShowCase() {
             placeholder="Search projects..."
             className="px-4 py-2 outline-none"
           />
-          <div className="px-4 flex items-center bg-(--primary-color) text-white">
+          <div className="px-4 flex items-center bg-[#23c1eb] text-white">
             <CiSearch size={22} />
           </div>
         </div>

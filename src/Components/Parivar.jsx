@@ -1,6 +1,5 @@
 import PalgharHomeCard from "./Cards/PalgharHomeCards";
 
-
 export default function Parivar() {
     const palgharHomeCards = [
         {
@@ -16,7 +15,7 @@ export default function Parivar() {
             category: "LAND & DEVELOPERS",
             email: "palghar.infrastructurellp@gmail.com",
             path: "/palghar-holding",
-        }
+        },
         // {
         //     id: 3,
         //     name: "PALGHAR ADVISOR LLP",
@@ -26,7 +25,7 @@ export default function Parivar() {
         // },
         // {
         //     id: 4,
-        //     name: "VOICE OF VICTIM’S SECTION 8",
+        //     name: "VOICE OF VICTIM'S SECTION 8",
         //     category: "SOCIAL INITIATIVE",
         //     email: "voiceofvictims2@gmail.com",
         //     path: "/voice-of-victims",
@@ -49,47 +48,41 @@ export default function Parivar() {
 
     return (
         <section className="w-full px-6 lg:px-20 py-10">
+
             {/* TOP LOGO */}
-            <div className="flex justify-center mb-8">
+            <div className="flex justify-center mb-10">
                 <img
                     src="/PALGHAR_PARIVAR.svg"
                     alt="Palghar Parivar"
-                    className="h-12 object-contain"
+                    className="h-14 object-contain"
                 />
             </div>
 
-            {/* CARDS CONTAINER */}
-            <div className="bg-white rounded-2xl overflow-hidden">
-                {/* GRID */}
+            {/* CARDS CONTAINER — no internal border lines */}
+            <div className="
+                bg-white rounded-2xl overflow-hidden
+                border border-gray-100
+                shadow-[0_2px_24px_rgba(0,0,0,0.05)]
+                hover:shadow-[0_6px_32px_rgba(0,0,0,0.09)]
+                transition-shadow duration-500
+            ">
                 <div className="grid grid-cols-1 md:grid-cols-2">
-                    {palgharHomeCards.map((item, index) => {
-                        const isDivider = index === 3;
-
-                        return (
-                            <div key={item.id} className="relative">
-                                {/* GREEN DIVIDER AFTER 3rd CARD */}
-                                {isDivider && (
-                                    <div className="col-span-full h-1 bg-green-500 mx-6 rounded-2xl md:hidden" />
-                                )}
-
-                                <div
-                                    className={`
-                                        p-6
-                                        flex
-                                        justify-center
-                                        ${index % 3 !== 2 ? "md:border-r border-gray-300" : ""}
-                                        ${index >= 3 ? "md:border-t border-gray-300" : ""}
-                                    `}
-                                >
-                                    <PalgharHomeCard item={item} />
-                                </div>
-
-
-                            </div>
-                        );
-                    })}
+                    {palgharHomeCards.map((item, index) => (
+                        <div
+                            key={item.id}
+                            className="
+                                group p-8 flex justify-center
+                                hover:bg-[#f7faf2]
+                                transition-colors duration-300
+                            "
+                            
+                        >
+                            <PalgharHomeCard item={item} index={index} />
+                        </div>
+                    ))}
                 </div>
             </div>
+
         </section>
     );
 }

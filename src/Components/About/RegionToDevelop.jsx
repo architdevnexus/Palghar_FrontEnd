@@ -8,22 +8,21 @@ export default function RegionToDevelop() {
 
                     {/* LEFT TEXT BOX */}
                     <div className="lg:w-[42%] w-full flex justify-start">
-                        <div
-                            className="text-white rounded-2xl p-6 md:p-8 w-full max-w-[420px]"
-                            style={{
-                                backgroundImage: 'url("/greenBlack.svg")',
-                                backgroundRepeat: "no-repeat",
-                                backgroundSize: "cover",
-                            }}
-                        >
-                            <h2 className="text-lg md:text-xl font-semibold leading-snug">
-                                ACCORDING TO YOU, BY WHEN WILL THIS REGION DEVELOP?
-                            </h2>
+                       <div className="relative overflow-hidden rounded-2xl p-8 max-w-lg min-h-[200px] border border-white/5 bg-[#1e2530]
+                            before:absolute before:inset-y-0 before:left-0 before:w-[5px] before:rounded-l-2xl
+                            before:bg-gradient-to-b before:from-[#4ecdc4] before:to-[#2a9d8f]
+                            after:absolute after:-top-16 after:-right-16 after:w-48 after:h-48 after:rounded-full
+                            after:bg-[radial-gradient(circle,rgba(78,205,196,0.08),transparent)]">
+                    <h2 className="text-white text-sm font-semibold uppercase leading-snug tracking-wide mb-5">
+                        ACCORDING TO YOU, BY WHEN WILL THIS REGION DEVELOP?
+                    </h2>
 
-                            <p className="mt-5 text-xl md:text-2xl font-bold tracking-wide">
-                                2030 &nbsp;–&nbsp; 2040 &nbsp;–&nbsp; 2050
-                            </p>
-                        </div>
+                    <p className="text-white text-xl font-bold tracking-widest">
+                        2030 <span className="text-white/30 font-normal mx-1">—</span>
+                        2040 <span className="text-white/30 font-normal mx-1">—</span>
+                        2050
+                    </p>
+                    </div>
                     </div>
 
                     {/* RIGHT IMAGE */}
@@ -38,7 +37,7 @@ export default function RegionToDevelop() {
 
                 {/* GRADIENT BAR 1 */}
                 <div>
-                    <div className="bg-linear-to-r from-[#005A70] via-[#0083A3] to-[#00ACD6] rounded-xl py-4 px-6 text-center shadow-md">
+                    <div className="bg-gradient-to-r from-[#23c1eb] via-[#1fb5db] to-[#199fc1] rounded-xl py-4 px-6 text-center shadow-md">
                         <p className="text-white font-semibold text-sm md:text-base tracking-wide">
                             Proposed MIRA – VIRAR – PALGHAR Link Road to MUMBAI
                         </p>
@@ -77,7 +76,7 @@ export default function RegionToDevelop() {
 
                 {/* GRADIENT BAR 2 */}
                 <div>
-                    <div className="bg-linear-to-r from-[#005A70] via-[#0083A3] to-[#00ACD6] rounded-xl py-4 px-6 text-center shadow-md">
+                    <div className="bg-gradient-to-r from-[#23c1eb] via-[#1fb5db] to-[#199fc1] rounded-xl py-4 px-6 text-center shadow-md">
                         <p className="text-white font-semibold text-sm md:text-base tracking-wide">
                             INDIA – MIDDLE EAST – EUROPE CORRIDOR
                         </p>

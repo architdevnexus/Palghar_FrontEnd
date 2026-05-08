@@ -40,22 +40,22 @@ export default function TrendingBlog({ blogs = [] }) {
   return (
     <div
       className="p-4 rounded-2xl bg-white relative w-full border-2"
-      style={{ borderColor: "var(--primary-color)" }}
+      style={{ borderColor: "#23c1eb" }}
     >
       {/* Top badge header */}
       <div
         className="text-white font-semibold text-lg px-4 py-3 rounded-2xl flex items-center gap-2 absolute -top-6 left-6 shadow-md"
-        style={{ backgroundColor: "var(--primary-color)" }}
+        style={{ backgroundColor: "#23c1eb" }}
       >
         <span
           className="h-6 w-2 rounded-full"
-          style={{ backgroundColor: "var(--secondary-color)" }}
+          style={{ backgroundColor: "#fff" }}
         ></span>
         Trending Posts
       </div>
 
       {/* Wrapper Box */}
-      <div className="mt-10 border-l-4 pl-4" style={{ borderColor: "var(--primary-color)" }}>
+      <div className="mt-10 border-l-4 pl-4" style={{ borderColor: "#23c1eb" }}>
         {/* Scrollable Area */}
         <div className="flex flex-col gap-6 max-h-[520px] overflow-y-auto pr-2 scrollbar-hide">
           {blogs.slice(0, 7).map((item) => (

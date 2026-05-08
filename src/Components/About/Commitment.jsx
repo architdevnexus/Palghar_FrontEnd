@@ -31,7 +31,7 @@ export default function Commitment() {
             </div>
 
             {/* Commitment Cards */}
-            <div className="flex flex-col items-center rounded-2xl bg-(--primary-color) p-6 gap-6">
+            <div className="flex flex-col items-center rounded-2xl bg-gradient-to-r from-[#23c1eb] via-[#1fb5db] to-[#199fc1] p-6 gap-6">
                 <span className="text-white font-semibold text-xl">
                     At PALGHAR INFRASTRUCTURE, we believe in:
                 </span>

@@ -121,7 +121,7 @@ export default function Footer() {
                     </div>
 
                     <div className="mt-3 flex items-center gap-2 text-sm">
-                        <FaPhone className="shrink-0" /> +91 88980 12184
+                        <FaPhone className="shrink-0" /> +91 88985 88985
                     </div>
 
                     <div className="mt-2 flex items-start gap-2 text-sm">

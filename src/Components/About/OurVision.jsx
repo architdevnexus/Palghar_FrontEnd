@@ -83,7 +83,7 @@ export default function OurVision() {
         {/* HEADER */}
 
         <div className=" text-left p-4">
-          <span className="border-l-8 border-(--primary-color) pl-3 text-3xl font-semibold tracking-wide uppercase">
+          <span className="border-l-8 border-[#23c1eb] pl-3 text-3xl font-semibold tracking-wide uppercase">
             Our Vision
           </span>
 

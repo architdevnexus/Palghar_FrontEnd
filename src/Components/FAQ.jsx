@@ -59,7 +59,7 @@ export default function FAQ() {
                 {faqs.map((faq, index) => (
                     <div
                         key={faq.id}
-                        className="bg-white cursor-pointer rounded-xl shadow-md p-4 border-l-4 border-(--primary-color)"
+                        className="bg-white cursor-pointer rounded-xl shadow-md p-4 border-l-4 border-[#23c1eb]"
                     >
                         {/* Question Row */}
                         <button

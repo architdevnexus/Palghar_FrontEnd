@@ -28,7 +28,7 @@ export default function BlogHeader() {
             <div
                 className="
                     relative 
-                    bg-(--primary-color)
+                    bg-[#23c1eb]
                     text-white 
                     font-bold
                     border-4 

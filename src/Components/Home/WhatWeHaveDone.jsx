@@ -49,7 +49,7 @@ export default function WhatWeHaveDone() {
         ],
       },
       {
-        heading: "PALGHAR DISTRICT",
+        heading: "PALGHAR ",
         images: [
           { year: "Old", src: NaigaonAfter },
           { year: "New", src: PalgharAfter },
@@ -76,7 +76,7 @@ export default function WhatWeHaveDone() {
               className={`px-6 py-2 rounded-xl border cursor-pointer text-sm md:text-base font-medium transition-all whitespace-nowrap
                 ${
                   active === index
-                    ? "bg-(--primary-color) text-white shadow-md border-transparent"
+                    ? "bg-[#23c1eb] text-white shadow-md border-transparent"
                     : "bg-white text-gray-700 border-gray-300 hover:bg-gray-100"
                 }`}
             >
@@ -88,7 +88,7 @@ export default function WhatWeHaveDone() {
 
       {/* SUB TITLE */}
       <div className="flex items-center gap-2 mb-8">
-        <div className="w-2 h-8 bg-(--primary-color) rounded" />
+        <div className="w-2 h-8 bg-[#23c1eb] rounded" />
         <h3 className="text-xl md:text-2xl font-semibold">
           Our First Vision in (20 Years)
         </h3>

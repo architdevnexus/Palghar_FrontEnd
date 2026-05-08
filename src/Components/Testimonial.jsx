@@ -75,7 +75,7 @@ function TestimonialSlider() {
             <div
               className="absolute -top-8 -left-12 sm:-left-26 w-[280px] text-white rounded-2xl px-2 py-4"
               style={{
-                backgroundImage: "url('/testimonialBlue.svg')",
+                backgroundImage: "url('/testimonialBlue.png')",
                 backgroundSize: "100% 100%",
                 backgroundRepeat: "no-repeat",
               }}

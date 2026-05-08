@@ -25,7 +25,7 @@ export default function CoreSectors() {
           modern transportation is the backbone of economic progress,
           connecting people, boosting trade, and opening new opportunities.
         </p>
-        <h2 className="text-3xl md:text-4xl font-bold text-(--primary-color)">
+        <h2 className="text-3xl md:text-4xl font-bold text-[#23c1eb]">
           Our Core Sectors
         </h2>
       </div>

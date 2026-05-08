@@ -45,13 +45,11 @@ export default function BlogCard({ item }) {
     <div className="w-full max-w-md flex flex-col gap-4 p-4 rounded-2xl shadow-md bg-white relative">
 
       {/* Date tag */}
-      <div
-        style={{ background: "url('/blogicon.svg') no-repeat" }}
-        className="absolute -left-4 h-22 text-white px-3 flex flex-col items-center justify-center"
-      >
-        <p className="text-xl -translate-y-5 font-bold">{dateInfo.day}</p>
-        <p className="text-sm -translate-y-6">{dateInfo.month}</p>
-      </div>
+     
+    <div className="absolute -left-4 h-16 w-16 bg-[#23c1eb] rounded-br-2xl rounded-tr-2xl rounded-tl-2xl text-white px-3 flex flex-col items-center justify-center shadow-md">
+      <p className="text-xl font-bold leading-none">{dateInfo.day}</p>
+      <p className="text-xs">{dateInfo.month}</p>
+    </div>
 
       {/* Image */}
       <div className="w-full h-48 rounded-2xl overflow-hidden">
@@ -67,7 +65,7 @@ export default function BlogCard({ item }) {
       <div className="flex flex-col gap-2">
 
         {/* Title */}
-        <h2 className="text-xl font-semibold border-l-4 pl-3 border-teal-600 line-clamp-2 min-h-14">
+        <h2 className="text-xl font-semibold border-l-4 pl-3 border-[#23c1eb] line-clamp-2 min-h-14">
           {truncate(item?.title, 50)}
         </h2>
 

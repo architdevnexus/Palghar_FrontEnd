@@ -125,7 +125,7 @@ export default function GetInTouch() {
           </div>
 
           <div className="flex items-center gap-4 text-sm sm:text-lg">
-            <MdCall size={26} /> +91 88980 12184
+            <MdCall size={26} /> +91 88985 88985
           </div>
 
           <div className="flex items-start gap-4 text-sm sm:text-lg leading-6">
@@ -254,7 +254,7 @@ export default function GetInTouch() {
               type="submit"
               disabled={loading}
               className="
-              bg-(--primary-color)
+              bg-[#23c1eb]
               text-white
               py-3
               rounded-lg

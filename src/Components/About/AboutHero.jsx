@@ -14,7 +14,7 @@ const AboutHeader = () => {
         <div
           className="h-42   md:h-68 flex justify-around  items-center px-8 
           text-white text-2xl md:text-5xl font-semibold 
-          bg-(--primary-color) mr-2 rounded-2xl"
+          bg-[#23c1eb] mr-2 rounded-2xl"
           style={{
             clipPath: "polygon(0 0, 100% 0%, 60% 100%, 0 100%)",
           }}
