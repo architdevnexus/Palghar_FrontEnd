@@ -1,0 +1,39 @@
+@keyframes floatUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shimmer {
+  0%, 100% { opacity: 0.7; }
+  50%       { opacity: 1; }
+}
+
+@keyframes breathe {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.04); }
+}
+
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 4px 20px rgba(59, 130, 17, 0.08); }
+  50%       { box-shadow: 0 8px 32px rgba(59, 130, 17, 0.18); }
+}
+
+.pgcard-wrap {
+  animation: floatUp 0.5s ease both, glowPulse 4s ease-in-out infinite;
+}
+
+.pgcard-bar {
+  animation: shimmer 2.8s ease-in-out infinite;
+}
+
+.pgcard-pill {
+  animation: breathe 3.5s ease-in-out infinite;
+}
+
+.pgcard-icon {
+  transition: transform 0.3s ease;
+}
+
+.pgcard-wrap:hover .pgcard-icon {
+  transform: scale(1.18) rotate(-6deg);
+}

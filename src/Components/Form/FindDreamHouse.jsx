@@ -144,7 +144,7 @@ const FindDreamHouse = () => {
     <>
       {/* SEARCH CARD */}
       <div className="flex justify-center px-4 py-8">
-        <div className="relative w-full max-w-md rounded-3xl bg-[var(--primary-color)] px-6 pb-6 pt-10 text-white shadow-2xl">
+        <div className="relative w-full max-w-md rounded-3xl bg-[#23c1eb] px-6 pb-6 pt-10 text-white shadow-2xl">
           <LogoBox />
 
           <h2 className="mb-8 text-center text-2xl font-bold">

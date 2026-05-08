@@ -12,7 +12,7 @@ export default function MediaHero() {
             <div className="absolute inset-0 bg-white/10  rounded-2xl"></div>
 
             {/* Centered Title Box */}
-            <div className="relative z-10 px-10 py-6 h-40 w-1/2 flex items-center justify-center bg-(--primary-color)
+            <div className="relative z-10 px-10 py-6 h-40 w-1/2 flex items-center justify-center bg-[#23c1eb]
                             text-white text-4xl md:text-6xl font-semibold
                             rounded-2xl border-4 md:border-8 border-white shadow-xl">
                 Media

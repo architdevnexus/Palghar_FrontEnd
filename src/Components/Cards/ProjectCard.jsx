@@ -56,7 +56,7 @@ export default function ProjectCard({
                 <span
                     className="
                         inline-flex items-center gap-2 px-4 py-1.5 rounded-xl 
-                        bg-[#E8FCFF] text-[#00879F] font-medium text-sm
+                        bg-[#E8FCFF] text-[#23c1eb] font-medium text-sm
                     "
                 >
                     ✨ {item?.status}

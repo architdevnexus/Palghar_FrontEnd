@@ -37,7 +37,7 @@ export default function ModernTransportation() {
             <div className="flex flex-col items-center text-center px-6 py-10 relative">
 
                 {/* Icon wrapper */}
-                <div className="w-16 h-16 flex items-center justify-center rounded-full border-2 border-(--primary-color) p-3 bg-white shadow-sm">
+                <div className="w-16 h-16 flex items-center justify-center rounded-full border-2 border-[#23c1eb] p-3 bg-white shadow-sm">
                     <img src={image} alt={title} className="w-8 h-8 object-contain" />
                 </div>
 

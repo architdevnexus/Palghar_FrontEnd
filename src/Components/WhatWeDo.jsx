@@ -95,7 +95,7 @@ export default function WhatWeDo() {
             </motion.div>
 
             {/* Right Section */}
-            <div className="flex md:w-2/3 overflow-y-auto max-h-[500px] pr-3 scrollbar-thin">
+            <div className="custom-scroll flex md:w-2/3 overflow-y-auto max-h-[500px] pr-3">
                 <motion.div
                     variants={container}
                     initial="hidden"
@@ -116,7 +116,7 @@ export default function WhatWeDo() {
                                     duration: 0.4,
                                     ease: "backOut",
                                 }}
-                                className="min-w-12 min-h-12 flex items-center justify-center rounded-full bg-(--primary-color) text-white font-bold text-lg"
+                                className="min-w-12 min-h-12 flex items-center justify-center rounded-full bg-[#23c1eb] text-white font-bold text-lg"
                             >
                                 {service.id}
                             </motion.span>

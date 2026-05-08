@@ -57,7 +57,7 @@ const Navbar = () => {
               <li
                 key={id}
                 onClick={() => navigate(path)}
-                className="cursor-pointer transition hover:text-(--primary-color)"
+                className="cursor-pointer transition hover:text-[#23c1eb]"
               >
                 {name}
               </li>
@@ -70,7 +70,7 @@ const Navbar = () => {
             className="
               hidden md:block
               px-5 py-2 rounded-md
-              bg-(--primary-color) text-white
+              bg-[#23c1eb] text-white
               text-sm font-medium
               hover:opacity-90 transition
             "

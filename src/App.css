@@ -71,3 +71,13 @@ li {
 .animate-slide-in {
   animation: slide-in 0.3s ease-out;
 }
+.custom-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+.custom-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scroll::-webkit-scrollbar-thumb {
+  background: #3ecdf4;
+  border-radius: 999px;
+}

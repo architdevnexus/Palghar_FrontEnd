@@ -33,7 +33,7 @@ const MenuItem = memo(({ label, isActive, onClick }) => (
       transition-all duration-200 cursor-pointer
       focus:outline-none focus:ring-2 focus:ring-teal-500
       ${isActive
-        ? "bg-teal-600 text-white shadow"
+        ? "bg-[#23c1eb] text-white shadow"
         : "text-gray-700 hover:bg-gray-100"}
     `}
   >
