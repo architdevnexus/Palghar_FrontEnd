@@ -121,7 +121,7 @@ export default function GetInTouch() {
 
           <div className="flex items-center gap-4 text-sm sm:text-lg break-all">
             <MdEmail size={26} />
-            <span>palghar.infrastructurellp@gmail.com</span>
+            <span>support@palgharindia.com</span>
           </div>
 
           <div className="flex items-center gap-4 text-sm sm:text-lg">
@@ -141,19 +141,19 @@ export default function GetInTouch() {
         {/* RIGHT FORM */}
         <div
           className="
-    bg-white
-    shadow-2xl
-    px-6 py-6
-    sm:px-10
-    lg:px-14
-    w-full
-    max-w-2xl
-    mt-6
-    lg:ml-[30%]
-    border
-    rounded-2xl
-    border-gray-100
-  "
+          bg-white
+          shadow-2xl
+          px-6 py-6
+          sm:px-10
+          lg:px-14
+          w-full
+          max-w-2xl
+          mt-6
+          lg:ml-[30%]
+          border
+          rounded-2xl
+          border-gray-100
+        "
         >
 
           <h2 className="text-2xl sm:text-3xl font-bold">Get in Touch</h2>

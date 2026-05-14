@@ -64,7 +64,7 @@ export default function Footer() {
                             <button
                                 key={s.id}
                                 onClick={() => navigate(s.link)}
-                                className="p-2 bg-white/10 hover:bg-(--primary-color) rounded-full transition text-lg"
+                                className="p-2 bg-white/10 hover:bg-[#23c1eb] rounded-full transition text-lg"
                             >
                                 {s.icon}
                             </button>
@@ -83,7 +83,7 @@ export default function Footer() {
                         <span
                             key={link.id}
                             onClick={() => navigate(link.path)}
-                            className="cursor-pointer text-sm hover:text-(--primary-color) transition"
+                            className="cursor-pointer text-sm hover:text-[#23c1eb] transition"
                         >
                             {link.name}
                         </span>
@@ -101,7 +101,7 @@ export default function Footer() {
                         <Link
                             to={e.map_url || '#'}
                             key={idx}
-                            className="hover:text-(--primary-color) text-sm  cursor-pointer"
+                            className="hover:text-[#23c1eb] text-sm  cursor-pointer"
                         >
                             {e?.name}
                         </Link>
@@ -128,10 +128,10 @@ export default function Footer() {
                         <FaMailBulk className="shrink-0 mt-1" />
                         <a
                             target="_blank"
-                            href="mailto:palghar.infrastructurellp@gmail.com"
+                            href="mailto:support@palgharindia.com"
                             className="break-all hover:underline"
                         >
-                            palghar.infrastructurellp@gmail.com
+                            support@palgharindia.com
                         </a>
                     </div>
 
@@ -152,13 +152,13 @@ export default function Footer() {
 
             {/* Legal Links */}
             <div className="flex justify-center text-gray-  mt-5  underline gap-5  text-sm">
-                <span className="cursor-pointer  hover:text-(--primary-color)" onClick={() => navigate('/privacy')}>
+                <span className="cursor-pointer  hover:text-[#23c1eb]" onClick={() => navigate('/privacy')}>
                     Privacy Policy
                 </span>
-                <span className="cursor-pointer hover:text-(--primary-color)" onClick={() => navigate('/terms')}>
+                <span className="cursor-pointer hover:text-[#23c1eb]" onClick={() => navigate('/terms')}>
                     Terms & Conditions
                 </span>
-                <span className="cursor-pointer hover:text-(--primary-color)" onClick={() => navigate('/cancellation')}>
+                <span className="cursor-pointer hover:text-[#23c1eb]" onClick={() => navigate('/cancellation')}>
                     Cancellations Policy
                 </span>
             </div>
