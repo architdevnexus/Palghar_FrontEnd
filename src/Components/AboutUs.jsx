@@ -90,8 +90,7 @@ const AboutUs = () => {
           preload="auto"
           className="
             w-full h-[500px] md:h-[600px] lg:h-[650px]
-            object-cover object-center
-            rounded-2xl
+            object-cover object-top
             shadow-xl
           "
         />
