@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import AboutVideo from "../assets/about.mp4";
 
 const AboutUs = () => {
   return (
@@ -8,7 +9,7 @@ const AboutUs = () => {
         relative w-full 
         rounded-3xl
         flex flex-col-reverse md:flex-row
-        items-start justify-between
+        items-stretch justify-between
 
         overflow-visible
         py-10 md:py-14
@@ -27,6 +28,7 @@ const AboutUs = () => {
           py-8 md:py-12
           
           flex flex-col 
+          justify-center
           text-left 
           shadow-xl
           z-10
@@ -67,7 +69,7 @@ const AboutUs = () => {
         </p>
       </motion.div>
 
-      {/* RIGHT SIDE IMAGE */}
+      {/* RIGHT SIDE VIDEO */}
       <motion.div
         initial={{ opacity: 0, scale: 0.85 }}
         whileInView={{ opacity: 1, scale: 1 }}
@@ -79,13 +81,18 @@ const AboutUs = () => {
           relative
         "
       >
-        <img
-          src="https://images.pexels.com/photos/518244/pexels-photo-518244.jpeg"
-          alt="About Section"
+        <video
+          src={AboutVideo}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
           className="
-            w-full h-[300px] md:h-[420px] lg:h-[460px]
+            w-full h-[500px] md:h-[600px] lg:h-[650px]
             object-cover object-center
-             shadow-xl
+            rounded-2xl
+            shadow-xl
           "
         />
       </motion.div>
