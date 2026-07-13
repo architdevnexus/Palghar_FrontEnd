@@ -121,45 +121,41 @@ export default function ExploreNewCitySlider() {
         </button>
 
         {/* Slides */}
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={currentSlide}
-            className={`grid gap-4 ${
-              cardsPerSlide === 1
-                ? "grid-cols-1 auto-rows-[300px]"
-                : "grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 grid-rows-3 auto-rows-[150px]"
-            }`}
-            initial={{ opacity: 0, x: 100 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -100 }}
-            transition={{ duration: 0.5 }}
-            drag={cardsPerSlide === 1 ? "x" : false}
-            dragConstraints={{ left: 0, right: 0 }}
-            onDragEnd={(e, info) => {
-              if (info.offset.x < -50) handleNext();
-              if (info.offset.x > 50) handlePrev();
-            }}
-          >
-            {slides[currentSlide].map((city, index) => (
-              <motion.div
-                key={city?._id || index}
-                className={`rounded-2xl overflow-hidden shadow-lg ${
-                  cardsPerSlide === 1
-                    ? ""
-                    : `sm:${gridClasses[index % gridClasses.length]}`
-                }`}
-                whileHover={{ scale: cardsPerSlide === 1 ? 1 : 1.03 }}
-              >
-                <ExploreCityCard
-                  city={city?.location?.city || "Unknown"}
-                  image={city?.images?.[0]?.url}
-                  link={`/city/${city?.location?.city?.toLowerCase() || ""}`}
-                  loading="lazy"
-                />
-              </motion.div>
-            ))}
-          </motion.div>
-        </AnimatePresence>
+<AnimatePresence mode="wait">
+  <motion.div
+    key={currentSlide}
+    className={`grid gap-4 ${
+      cardsPerSlide === 1
+        ? "grid-cols-1 auto-rows-[300px]"
+        : "grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 auto-rows-[380px]"
+    }`}
+    initial={{ opacity: 0, x: 100 }}
+    animate={{ opacity: 1, x: 0 }}
+    exit={{ opacity: 0, x: -100 }}
+    transition={{ duration: 0.5 }}
+    drag={cardsPerSlide === 1 ? "x" : false}
+    dragConstraints={{ left: 0, right: 0 }}
+    onDragEnd={(e, info) => {
+      if (info.offset.x < -50) handleNext();
+      if (info.offset.x > 50) handlePrev();
+    }}
+  >
+    {slides[currentSlide].map((city, index) => (
+      <motion.div
+        key={city?._id || index}
+        className="rounded-2xl overflow-hidden shadow-lg"
+        whileHover={{ scale: cardsPerSlide === 1 ? 1 : 1.03 }}
+      >
+        <ExploreCityCard
+          city={city?.location?.city || "Unknown"}
+          image={city?.images?.[0]?.url}
+          link={`/city/${city?.location?.city?.toLowerCase() || ""}`}
+          loading="lazy"
+        />
+      </motion.div>
+    ))}
+  </motion.div>
+</AnimatePresence>
       </div>
     </div>
   );
