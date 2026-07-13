@@ -99,7 +99,7 @@ const Home = () => {
       <Suspense fallback={<SectionLoader />}>
         <RoadAlignment />
         <Parivar />
-        <img src="/VadhavanPort.png" alt="" />
+        <img src="/port.png" alt="" />
         <GrowthCarausal />
         <TestimonialsSlider />
         <WhatWeDo />
