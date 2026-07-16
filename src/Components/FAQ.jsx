@@ -59,13 +59,11 @@ export default function FAQ() {
                 {faqs.map((faq, index) => (
                     <div
                         key={faq.id}
+                        onClick={() => toggleFAQ(index)}
                         className="bg-white cursor-pointer rounded-xl shadow-md p-4 border-l-4 border-[#23c1eb]"
                     >
                         {/* Question Row */}
-                        <button
-                            onClick={() => toggleFAQ(index)}
-                            className="w-full cursor-pointer flex items-center justify-between text-left"
-                        >
+                        <div className="w-full flex items-center justify-between text-left">
                             <h3 className=" text-sm md:text-lg font-semibold text-gray-800 pr-4">
                                 {faq.question}
                             </h3>
@@ -81,7 +79,7 @@ export default function FAQ() {
                                     <CiCircleChevDown size={28} />
                                 )}
                             </motion.div>
-                        </button>
+                        </div>
 
                         {/* Answer Animation */}
                         <AnimatePresence>

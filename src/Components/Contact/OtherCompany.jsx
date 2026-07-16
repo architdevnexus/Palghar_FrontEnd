@@ -77,7 +77,7 @@ const FlyToActive = ({ position }) => {
 
   useEffect(() => {
     if (position?.length === 2) {
-      map.flyTo(position, 15, { duration: 1.2 });
+      map.flyTo(position, 16, { duration: 1.2 });
     }
   }, [position, map]);
 
@@ -136,17 +136,18 @@ export default function OtherCompany() {
         </div>
 
         {/* MAP */}
-        <div className="w-full h-[300px] sm:h-[450px] lg:h-[650px] -z-10 rounded-xl overflow-hidden shadow-md">
+        <div className="w-full h-[300px] sm:h-[450px] lg:h-[650px] z-0 rounded-xl overflow-hidden shadow-md">
           <MapContainer
             center={activePosition}
-            zoom={20}
-            scrollWheelZoom={false}
+            zoom={16}
+            scrollWheelZoom={true}
             preferCanvas
             className="w-full h-full"
           >
             <TileLayer
               attribution="&copy; OpenStreetMap contributors"
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              maxZoom={19}
             />
 
             {COMPANIES.map((item, index) => (

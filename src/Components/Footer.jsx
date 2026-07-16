@@ -1,6 +1,6 @@
-import { Link, useNavigate } from "react-router-dom";
-import Data from "../DataStore/ESTATE.json";
+import { useNavigate } from "react-router-dom";
 import { Navdata } from "../DataStore/Navdata";
+
 
 import {
     FaInstagram,
@@ -14,21 +14,10 @@ import {
 import { CiYoutube } from "react-icons/ci";
 
 import NewsLetter from "../Components/Form/NewsLetter";
-import { useEffect } from "react";
-import { useMainStore } from "../store/GetAllData.jsx";
 
 export default function Footer() {
 
-    const { projectdata, loading, error, fetchAllData } = useMainStore();
-
-    useEffect(() => {
-        fetchAllData();
-    }, []);
     const navigate = useNavigate();
-
-    const projects = projectdata?.map((e) => e?.projects).flat().slice(0, 4) || [];
-
-    !loading && console.log(projects)
 
     const socialMedia = [
         { id: 1, link: "/insta", icon: <FaInstagram /> },
@@ -38,11 +27,17 @@ export default function Footer() {
         { id: 5, link: "/youtube", icon: <CiYoutube /> },
     ];
 
+    // Navigate to a page and scroll it to the top first
+    const goTo = (path) => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        navigate(path);
+    };
+
     return (
         <footer className="relative bg-(--footer-color) text-white px-6 md:px-12 lg:px-20 pb-3 pt-10">
 
             {/* GRID START */}
-            <div className="grid grid-cols-1  sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-12">
+            <div className="grid grid-cols-1  sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12">
 
                 {/* ---------- Column 1 ---------- */}
                 <div className="flex     flex-col gap-5">
@@ -63,7 +58,7 @@ export default function Footer() {
                         {socialMedia.map((s) => (
                             <button
                                 key={s.id}
-                                onClick={() => navigate(s.link)}
+                                onClick={() => goTo(s.link)}
                                 className="p-2 bg-white/10 hover:bg-[#23c1eb] rounded-full transition text-lg"
                             >
                                 {s.icon}
@@ -82,33 +77,13 @@ export default function Footer() {
                     {Navdata.map((link) => (
                         <span
                             key={link.id}
-                            onClick={() => navigate(link.path)}
+                            onClick={() => goTo(link.path)}
                             className="cursor-pointer text-sm hover:text-[#23c1eb] transition"
                         >
                             {link.name}
                         </span>
                     ))}
-
-
                 </div>
-
-                {/* ---------- Column 3 (projects) ---------- */}
-                <div className="flex     flex-col gap-3">
-                    <h2 className="text-lg font-semibold">Projects</h2>
-
-                    {/* <div className="flex flex-col max-h-80 gap-2 text-sm opacity-80"> */}
-                    {projects?.map((e, idx) => (
-                        <Link
-                            to={e.map_url || '#'}
-                            key={idx}
-                            className="hover:text-[#23c1eb] text-sm  cursor-pointer"
-                        >
-                            {e?.name}
-                        </Link>
-                    ))}
-                    {/* </div> */}
-                </div>
-
 
                 {/* Contact info */}
                 <div className="flex flex-col    justify-between mt-2">
@@ -121,7 +96,10 @@ export default function Footer() {
                     </div>
 
                     <div className="mt-3 flex items-center gap-2 text-sm">
-                        <FaPhone className="shrink-0" /> +91 88985 88985
+                        <FaPhone className="shrink-0" />
+                        <a href="tel:+918898588985" className="hover:underline">
+                            +91 88985 88985
+                        </a>
                     </div>
 
                     <div className="mt-2 flex items-start gap-2 text-sm">
@@ -137,11 +115,19 @@ export default function Footer() {
 
 
                     <div className="mt-2 flex items-center gap-2 text-sm">
-                        <FaLocationArrow className="shrink-0" /> Shop No. B34 , Shanti Shopping center ,Mira Road East, Thane - 401107
+                        <FaLocationArrow className="shrink-0" />
+                        <a
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            href="https://www.google.com/maps/search/?api=1&query=Shop+No.+B34,+Shanti+Shopping+center,+Mira+Road+East,+Thane+-+401107"
+                            className="hover:underline"
+                        >
+                            Shop No. B34 , Shanti Shopping center ,Mira Road East, Thane - 401107
+                        </a>
                     </div>
                 </div>
 
-                {/* ---------- Column 4 (Newsletter) ---------- */}
+                {/* ---------- Column 3 (Newsletter) ---------- */}
                 <div className="flex     flex-col">
 
                     <NewsLetter />
@@ -152,13 +138,13 @@ export default function Footer() {
 
             {/* Legal Links */}
             <div className="flex justify-center text-gray-  mt-5  underline gap-5  text-sm">
-                <span className="cursor-pointer  hover:text-[#23c1eb]" onClick={() => navigate('/privacy')}>
+                <span className="cursor-pointer  hover:text-[#23c1eb]" onClick={() => goTo('/privacy')}>
                     Privacy Policy
                 </span>
-                <span className="cursor-pointer hover:text-[#23c1eb]" onClick={() => navigate('/terms')}>
+                <span className="cursor-pointer hover:text-[#23c1eb]" onClick={() => goTo('/terms')}>
                     Terms & Conditions
                 </span>
-                <span className="cursor-pointer hover:text-[#23c1eb]" onClick={() => navigate('/cancellation')}>
+                <span className="cursor-pointer hover:text-[#23c1eb]" onClick={() => goTo('/cancellation')}>
                     Cancellations Policy
                 </span>
             </div>

@@ -135,17 +135,23 @@ export default function Media() {
 
         {/* POPUP MODAL */}
         {isOpen && selectedProject && (
-          <div className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center p-6">
-
-
-            <RxCross2
-              size={40}
-              onClick={closePopup}
-              className="absolute bg-gray-700 p-1 cursor-pointer rounded-full top-6 right-6 text-white  " />
-            <MediaSlider
-              images={selectedProject.images}
-            />
-
+          <div
+            onClick={closePopup}
+            className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center p-6"
+          >
+            {/* Inner wrapper: clicking the image/slider itself won't close the popup */}
+            <div
+              onClick={(e) => e.stopPropagation()}
+              className="relative"
+            >
+              <RxCross2
+                size={40}
+                onClick={closePopup}
+                className="absolute bg-black/50 p-1 cursor-pointer rounded-full -top-0 -right-0 text-white z-10" />
+              <MediaSlider
+                images={selectedProject.images}
+              />
+            </div>
           </div>
         )}
 
