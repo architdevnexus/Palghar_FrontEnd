@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useCallback, memo } from "react";
+import React, { useState, useMemo, useCallback, useEffect, memo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 // Images
@@ -23,6 +23,15 @@ const ROAD_DATA = Object.freeze([
   { id: 8, label: "Vadhavan Location With Reference To JNP & Mumbai Port", image: img8 }
 ]);
 
+// Preload an image into the browser cache once, then remember it's done
+const loadedCache = new Set();
+const preloadImage = (src) => {
+  if (!src || loadedCache.has(src)) return;
+  const im = new Image();
+  im.src = src;
+  im.onload = () => loadedCache.add(src);
+};
+
 // MEMOIZED MENU ITEM
 const MenuItem = memo(({ label, isActive, onClick }) => (
   <button
@@ -43,12 +52,32 @@ const MenuItem = memo(({ label, isActive, onClick }) => (
 
 export default function RoadAlignment() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [imgLoaded, setImgLoaded] = useState(() => loadedCache.has(ROAD_DATA[0].image));
 
   // Memoize active item to prevent unnecessary recalculations
   const activeItem = useMemo(() => ROAD_DATA[activeIndex], [activeIndex]);
 
   const handleSelect = useCallback((index) => {
     setActiveIndex(index);
+    setImgLoaded(loadedCache.has(ROAD_DATA[index].image));
+  }, []);
+
+  // Preload current + neighboring images so switching feels instant
+  useEffect(() => {
+    preloadImage(ROAD_DATA[activeIndex].image);
+    preloadImage(ROAD_DATA[(activeIndex + 1) % ROAD_DATA.length].image);
+    preloadImage(ROAD_DATA[(activeIndex - 1 + ROAD_DATA.length) % ROAD_DATA.length].image);
+  }, [activeIndex]);
+
+  // Preload everything else in the background after first paint
+  useEffect(() => {
+    const id = window.requestIdleCallback
+      ? window.requestIdleCallback(() => ROAD_DATA.forEach((r) => preloadImage(r.image)))
+      : setTimeout(() => ROAD_DATA.forEach((r) => preloadImage(r.image)), 1500);
+    return () => {
+      if (window.cancelIdleCallback) window.cancelIdleCallback(id);
+      else clearTimeout(id);
+    };
   }, []);
 
   return (
@@ -98,20 +127,32 @@ export default function RoadAlignment() {
                 {activeItem.label}
               </h3>
 
-              <motion.img
-                src={activeItem.image}
-                alt={activeItem.label}
-                loading="lazy"
-                decoding="async"
-                className="
-                  w-full rounded-3xl
-                  object-contain md:object-fill 
-                  max-h-[60vh]
-                "
-                initial={{ scale: 0.96 }}
-                animate={{ scale: 1 }}
-                transition={{ duration: 0.35 }}
-              />
+              <div className="relative w-full min-h-[200px]">
+                {!imgLoaded && (
+                  <div className="absolute inset-0 rounded-3xl bg-gray-200 animate-pulse" />
+                )}
+                <motion.img
+                  src={activeItem.image}
+                  alt={activeItem.label}
+                  loading="eager"
+                  decoding="async"
+                  fetchpriority="high"
+                  onLoad={() => {
+                    loadedCache.add(activeItem.image);
+                    setImgLoaded(true);
+                  }}
+                  className={`
+                    w-full rounded-3xl
+                    object-contain md:object-fill 
+                    max-h-[60vh]
+                    transition-opacity duration-200
+                    ${imgLoaded ? "opacity-100" : "opacity-0"}
+                  `}
+                  initial={{ scale: 0.96 }}
+                  animate={{ scale: 1 }}
+                  transition={{ duration: 0.35 }}
+                />
+              </div>
             </motion.article>
           </AnimatePresence>
         </div>
