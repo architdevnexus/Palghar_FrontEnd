@@ -164,9 +164,9 @@ export default function Privacy() {
               may contact us using the information below:
             </p>
 
-            <p className="font-medium mt-3">📧 Email: support@yourbuilderwebsite.com</p>
-            <p className="font-medium">📞 Phone: +91 98765 43210</p>
-            <p className="font-medium">📍 Address: Your Builder Office Address, City, India</p>
+            <p className="font-medium mt-3">📧 Email: support@palgharindia.com</p>
+            <p className="font-medium">📞 Phone: +91 88985 88985</p>
+            <p className="font-medium">📍 Address: Shop No. B34 , Shanti Shopping center ,Mira Road East, Thane - 401107</p>
           </section>
 
         </div>

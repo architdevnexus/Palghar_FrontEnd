@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { FiMenu, FiX } from "react-icons/fi";
 import { motion, AnimatePresence } from "framer-motion";
 import { Navdata } from "../DataStore/Navdata";
@@ -13,6 +13,7 @@ const mobileMenuVariants = {
 
 const Navbar = () => {
   const navigate = useNavigate();
+  const location = useLocation();
 
   const [menuOpen, setMenuOpen] = useState(false);
   const [formOpen, setFormOpen] = useState(false);
@@ -23,6 +24,20 @@ const Navbar = () => {
     setFormOpen(true);
   }, []);
   const closeForm = useCallback(() => setFormOpen(false), []);
+
+  // navigate + scroll to top
+  const goTo = useCallback(
+    (path) => {
+      navigate(path);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    },
+    [navigate]
+  );
+
+  const handleMenuLinkClick = useCallback(() => {
+    closeMenu();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [closeMenu]);
 
   return (
     <>
@@ -48,20 +63,25 @@ const Navbar = () => {
             src="/Logo.png"
             alt="logo"
             className="w-14   cursor-pointer"
-            onClick={() => navigate("/")}
+            onClick={() => goTo("/")}
           />
 
           {/* Desktop Menu */}
           <ul className="hidden md:flex items-center gap-8 text-[16px] font-medium">
-            {Navdata.map(({ id, name, path }) => (
-              <li
-                key={id}
-                onClick={() => navigate(path)}
-                className="cursor-pointer transition hover:text-[#23c1eb]"
-              >
-                {name}
-              </li>
-            ))}
+            {Navdata.map(({ id, name, path }) => {
+              const isActive = location.pathname === path;
+              return (
+                <li
+                  key={id}
+                  onClick={() => goTo(path)}
+                  className={`cursor-pointer transition hover:text-[#23c1eb] ${
+                    isActive ? "text-[#23c1eb]" : ""
+                  }`}
+                >
+                  {name}
+                </li>
+              );
+            })}
           </ul>
 
           {/* Desktop CTA */}
@@ -117,16 +137,21 @@ const Navbar = () => {
 
               {/* Links */}
               <nav className="flex flex-col gap-6 text-lg font-semibold">
-                {Navdata.map(({ id, name, path }) => (
-                  <Link
-                    key={id}
-                    to={path}
-                    onClick={closeMenu}
-                    className="transition hover:text-(--primary-color)"
-                  >
-                    {name}
-                  </Link>
-                ))}
+                {Navdata.map(({ id, name, path }) => {
+                  const isActive = location.pathname === path;
+                  return (
+                    <Link
+                      key={id}
+                      to={path}
+                      onClick={handleMenuLinkClick}
+                      className={`transition hover:text-(--primary-color) ${
+                        isActive ? "text-(--primary-color)" : ""
+                      }`}
+                    >
+                      {name}
+                    </Link>
+                  );
+                })}
 
                 {/* CTA */}
                 <button
