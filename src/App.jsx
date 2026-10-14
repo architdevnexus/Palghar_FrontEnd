@@ -19,6 +19,7 @@ const Contact = lazy(() => import("./Pages/main/Contact"));
 const Blogs = lazy(() => import("./Pages/main/Blogs"));
 const Media = lazy(() => import("./Pages/main/Media"));
 const Projects = lazy(() => import("./Pages/main/Projects"));
+const PurchasesSales = lazy(() => import("./Pages/main/PurchasesSales"));
 const Privacy = lazy(() => import("./Pages/main/Privacy"));
 const Terms = lazy(() => import("./Pages/main/TermsCondition"));
 const Cancellation = lazy(() => import("./Pages/main/Cancellation"));
@@ -43,6 +44,7 @@ const AnimatedRoutes = () => {
         <Route path="/blog" element={<Blogs />} />
         <Route path="/media" element={<Media />} />
         <Route path="/projects" element={<Projects />} />
+        <Route path="/find-property" element={<PurchasesSales />} />
 
         <Route path="/cancellation" element={<Cancellation />} />
         <Route path="/terms" element={<Terms />} />
