@@ -53,7 +53,7 @@ const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 // Every enquiry is also emailed to this address (via FormSubmit.co).
 // Change it here whenever you want a different inbox.
-const NOTIFY_EMAIL = "akanksharai22feb@gmail.com";
+const NOTIFY_EMAIL = "vision@palgharindia.com";
 
 /* ---------------- POPUP ---------------- */
 function LocationModal({ location, onClose }) {
