@@ -50,7 +50,7 @@ const AboutUs = () => {
         <p className="text-gray-300 text-base md:text-lg leading-relaxed max-w-xl">
           At{" "}
           <span className="font-semibold text-white">
-            PALGHAR INFRASTRUCTURE
+            Palghar Growth Partner 
           </span>
           , we’ve spent over <strong>25+ years</strong> shaping India’s
           transportation future.

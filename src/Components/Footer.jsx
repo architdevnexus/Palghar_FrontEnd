@@ -45,9 +45,9 @@ export default function Footer() {
                         <img src="/Logo.png" alt="logo" className="w-12 h-12" />
 
                         <div>
-                            <h2 className="text-lg font-bold">Palghar Infrastructure</h2>
+                            <h2 className="text-lg font-bold">Palghar Growth Partner</h2>
                             <p className="text-sm opacity-80 mt-1 leading-5 max-w-xs">
-                                At PALGHAR INFRASTRUCTURE, we’ve spent the last 25+ years
+                                At PALGHAR GROWTH PARTNER, we’ve spent the last 25+ years
                                 shaping the future of India’s transportation landscape.
                             </p>
                         </div>
