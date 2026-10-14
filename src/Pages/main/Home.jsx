@@ -24,9 +24,9 @@ const WhatWeHaveDone = lazy(() =>
 const RoadAlignment = lazy(() =>
   import("../../Components/Road_Alignment")
 );
-const Parivar = lazy(() =>
-  import("../../Components/Parivar")
-);
+// const Parivar = lazy(() =>
+//   import("../../Components/Parivar")
+// );
 const TestimonialsSlider = lazy(() =>
   import("../../Components/Testimonial")
 );
@@ -98,7 +98,7 @@ const Home = () => {
 
       <Suspense fallback={<SectionLoader />}>
         <RoadAlignment />
-        <Parivar />
+        {/* <Parivar /> */}
         <img src="/port.png" alt="" />
         <GrowthCarausal />
         <TestimonialsSlider />

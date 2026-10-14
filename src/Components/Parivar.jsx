@@ -9,13 +9,13 @@ export default function Parivar() {
             email: "vision@palgharindia.com",
             path: "/palghar-growth-partner",
         },
-        {
-            id: 2,
-            name: "PALGHAR Infrastructure LLP",
-            category: "LAND & DEVELOPERS",
-            email: "vision@palgharindia.com",
-            path: "/palghar-holding",
-        },
+        // {
+        //     id: 2,
+        //     name: "PALGHAR Infrastructure LLP",
+        //     category: "LAND & DEVELOPERS",
+        //     email: "vision@palgharindia.com",
+        //     path: "/palghar-holding",
+        // },
         // {
         //     id: 3,
         //     name: "PALGHAR ADVISOR LLP",

@@ -14,16 +14,16 @@ import PalgharLogo from "/Logo.png";
 
 /* ------------------ DATA (STATIC) ------------------ */
 const COMPANIES = [
-  {
-    sr_no: 1,
-    company_name: "Palghar Infrastructure LLP",
-    logo: PalgharLogo,
-    address:
-      "Shop No. 30, D Wing, Om Sai Complex, Near Atithi Banquets, Betegaon, Boisar East, Palghar – 4015017",
-    email: "vision@palgharindia.com",
-    contact: "+91 88985 88985",
-    location: { lat: 19.275959, lng: 72.857361 },
-  },
+  // {
+  //   sr_no: 1,
+  //   company_name: "Palghar Infrastructure LLP",
+  //   logo: PalgharLogo,
+  //   address:
+  //     "Shop No. 30, D Wing, Om Sai Complex, Near Atithi Banquets, Betegaon, Boisar East, Palghar – 4015017",
+  //   email: "vision@palgharindia.com",
+  //   contact: "+91 88985 88985",
+  //   location: { lat: 19.275959, lng: 72.857361 },
+  // },
   
   {
     sr_no: 2,
