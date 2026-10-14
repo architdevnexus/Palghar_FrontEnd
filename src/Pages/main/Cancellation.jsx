@@ -141,9 +141,9 @@ export default function Cancellation() {
               you may contact us at:
             </p>
 
-            <p className="font-medium mt-3">📧 Email: support@palgharindia.com</p>
+            <p className="font-medium mt-3">📧 Email: vision@palgharindia.com</p>
             <p className="font-medium">📞 Phone: +91 88985 88985</p>
-            <p className="font-medium">📍 Address: Shop No. B34 , Shanti Shopping center ,Mira Road East, Thane - 401107</p>
+            <p className="font-medium">📍 Address: Shop No. 30, D Wing, Om Sai Complex, Near Atithi Banquets, Betegaon, Boisar East, Palghar – 401501</p>
           </section>
 
         </div>

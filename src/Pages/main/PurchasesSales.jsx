@@ -2,29 +2,24 @@ import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ArrowUpRight, CheckCircle2, Phone } from "lucide-react";
-import areaImg from "../../../public/Area.png"; // put area.png in src/assets/
 
-/* ---------------- DATA ----------------
-   Every location uses area.png.
-   To give one location its own photo, add  img: "/locations/vasai.jpg"  (file in /public) */
-// one colour for every location (change it here)
-const BRAND = "#23c1eb";
-
+/* ---------------- DATA ---------------- */
+// each location keeps its own dot colour
 const LOCATIONS = [
-  { name: "Vada", color: BRAND },
-  { name: "Mira Road", color: BRAND },
-  { name: "Bhayandar", color: BRAND },
-  { name: "Naigaon", color: BRAND },
-  { name: "Vasai", color: BRAND },
-  { name: "Virar", color: BRAND },
-  { name: "Vaitarna", color: BRAND },
-  { name: "Saphale", color: BRAND },
-  { name: "Kelva Road", color: BRAND },
-  { name: "Palghar", color: BRAND },
-  { name: "Umroli", color: BRAND },
-  { name: "Boisar", color: BRAND },
-  { name: "Vangaon", color: BRAND },
-  { name: "Dahanu Road", color: BRAND },
+  { name: "Vada", color: "#E8283C" },
+  { name: "Mira Road", color: "#9B3FA0" },
+  { name: "Bhayandar", color: "#A6C934" },
+  { name: "Naigaon", color: "#3B7F6B" },
+  { name: "Vasai", color: "#F7931E" },
+  { name: "Virar", color: "#12A05C" },
+  { name: "Vaitarna", color: "#77777D" },
+  { name: "Saphale", color: "#EE2B3F" },
+  { name: "Kelva Road", color: "#8C8470" },
+  { name: "Palghar", color: "#D96B6B" },
+  { name: "Umroli", color: "#2E3192" },
+  { name: "Boisar", color: "#D9C45F" },
+  { name: "Vangaon", color: "#C9932A" },
+  { name: "Dahanu Road", color: "#A0472F" },
 ];
 
 const PROPERTY_TYPES = [
@@ -179,10 +174,7 @@ function LocationModal({ location, onClose }) {
           >
             <X size={18} />
           </button>
-          <p className="flex items-center gap-2 text-sm text-gray-500">
-            <span className="h-2.5 w-2.5 rounded-full" style={{ backgroundColor: location.color }} />
-            Selected location
-          </p>
+          <p className="text-sm text-gray-500">Selected location</p>
           <h3 className="mt-1 text-2xl font-semibold text-gray-900">{location.name}</h3>
           <hr className="mt-5 border-gray-100" />
         </div>
@@ -312,7 +304,7 @@ export default function PurchasesSales() {
                 Palghar Growth Partner LLP
               </span>
               <h1 className="mt-5 text-4xl font-extrabold leading-[1.1] md:text-6xl">
-                Where do you want to <span className="text-[#FFE27A]">own?</span>
+                Where do you want to own?
               </h1>
               <p className="mt-4 text-white/85 md:text-lg">
                 Pick an area, tell us what you need. Residence, plots, warehouses and more.
@@ -336,49 +328,38 @@ export default function PurchasesSales() {
           </div>
         </motion.div>
 
-        {/* ---------- LOCATION IMAGE CARDS ---------- */}
-        <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 md:gap-5 lg:grid-cols-4">
+        {/* ---------- LOCATION CARDS ---------- */}
+        <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2 md:gap-4 lg:grid-cols-3 xl:grid-cols-4">
           {LOCATIONS.map((loc, i) => (
             <motion.button
               key={loc.name}
               type="button"
               onClick={() => setSelected(loc)}
               style={{ "--c": loc.color }}
-              initial={{ opacity: 0, y: 24 }}
+              initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 + i * 0.04, duration: 0.4 }}
-              whileHover={{ y: -6 }}
+              transition={{ delay: 0.05 + i * 0.03, duration: 0.35 }}
+              whileHover={{ y: -4 }}
               whileTap={{ scale: 0.97 }}
-              className="group relative aspect-[4/3] cursor-pointer overflow-hidden rounded-3xl bg-white text-left shadow-md transition-shadow duration-300 hover:shadow-[0_20px_40px_-14px_var(--c)]"
+              className="group relative flex cursor-pointer items-center gap-4 overflow-hidden rounded-2xl border border-gray-100 bg-white px-5 py-4 text-left shadow-sm transition-all duration-300 hover:border-[#23c1eb]/40 hover:shadow-[0_14px_30px_-12px_rgba(35,193,235,0.45)] md:py-5"
             >
-              {/* image */}
-              <div className="absolute inset-0 transition-transform duration-700 group-hover:scale-110">
-                <img
-                  src={loc.img || areaImg}
-                  alt={loc.name}
-                  loading="lazy"
-                  className="h-full w-full object-cover"
-                />
-                {/* tint so each location keeps its own colour */}
-                <div className="absolute inset-0 bg-(--c) opacity-25 mix-blend-multiply" />
-              </div>
+              {/* left accent bar that grows on hover */}
+              <span className="absolute inset-y-0 left-0 w-1 origin-center scale-y-0 bg-[#23c1eb] transition-transform duration-300 group-hover:scale-y-100" />
 
-              {/* readability gradient */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
-
-              {/* coloured bottom line */}
-              <span className="absolute inset-x-0 bottom-0 h-1.5 bg-(--c)" />
-
-              {/* text */}
-              <div className="absolute inset-x-0 bottom-0 flex items-end justify-between p-4 md:p-5">
-                <div>
-                  <p className="text-lg font-bold leading-tight text-white md:text-2xl">{loc.name}</p>
-                  <p className="mt-0.5 text-xs text-white/80 md:text-sm">Enquire now</p>
-                </div>
-                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-gray-700 transition-all duration-300 group-hover:rotate-45 group-hover:bg-(--c) group-hover:text-white md:h-11 md:w-11">
-                  <ArrowUpRight size={20} />
+              {/* name */}
+              <span className="min-w-0 flex-1">
+                <span className="block truncate text-base font-semibold text-gray-900 md:text-lg">
+                  {loc.name}
                 </span>
-              </div>
+                <span className="block text-xs text-gray-400 transition-colors duration-300 group-hover:text-[#23c1eb]">
+                  Enquire now
+                </span>
+              </span>
+
+              {/* arrow */}
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gray-50 text-gray-400 transition-all duration-300 group-hover:rotate-45 group-hover:bg-[#23c1eb] group-hover:text-white">
+                <ArrowUpRight size={18} />
+              </span>
             </motion.button>
           ))}
         </div>

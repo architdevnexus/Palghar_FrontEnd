@@ -106,10 +106,10 @@ export default function Footer() {
                         <FaMailBulk className="shrink-0 mt-1" />
                         <a
                             target="_blank"
-                            href="mailto:support@palgharindia.com"
+                            href="mailto:vision@palgharindia.com"
                             className="break-all hover:underline"
                         >
-                            support@palgharindia.com
+                            vision@palgharindia.com
                         </a>
                     </div>
 
@@ -119,10 +119,10 @@ export default function Footer() {
                         <a
                             target="_blank"
                             rel="noopener noreferrer"
-                            href="https://www.google.com/maps/search/?api=1&query=Shop+No.+B34,+Shanti+Shopping+center,+Mira+Road+East,+Thane+-+401107"
+                            href="https://www.google.com/maps/search/?api=1&query=Shop+No.+30,+D+Wing,+Om+Sai+Complex,+Near+Atithi+Banquets,+Betegaon,+Boisar+East,+Palghar+-+401501"
                             className="hover:underline"
                         >
-                            Shop No. B34 , Shanti Shopping center ,Mira Road East, Thane - 401107
+                            Shop No. 30, D Wing, Om Sai Complex, Near Atithi Banquets, Betegaon, Boisar East, Palghar – 401501
                         </a>
                     </div>
                 </div>
