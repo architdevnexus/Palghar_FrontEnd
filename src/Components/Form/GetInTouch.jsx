@@ -121,7 +121,7 @@ export default function GetInTouch() {
 
           <div className="flex items-center gap-4 text-sm sm:text-lg break-all">
             <MdEmail size={26} />
-            <span>support@palgharindia.com</span>
+            <span>vision@palgharindia.com</span>
           </div>
 
           <div className="flex items-center gap-4 text-sm sm:text-lg">
@@ -131,9 +131,8 @@ export default function GetInTouch() {
           <div className="flex items-start gap-4 text-sm sm:text-lg leading-6">
             <MdLocationPin size={28} />
             <p>
-              Shop No. B34 , Shanti Shopping center,
-              Mira Road East,
-              <br /> Thane - 401107
+              Shop No. 30, D Wing, Om Sai Complex, Near Atithi Banquets, Betegaon, Boisar East, 
+              <br /> Palghar – 401501
             </p>
           </div>
         </div>

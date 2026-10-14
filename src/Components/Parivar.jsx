@@ -6,14 +6,14 @@ export default function Parivar() {
             id: 1,
             name: "PALGHAR GROWTH PARTNER LLP",
             category: "REAL ESTATE",
-            email: "support@palgharindia.com",
+            email: "vision@palgharindia.com",
             path: "/palghar-growth-partner",
         },
         {
             id: 2,
             name: "PALGHAR Infrastructure LLP",
             category: "LAND & DEVELOPERS",
-            email: "support@palgharindia.com",
+            email: "vision@palgharindia.com",
             path: "/palghar-holding",
         },
         // {
