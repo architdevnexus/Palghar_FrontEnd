@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ArrowUpRight, CheckCircle2, Phone } from "lucide-react";
-import areaImg from "../../../public/area.png"; // put area.png in src/assets/
+import areaImg from "../../../public/Area.png"; // put area.png in src/assets/
 
 /* ---------------- DATA ----------------
    Every location uses area.png.
