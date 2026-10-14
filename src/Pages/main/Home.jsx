@@ -9,12 +9,12 @@ const Aboutus = lazy(() => import("../../Components/AboutUs"));
 const NewProjectsSlider = lazy(() =>
   import("../../Components/Sliders/NewProjectsSlider")
 );
-const ProjectsTabs = lazy(() =>
-  import("../../Components/ProjectShowCase")
-);
-const ExploreNewCity = lazy(() =>
-  import("../../Components/BentoGrid/ExploreNewCity")
-);
+// const ProjectsTabs = lazy(() =>
+//   import("../../Components/ProjectShowCase")
+// );
+// const ExploreNewCity = lazy(() =>
+//   import("../../Components/BentoGrid/ExploreNewCity")
+// );
 const HomeDream = lazy(() =>
   import("../../Components/Home/HomeDream")
 );
@@ -69,8 +69,8 @@ const Home = () => {
 
       <Suspense fallback={<SectionLoader />}>
         {/* <NewProjectsSlider /> */}
-        <ProjectsTabs />
-        <ExploreNewCity />
+        {/* <ProjectsTabs />
+        <ExploreNewCity /> */}
       </Suspense>
       <section className="max-w-full flex items-center justify-center mx-4">
 
