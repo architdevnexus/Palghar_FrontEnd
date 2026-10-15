@@ -46,10 +46,10 @@ export default function BlogCard({ item }) {
 
       {/* Date tag */}
      
-    <div className="absolute -left-4 h-16 w-16 bg-[#23c1eb] rounded-br-2xl rounded-tr-2xl rounded-tl-2xl text-white px-3 flex flex-col items-center justify-center shadow-md">
+    {/* <div className="absolute -left-4 h-16 w-16 bg-[#23c1eb] rounded-br-2xl rounded-tr-2xl rounded-tl-2xl text-white px-3 flex flex-col items-center justify-center shadow-md">
       <p className="text-xl font-bold leading-none">{dateInfo.day}</p>
       <p className="text-xs">{dateInfo.month}</p>
-    </div>
+    </div> */}
 
       {/* Image */}
       <div className="w-full h-48 rounded-2xl overflow-hidden">

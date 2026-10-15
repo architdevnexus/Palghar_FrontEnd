@@ -1,3 +1,4 @@
+import greenUrbanCollage from "../../../public/Green Urban Development Collage.png";
 export default function RegionToDevelop() {
     return (
         <section className="w-full bg-white py-10 md:py-14">
@@ -7,7 +8,7 @@ export default function RegionToDevelop() {
                 <div className="flex flex-col lg:flex-row items-center justify-between gap-10">
 
                     {/* LEFT TEXT BOX */}
-                    <div className="lg:w-[42%] w-full flex justify-start">
+                    <div className="lg:w-[42%] w-full flex justify-center">
                        <div className="relative overflow-hidden rounded-2xl p-8 max-w-lg min-h-[200px] border border-white/5 bg-[#1e2530]
                             before:absolute before:inset-y-0 before:left-0 before:w-[5px] before:rounded-l-2xl
                             before:bg-gradient-to-b before:from-[#4ecdc4] before:to-[#2a9d8f]
@@ -26,11 +27,11 @@ export default function RegionToDevelop() {
                     </div>
 
                     {/* RIGHT IMAGE */}
-                    <div className="lg:w-[58%] w-full flex justify-end">
+                    <div className="lg:w-[58%] w-full flex justify-center">
                         <img
-                            src="/RegionToDevelop.svg"
+                            src={greenUrbanCollage}
                             alt="Region Development Map"
-                            className="w-full max-w-[720px] rounded-xl object-contain"
+                            className="w-full max-w-[500px] rounded-xl object-contain"
                         />
                     </div>
                 </div>
