@@ -3,7 +3,7 @@ import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ArrowUpRight, CheckCircle2, Phone } from "lucide-react";
 import greenUrbanCollage from "../../../public/Green Urban Development Collage.png"; // path apne hisaab se adjust karna
-
+import coupleImg from "../../../public/couple.png";
 /* ---------------- DATA ---------------- */
 // each location keeps its own dot colour
 const LOCATIONS = [
@@ -34,7 +34,6 @@ const PROPERTY_TYPES = [
   "2 BHK",
   "3 BHK",
   "4 BHK",
-   
 ];
 
 const BHK_OPTIONS = ["1", "2", "3", "4", "5"];
@@ -389,6 +388,15 @@ export default function PurchasesSales() {
               {t}
             </span>
           ))}
+        </div>
+
+        {/* couple image (from /public) */}
+        <div className="mt-8 flex justify-center">
+          <img
+            src={coupleImg}
+            alt="Save Time & Money with Fully Furnished Concept"
+            className="w-full max-w-7xl object-contain"
+          />
         </div>
       </div>
 
