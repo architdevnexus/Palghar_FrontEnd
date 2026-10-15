@@ -9,7 +9,7 @@ export default function HomeDream() {
             <h1 className="text-3xl md:text-4xl  font-bold text-gray-900 leading-snug">
               PALGHAR DREAM PROJECT
               <br />
-              <span className="text-[#23c1eb]">(2026–2035)</span>
+              {/* <span className="text-[#23c1eb]">(2026–2035)</span> */}
             </h1>
 
             {/* TYPES OF DEVELOPMENT */}

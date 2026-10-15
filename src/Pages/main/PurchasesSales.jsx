@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ArrowUpRight, CheckCircle2, Phone } from "lucide-react";
+import greenUrbanCollage from "../../../public/Green Urban Development Collage.png"; // path apne hisaab se adjust karna
 
 /* ---------------- DATA ---------------- */
 // each location keeps its own dot colour
@@ -29,6 +30,11 @@ const PROPERTY_TYPES = [
   "Bungalow",
   "Warehouse",
   "Industrial Area",
+  "1 BHK",
+  "2 BHK",
+  "3 BHK",
+  "4 BHK",
+   
 ];
 
 const BHK_OPTIONS = ["1", "2", "3", "4", "5"];
@@ -297,34 +303,46 @@ export default function PurchasesSales() {
           <div className="pointer-events-none absolute -right-20 -top-24 h-72 w-72 rounded-full border-[28px] border-white/10" />
           <div className="pointer-events-none absolute -bottom-28 left-1/3 h-72 w-72 rounded-full border-[32px] border-white/10" />
 
-          <div className="relative flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
-            <div className="max-w-xl">
+          <div className="relative grid items-center gap-8 md:grid-cols-2 md:gap-12">
+            {/* LEFT: all content */}
+            <div className="flex flex-col items-start text-left">
               <span className="inline-flex items-center gap-2 rounded-full bg-white/20 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] backdrop-blur">
                 <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-white" />
                 Palghar Growth Partner LLP
               </span>
+
               <h1 className="mt-5 text-4xl font-extrabold leading-[1.1] md:text-6xl">
                 Where do you want to own?
               </h1>
-              <p className="mt-4 text-white/85 md:text-lg">
+
+              <p className="mt-4 max-w-xl text-white/85 md:text-lg">
                 Pick an area, tell us what you need. Residence, plots, warehouses and more.
               </p>
+
+              <a
+                href={`tel:+91${HOTLINE}`}
+                className="mt-8 flex items-center gap-4 rounded-2xl bg-white px-5 py-4 text-[#0B6E8E] shadow-lg transition hover:scale-[1.03]"
+              >
+                <span className="flex h-12 w-12 items-center justify-center rounded-full bg-[#23c1eb] text-white">
+                  <Phone size={22} />
+                </span>
+                <span>
+                  <span className="block text-xs font-semibold uppercase tracking-wider text-gray-400">
+                    Hotline
+                  </span>
+                  <span className="text-xl font-extrabold">88985 88985</span>
+                </span>
+              </a>
             </div>
 
-            <a
-              href={`tel:+91${HOTLINE}`}
-              className="flex items-center gap-4 self-start rounded-2xl bg-white px-5 py-4 text-[#0B6E8E] shadow-lg transition hover:scale-[1.03] md:self-center"
-            >
-              <span className="flex h-12 w-12 items-center justify-center rounded-full bg-[#23c1eb] text-white">
-                <Phone size={22} />
-              </span>
-              <span>
-                <span className="block text-xs font-semibold uppercase tracking-wider text-gray-400">
-                  Hotline
-                </span>
-                <span className="text-xl font-extrabold">88985 88985</span>
-              </span>
-            </a>
+            {/* RIGHT: image */}
+            <div className="relative">
+              <img
+                src={greenUrbanCollage}
+                alt="Green Urban Development Collage"
+                className="h-64 w-full rounded-2xl object-cover shadow-2xl ring-4 ring-white/20 md:h-[420px]"
+              />
+            </div>
           </div>
         </motion.div>
 
@@ -366,7 +384,7 @@ export default function PurchasesSales() {
 
         {/* property types */}
         <div className="mt-10 flex flex-wrap items-center justify-center gap-2">
-          {[...PROPERTY_TYPES, "1-5 BHK"].map((t) => (
+          {[...PROPERTY_TYPES, "5 BHK"].map((t) => (
             <span key={t} className="rounded-full border border-[#23c1eb]/30 bg-white px-4 py-1.5 text-sm font-medium text-[#8B4A1F]">
               {t}
             </span>
