@@ -98,7 +98,7 @@ export default function HomeMap() {
 
   return (
     <div className="max-w-6xl  w-full mx-auto flex items-center justify-center">
-      <div className="relative z-0 mx-auto h-[40vh] w-full">
+      <div className="relative z-0 mx-auto h-[60vh] w-full">
         <MapContainer
           center={defaultCenter}
           zoom={defaultZoom}
