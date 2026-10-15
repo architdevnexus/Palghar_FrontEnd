@@ -3,7 +3,7 @@ import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ArrowUpRight, CheckCircle2, Phone } from "lucide-react";
 import greenUrbanCollage from "../../../public/Green Urban Development Collage.png"; // path apne hisaab se adjust karna
-import coupleImg from "../../../public/couple.png";
+import coupleImg from "../../../public/Couple.png";
 /* ---------------- DATA ---------------- */
 // each location keeps its own dot colour
 const LOCATIONS = [
