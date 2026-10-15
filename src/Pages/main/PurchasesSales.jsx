@@ -29,6 +29,11 @@ const PROPERTY_TYPES = [
   "Bungalow",
   "Warehouse",
   "Industrial Area",
+  "1 BHK",
+  "2 BHK",
+  "3 BHK",
+  "4 BHK",
+   
 ];
 
 const BHK_OPTIONS = ["1", "2", "3", "4", "5"];
@@ -366,7 +371,7 @@ export default function PurchasesSales() {
 
         {/* property types */}
         <div className="mt-10 flex flex-wrap items-center justify-center gap-2">
-          {[...PROPERTY_TYPES, "1-5 BHK"].map((t) => (
+          {[...PROPERTY_TYPES, "5 BHK"].map((t) => (
             <span key={t} className="rounded-full border border-[#23c1eb]/30 bg-white px-4 py-1.5 text-sm font-medium text-[#8B4A1F]">
               {t}
             </span>
