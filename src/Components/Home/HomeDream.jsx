@@ -6,11 +6,11 @@ export default function HomeDream() {
 
           {/* LEFT CONTENT */}
           <div className="p-6 md:p-10 lg:p-14">
-            <h1 className="text-3xl md:text-4xl  font-bold text-gray-900 leading-snug">
+            {/* <h1 className="text-3xl md:text-4xl  font-bold text-gray-900 leading-snug">
               PALGHAR DREAM PROJECT
               <br />
               {/* <span className="text-[#23c1eb]">(2026–2035)</span> */}
-            </h1>
+            {/* </h1> */} 
 
             {/* TYPES OF DEVELOPMENT */}
             <div className="mt-10">

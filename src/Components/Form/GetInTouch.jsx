@@ -14,18 +14,20 @@ export default function GetInTouch() {
   });
 
   const citySuggestions = [
-    "Mumbai",
-    "Thane",
     "Mira Road",
-    "Bhayander",
+    "Bhayandar",
+    "Naigaon",
     "Palghar",
     "Vasai",
+    "Saphale",
     "Virar",
-    "Nalasopara",
+    "Vaitarna",
+    "Umroli",
     "Boisar",
-    "Dahisar",
-    "Borivali",
-    "Andheri",
+    "Vada",
+    "Dahanu Road",
+    "Vangaon",
+    "Kelva Road",
   ];
 
 
@@ -231,8 +233,16 @@ export default function GetInTouch() {
                 >
                   <option value="">Select</option>
                   <option>Residential</option>
-                  <option>Commercial</option>
-                  <option>Investment</option>
+                  <option>Commercial Area</option>
+                  <option>Open Plot</option>
+                  <option>Bungalow</option>
+                  <option>Warehouse</option>
+                  <option>Industrial Area</option>
+                  <option>1 BHK</option>
+                  <option>2 BHK</option>
+                  <option>3 BHK</option>
+                  <option>4 BHK</option>
+                  <option>5 BHK</option>
                 </select>
               </div>
             </div>
