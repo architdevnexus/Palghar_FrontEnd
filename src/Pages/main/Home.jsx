@@ -89,7 +89,7 @@ const Home = () => {
       {/* Decorative Divider */}
       <div className="w-full flex justify-center">
         <img
-          src="/DevelopmentPath1.png"
+          src="/DevelopmentPath1.jpeg"
           alt="Development Path"
           className="w-[92%] max-w-6xl object-contain"
           loading="lazy"
