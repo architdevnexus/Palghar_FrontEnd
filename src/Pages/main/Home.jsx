@@ -87,14 +87,21 @@ const Home = () => {
       </Suspense>
 
       {/* Decorative Divider */}
-      <div className="w-full flex justify-center">
-        <img
-          src="/DevelopmentPath1.jpeg"
-          alt="Development Path"
-          className="w-[92%] max-w-6xl object-contain"
-          loading="lazy"
-        />
-      </div>
+  {/* Decorative Divider */}
+<div className="w-full flex flex-col md:flex-row justify-center items-center gap-4 px-4">
+  <img
+    src="/DevelopmentPath1.png"
+    alt="Development Path 1"
+    className="w-full max-w-2xl max-h-[600px] object-contain"
+    loading="lazy"
+  />
+  <img
+    src="/DevelopmentPath2.png"
+    alt="Development Path 2"
+    className="w-full max-w-2xl max-h-[600px] object-contain"
+    loading="lazy"
+  />
+</div>
 
       <Suspense fallback={<SectionLoader />}>
         <RoadAlignment />
