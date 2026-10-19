@@ -49,6 +49,11 @@ export default function GetInTouch() {
       return;
     }
 
+    if (phone.length !== 10) {
+      setStatus({ message: "Please enter a valid 10-digit phone number.", type: "error" });
+      return;
+    }
+
     setLoading(true);
     setStatus({ message: "", type: "" });
 
@@ -173,6 +178,18 @@ export default function GetInTouch() {
                 type="text"
                 name="name"
                 value={formData.name}
+                onChange={handleChange}
+                className="mt-2 p-3 border rounded-lg outline-none focus:ring-2 focus:ring-(--primary-color)"
+              />
+            </div>
+
+            {/* EMAIL */}
+            <div className="flex flex-col">
+              <label className="text-gray-700 font-medium">Email</label>
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
                 onChange={handleChange}
                 className="mt-2 p-3 border rounded-lg outline-none focus:ring-2 focus:ring-(--primary-color)"
               />
