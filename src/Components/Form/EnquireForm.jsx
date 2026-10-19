@@ -227,7 +227,7 @@ export default function EnquireForm({ open, onClose }) {
           <button
             type="submit"
             disabled={loading}
-            className="w-full cursor-pointer rounded-lg bg-teal-600 py-2 text-sm font-semibold text-white transition hover:bg-teal-700 disabled:opacity-60"
+            className="w-full cursor-pointer rounded-lg bg-[#23c1eb] py-2 text-sm font-semibold text-white transition hover:bg-[#23c1eb] disabled:opacity-60"
           >
             {loading ? "Submitting..." : "Submit"}
           </button>
