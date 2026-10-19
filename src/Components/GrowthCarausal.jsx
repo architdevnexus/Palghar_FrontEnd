@@ -102,7 +102,7 @@ export default function GrowthCarausal() {
       <div className="relative z-10 px-6 md:px-12 py-10">
         <div className="flex flex-col lg:flex-row items-center gap-8">
           {/* LEFT CARD */}
-          <div className="lg:w-[45%] bg-white rounded-2xl p-6 md:p-8 shadow-xl">
+          <div className="lg:w-[35%] bg-white rounded-2xl p-6 md:p-8 shadow-xl">
             <span className="inline-block w-2 h-6 bg-[#23c1eb] rounded mb-3" />
             <h2 className="text-2xl font-bold mb-4 leading-snug">
               {Data[current].title}
@@ -113,14 +113,16 @@ export default function GrowthCarausal() {
           </div>
 
           {/* RIGHT IMAGE */}
-          <div className="lg:w-[55%]">
-            <img
-              src={Data[current].image}
-              alt={Data[current].title}
-              loading="lazy"
-              className="w-full h-[260px] md:h-[360px] object-cover rounded-2xl shadow-lg"
-            />
-          </div>
+    
+{/* RIGHT IMAGE */}
+<div className="lg:w-[65%]">
+  <img
+    src={Data[current].image}
+    alt={Data[current].title}
+    loading="lazy"
+    className="w-full h-auto rounded-2xl shadow-lg"
+  />
+</div>
         </div>
 
         {/* DOTS */}
