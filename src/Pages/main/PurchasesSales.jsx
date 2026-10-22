@@ -2,8 +2,10 @@ import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ArrowUpRight, CheckCircle2, Phone } from "lucide-react";
-import greenUrbanCollage from "../../../public/Green Urban Development Collage.png"; // path apne hisaab se adjust karna
-import coupleImg from "../../../public/Couple.png";
+// images live in /public, so use their URL (no import)
+const greenUrbanCollage = "/Green%20Urban%20Development%20Collage.png";
+const coupleImg = "/Couple.png";
+
 /* ---------------- DATA ---------------- */
 // each location keeps its own dot colour
 const LOCATIONS = [
@@ -34,9 +36,8 @@ const PROPERTY_TYPES = [
   "2 BHK",
   "3 BHK",
   "4 BHK",
+  "5 BHK",
 ];
-
-const BHK_OPTIONS = ["1", "2", "3", "4", "5"];
 
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 
@@ -52,7 +53,6 @@ const fetchWithTimeout = (url, options = {}, ms = 20000) => {
 /* ---------------- POPUP ---------------- */
 function LocationModal({ location, onClose }) {
   const [type, setType] = useState("All");
-  const [bhk, setBhk] = useState("All");
   const [form, setForm] = useState({ name: "", phone: "", email: "", note: "" });
   const [status, setStatus] = useState({ state: "idle", msg: "" }); // idle | sending | done | error
 
@@ -86,7 +86,6 @@ function LocationModal({ location, onClose }) {
     const lines = [
       `Location: ${location.name}`,
       `Property type: ${type}`,
-      type === "Residence" ? `BHK: ${bhk === "All" ? "All" : `${bhk} BHK`}` : null,
       form.note ? `Note: ${form.note}` : null,
     ].filter(Boolean);
 
@@ -188,10 +187,7 @@ function LocationModal({ location, onClose }) {
                   <button
                     key={t}
                     type="button"
-                    onClick={() => {
-                      setType(t);
-                      setBhk("All");
-                    }}
+                    onClick={() => setType(t)}
                     className={pill(type === t)}
                   >
                     {t}
@@ -199,25 +195,6 @@ function LocationModal({ location, onClose }) {
                 ))}
               </div>
             </div>
-
-            {/* BHK */}
-            {type === "Residence" && (
-              <div>
-                <p className="mb-2 font-semibold text-gray-800">BHK</p>
-                <div className="flex flex-wrap gap-2">
-                  {["All", ...BHK_OPTIONS].map((b) => (
-                    <button
-                      key={b}
-                      type="button"
-                      onClick={() => setBhk(b)}
-                      className={pill(bhk === b)}
-                    >
-                      {b === "All" ? "All" : `${b} BHK`}
-                    </button>
-                  ))}
-                </div>
-              </div>
-            )}
 
             <hr className="border-gray-100" />
 
@@ -362,7 +339,7 @@ export default function PurchasesSales() {
 
         {/* property types */}
         <div className="mt-10 flex flex-wrap items-center justify-center gap-2">
-          {[...PROPERTY_TYPES, "5 BHK"].map((t) => (
+          {PROPERTY_TYPES.map((t) => (
             <span key={t} className="rounded-full border border-[#23c1eb]/30 bg-white px-4 py-1.5 text-sm font-medium text-[#8B4A1F]">
               {t}
             </span>
