@@ -38,22 +38,16 @@ const PROPERTY_TYPES = [
 
 const BHK_OPTIONS = ["1", "2", "3", "4", "5"];
 
-// Your enquiry API only knows these 3 types, so we map ours onto them
-// (the exact choice is always sent in the message as well)
-const ENQUIRY_TYPE = {
-  Residence: "Residential",
-  Bungalow: "Residential",
-  "Commercial Area": "Commercial",
-  "Open Plot": "Investment",
-  Warehouse: "Investment",
-  "Industrial Area": "Investment",
-};
-
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 
-// Every enquiry is also emailed to this address (via FormSubmit.co).
-// Change it here whenever you want a different inbox.
-const NOTIFY_EMAIL = "vision@palgharindia.com";
+/* fetch that gives up after `ms` so the form can never hang on "Sending..." */
+const fetchWithTimeout = (url, options = {}, ms = 20000) => {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), ms);
+  return fetch(url, { ...options, signal: controller.signal }).finally(() =>
+    clearTimeout(timer)
+  );
+};
 
 /* ---------------- POPUP ---------------- */
 function LocationModal({ location, onClose }) {
@@ -101,53 +95,38 @@ function LocationModal({ location, onClose }) {
       phone: form.phone,
       email: form.email,
       city: location.name,
-      enquiryType: ENQUIRY_TYPE[type] || "Investment",
+      // same values as the header Enquire / Get in Touch forms
+      enquiryType: type === "Residence" ? "Residential" : type === "All" ? "" : type,
       message: lines.join("\n"),
       countryCode: "+91",
     };
 
     setStatus({ state: "sending", msg: "" });
 
-    // 1) email straight to NOTIFY_EMAIL
-    const sendMail = fetch(`https://formsubmit.co/ajax/${NOTIFY_EMAIL}`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json", Accept: "application/json" },
-      body: JSON.stringify({
-        _subject: `New enquiry: ${location.name} - ${type}`,
-        _template: "table",
-        _captcha: "false",
-        Name: form.name,
-        Phone: `+91 ${form.phone}`,
-        email: form.email,
-        Location: location.name,
-        "Property type": type,
-        ...(type === "Residence" ? { BHK: bhk === "All" ? "All" : `${bhk} BHK` } : {}),
-        Note: form.note || "-",
-      }),
-    }).then(async (r) => {
-      const d = await r.json().catch(() => null);
-      if (!r.ok || d?.success === "false" || d?.success === false) {
-        throw new Error(d?.message || "Email failed");
+    // save in backend (same API as the header Enquire / Get in Touch forms)
+    try {
+      const res = await fetchWithTimeout(`${BASE_URL}/api/enquiry/create`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
+        body: JSON.stringify(payload),
+      });
+
+      const text = await res.text();
+      let data = null;
+      try {
+        data = JSON.parse(text);
+      } catch {
+        console.warn("Response not JSON:", text);
       }
-    });
 
-    // 2) save it in your backend too (same as the Enquire form)
-    const saveBackend = fetch(`${BASE_URL}/api/enquiry/create`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      credentials: "include",
-      body: JSON.stringify(payload),
-    }).then((r) => {
-      if (!r.ok) throw new Error("Backend save failed");
-    });
-
-    const [mail, backend] = await Promise.allSettled([sendMail, saveBackend]);
-    if (mail.status === "rejected") console.error("Email error 👉", mail.reason);
-    if (backend.status === "rejected") console.error("Backend error 👉", backend.reason);
-
-    if (mail.status === "fulfilled" || backend.status === "fulfilled") {
-      setStatus({ state: "done", msg: "" });
-    } else {
+      if (res.ok) {
+        setStatus({ state: "done", msg: "" });
+      } else {
+        setStatus({ state: "error", msg: data?.message || "Something went wrong. Please try again." });
+      }
+    } catch (err) {
+      console.error("Enquiry error 👉", err);
       setStatus({ state: "error", msg: "Something went wrong. Please try again." });
     }
   };
