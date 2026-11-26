@@ -1,19 +1,12 @@
 export default function HomeDream() {
   return (
     <section className="w-full px-6 py-10">
-      <div className="bg-[#E6F7FA] rounded-3xl overflow-hidden">
+      <div className="max-w-7xl mx-auto bg-[#E6F7FA] rounded-3xl overflow-hidden">
         <div className="grid grid-cols-1 lg:grid-cols-2 items-center">
 
           {/* LEFT CONTENT */}
-          <div className="p-6 md:p-10 lg:p-14">
-            {/* <h1 className="text-3xl md:text-4xl  font-bold text-gray-900 leading-snug">
-              PALGHAR DREAM PROJECT
-              <br />
-              {/* <span className="text-[#23c1eb]">(2026–2035)</span> */}
-            {/* </h1> */} 
-
-            {/* TYPES OF DEVELOPMENT */}
-            <div className="mt-10">
+          <div className="p-6 md:p-10 lg:p-12">
+            <div className="mt-6">
               <h2 className="text-xl md:text-2xl font-semibold text-gray-900 flex items-center gap-3">
                 <span className="w-2 h-8 bg-[#23c1eb] rounded-md"></span>
                 Types of Development
@@ -29,7 +22,7 @@ export default function HomeDream() {
                   "Industrial / Speciality Zone",
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <span className="w-3 h-3 rounded-full bg-green-500 mt-1"></span>
+                    <span className="w-3 h-3 rounded-full bg-green-500 mt-1 shrink-0"></span>
                     <span className="text-gray-800 text-sm md:text-base">
                       {item}
                     </span>
@@ -40,14 +33,12 @@ export default function HomeDream() {
           </div>
 
           {/* RIGHT IMAGE */}
-          <div className="relative h-[300px] md:h-[420px] lg:h-full">
+          <div className="w-full p-4 md:p-5">
             <img
-              src="/DreamHome.svg"
+              src="/DreamHome.jpg"
               alt="Palghar Dream Project"
-              className="absolute inset-0 w-full h-full object-cover"
+              className="w-full aspect-square object-contain rounded-lg"
             />
-
-        
           </div>
 
         </div>

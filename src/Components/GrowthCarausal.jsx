@@ -2,11 +2,11 @@ import { useState, useEffect, useMemo } from "react";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
 /* ------------------ IMAGE IMPORTS ------------------ */
-import Img1 from "../utlis/GrowthCarausal/1.png";
-import Img2 from "../utlis/GrowthCarausal/2.png";
-import Img3 from "../utlis/GrowthCarausal/3.png";
-import Img4 from "../utlis/GrowthCarausal/4.svg";
-import Img5 from "../utlis/GrowthCarausal/5.svg";
+import Img1 from "../utlis/GrowthCarausal/1.jpg";
+import Img2 from "../utlis/GrowthCarausal/2.jpg";
+import Img3 from "../utlis/GrowthCarausal/3.jpg";
+import Img4 from "../utlis/GrowthCarausal/4.jpg";
+import Img5 from "../utlis/GrowthCarausal/5.jpg";
 import Img6 from "../utlis/GrowthCarausal/6.svg";
 
 export default function GrowthCarausal() {
