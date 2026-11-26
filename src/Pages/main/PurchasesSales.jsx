@@ -6,8 +6,7 @@ import { X, ArrowUpRight, CheckCircle2, Phone } from "lucide-react";
 const greenUrbanCollage = "/Green%20Urban%20Development%20Collage.png";
 const coupleImg = "/Couple.png";
 
-/* ---------------- DATA ---------------- */
-// each location keeps its own dot colour
+
 const LOCATIONS = [
   { name: "Vada", color: "#E8283C" },
   { name: "Mira Road", color: "#9B3FA0" },

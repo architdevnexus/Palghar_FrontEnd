@@ -1,6 +1,6 @@
 import React from "react";
 import { motion, useReducedMotion } from "framer-motion";
-import teamImg from "../../assets/team.png";
+import teamImg from "../../assets/team.jpeg";
 
 const HOTLINE = "8898588985";
 

@@ -106,7 +106,7 @@ const Home = () => {
       <Suspense fallback={<SectionLoader />}>
         <RoadAlignment />
         {/* <Parivar /> */}
-        <img src="/port.png" alt="" />
+        <img src="/port.jpg" alt="" />
         <GrowthCarausal />
         <TestimonialsSlider />
         <WhatWeDo />
